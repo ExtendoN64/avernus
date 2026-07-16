@@ -1,0 +1,32 @@
+# ==========================================================
+#  DM SECRETS - NEVER COMMIT
+# ==========================================================
+# This repo is PUBLIC. Anything committed here is readable by
+# anyone, forever, even if deleted later (git keeps history).
+# The DM folder is excluded so campaign secrets never leave
+# this machine.
+#
+# Do not remove these lines. To see what's being excluded:
+#   git status --ignored
+content/DM/
+content/_templates/
+
+# Common places secrets leak into
+*.private.md
+**/secrets/
+
+# ==========================================================
+#  Quartz / Node
+# ==========================================================
+.DS_Store
+node_modules
+public
+prof
+tsconfig.tsbuildinfo
+.obsidian
+.quartz-cache
+private/
+.replit
+replit.nix
+.quartz/
+quartz/cli/tui/dist/
