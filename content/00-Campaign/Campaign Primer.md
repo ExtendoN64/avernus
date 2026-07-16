@@ -4,7 +4,6 @@ publish: true
 tags:
   - campaign
 ---
-
 # Campaign Primer
 
 ## The Premise

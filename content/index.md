@@ -5,11 +5,11 @@ publish: true
 
 # Descent into Avernus
 
-A D&D 5e campaign run by **Extendo**, beginning in Baldur's Gate.
+Campaign run by **Extendo**, in Baldur's Gate.
 
-> *A city vanished overnight. No rubble, no bodies, no explanation — just a hole in the world where Elturel used to be. Baldur's Gate is choking on refugees, the Flaming Fist can't hold the Outer City, and something in the Lower City is very glad this happened.*
+> 	*"A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be. Baldur's Gate is choking on refugees, the Flaming Fist can't hold the Outer City, and something in the Lower City is very glad this happened."*
 
-This is the campaign wiki. Everything here is **what your characters know** — session recaps, people you've met, places you've been, threads still hanging. It updates after each session.
+This is the campaign wiki. Everything here is **what your characters know**. Session recaps, people you've met, places you've been, threads still hanging. It updates after each session.
 
 ## Start Here
 
