@@ -7,22 +7,22 @@ tags:
 
 # House Rules
 
-> [!note] Draft — we finalize these together at session zero
+> [!note] Draft: we finalize these together at session zero
 > Anything marked **DECIDE** is an open question for the table. Bring an opinion.
 
 ## Character Creation
 
 - **Starting level:** 1
-- **Ability scores:** **DECIDE** — standard array (15/14/13/12/10/8), point buy (27), or rolled
-- **Hit points:** Max at 1st level, then **DECIDE** — average (round up) or roll with a floor
-- **Starting gear:** Class/background equipment, or gold — your choice
+- **Ability scores:** **DECIDE** between standard array (15/14/13/12/10/8), point buy (27), or rolled
+- **Hit points:** Max at 1st level, then **DECIDE**: average (round up) or roll with a floor
+- **Starting gear:** Class/background equipment, or gold (your choice)
 - **Multiclassing:** Allowed. Talk to me first so we can make it land narratively.
 - **Feats:** Allowed, including [[Homebrew - LaserLlama|LaserLlama expanded feats]]
 - **Sources allowed:** Core 5e + LaserLlama homebrew. Anything else, ask.
 
 ## Required of Every Character
 
-1. **A tie to Baldur's Gate.** See [[Campaign Primer]]. Non-negotiable — this campaign starts local.
+1. **A tie to Baldur's Gate.** See [[Campaign Primer]]. Non-negotiable. This campaign starts local.
 2. **A bond with at least one other PC.** Sort it out at session zero.
 3. **A reason to say no to a very good offer.** You'll understand later.
 
@@ -32,13 +32,13 @@ tags:
 - **Nat 20 / Nat 1 on ability checks:** Not auto-success/fail. They're checks, not attacks. Expect a *notable* outcome, not a miracle.
 - **Inspiration:** Awarded for playing your bonds and flaws into trouble, not for optimal tactics.
 - **Rule disputes:** I make a fast call mid-session, we look it up after. Speed over precision at the table.
-- **Absent players:** **DECIDE** — run as NPC, fade to background, or hard pause
-- **Session recaps:** I post them to this wiki. Corrections welcome — your memory beats my notes.
+- **Absent players:** **DECIDE**: run as NPC, fade to background, or hard pause
+- **Session recaps:** I post them to this wiki. Corrections welcome; your memory beats my notes.
 
 ## Rest & Recovery
 
 - **DECIDE:** standard rests, gritty realism (long rest = 7 days), or something between.
-  *Worth a real conversation — this one shapes the whole campaign's pacing, especially once we leave the city.*
+  *Worth a real conversation. This one shapes the whole campaign's pacing, especially once we leave the city.*
 
 ## Death & Consequences
 
