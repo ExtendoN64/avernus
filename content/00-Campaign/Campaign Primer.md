@@ -10,11 +10,17 @@ tags:
 
 Elturel is gone.
 
-The city didn't fall, wasn't sacked, wasn't burned. It **vanished** — and the survivors who straggle into Baldur's Gate tell stories that don't agree with each other, except on one point: there was a light in the sky, and then there wasn't a city.
+The city didn't fall, wasn't sacked, wasn't burned. It **vanished** — a light in the sky, and then no city, and now the refugees crowding the gates tell stories that agree on nothing except that light.
 
-You're in **Baldur's Gate**, a place that has never handled a crisis gracefully. The refugee camps are past capacity, the Flaming Fist is stretched thin, and the people who profit from desperation are having an excellent month. Somewhere under all of it, someone knows exactly what happened to Elturel — and what it cost.
+Everyone in **Baldur's Gate** is calling it Elturel's tragedy. A neighbor's horror, already over, nothing to do with them.
 
-You're going to find out. You're probably going to wish you hadn't.
+They're wrong. It's starting **here**.
+
+It starts small — a murder that's *wrong*, a cellar that's cold to the eye and scalding to the touch, a street the animals stopped walking down. Then it stops being small. Something is bleeding up into the city from underneath, a little more every day — and Baldur's Gate has never handled a crisis gracefully, least of all one it doesn't know how to fight.
+
+You're what the city has. You'll hold the line as long as the line can be held — and when holding stops being enough, you'll go down after the thing doing this and put it out at the source.
+
+You're going to find out what happened to Elturel. You're probably going to wish you hadn't.
 
 ## Tone & Expectations
 
