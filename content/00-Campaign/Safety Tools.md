@@ -7,7 +7,7 @@ tags:
 
 # Safety Tools
 
-*Descent into Avernus* goes to genuinely dark places: soul trading, torture, body horror, the aftermath of a city-scale atrocity. That's the campaign we signed up for. These tools exist so the darkness stays **fun** instead of becoming something someone has to sit through.
+*Ascent from Avernus* goes to genuinely dark places: soul trading, torture, body horror, the aftermath of a city-scale atrocity. That's the campaign we signed up for. These tools exist so the darkness stays **fun** instead of becoming something someone has to sit through.
 
 Using one of these is never a big deal, never needs justification, and never earns a follow-up question. That's the whole point.
 

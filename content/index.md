@@ -1,9 +1,11 @@
 ---
-title: Descent into Avernus
+title: Ascent from Avernus
 publish: true
 ---
 
-# Descent into Avernus
+# Ascent from Avernus
+
+*That which falls can rise again.*
 
 <div class="hero">
 
