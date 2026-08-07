@@ -55,6 +55,16 @@ Devils bargain in this campaign, and **any deal offered to you is a real, honora
 - I will **not** warn you off a bad deal in character. That's your call to make.
 - What's written will be honored. Exactly as written. That's the horror of it.
 
+They will look like this, and they will look reasonable:
+
+> [!contract] TERMS OF AGREEMENT
+> 1. The party of the first part shall provide safe passage, without delay or condition, to the bearer.
+> 2. The party of the second part shall provide, at a time of the first part's choosing, one service.
+> 3. The nature of the service is not specified herein and shall not be refused.
+> 4. This agreement is binding upon signature and is not dissolved by the death of either party.
+
+Read clause 4 again. That one is not a trick, it's just written down, and it will be honored exactly as written.
+
 ## Table Etiquette
 
 - Phones down during scenes; nobody's counting during combat lulls.

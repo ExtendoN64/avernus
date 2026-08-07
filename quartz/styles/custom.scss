@@ -1,3 +1,317 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+/* ==========================================================================
+   Descent into Avernus: campaign wiki styling
+   Layered on top of the parchment/infernal palette in quartz.config.yaml.
+   Uses the theme's own CSS variables, so light and dark both track the config.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Hero: the epigraph block on the landing page
+   -------------------------------------------------------------------------- */
+
+.hero {
+  margin: 2rem 0 3rem;
+  padding: 2rem 2.5rem;
+  border-top: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    var(--highlight),
+    transparent 60%
+  );
+
+  p {
+    font-family: var(--headerFont);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--darkgray);
+    margin: 0.6rem 0;
+    text-wrap: balance;
+  }
+
+  /* small diamond centered on the top rule */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--secondary);
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  @media #{$mobile} {
+    padding: 1.25rem 1rem;
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Card grid: wrap a markdown list in <div class="card-grid">
+   -------------------------------------------------------------------------- */
+
+.card-grid {
+  margin: 1.5rem 0 2.5rem;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+    padding: 1.1rem 1.25rem 1.25rem;
+    border: 1px solid var(--lightgray);
+    border-left: 3px solid var(--secondary);
+    border-radius: 4px;
+    background: var(--light);
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+
+    /* kill the list marker some themes re-add */
+    &::marker,
+    &::before {
+      content: none;
+    }
+
+    &:hover {
+      border-left-color: var(--tertiary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
+    }
+
+    h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+      line-height: 1.3;
+
+      a {
+        background-color: transparent;
+        text-decoration: none;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--gray);
+    }
+  }
+}
+
+:root[saved-theme="dark"] .card-grid li:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   3. In-world document callouts
+   Use as: > [!notice] Title / > [!broadsheet] / > [!contract]
+   -------------------------------------------------------------------------- */
+
+.callout[data-callout="notice"],
+.callout[data-callout="broadsheet"],
+.callout[data-callout="contract"] {
+  /* these are props, not admonitions: drop the icon */
+  .callout-icon {
+    display: none;
+  }
+  .fold-callout-icon {
+    display: none;
+  }
+}
+
+/* A Flaming Fist bulletin / official proclamation */
+.callout[data-callout="notice"] {
+  --color: var(--darkgray);
+  --border: var(--darkgray);
+  --bg: transparent;
+
+  border: 2px solid var(--darkgray);
+  border-radius: 0;
+  background: var(--light);
+  padding: 0.25rem 1.25rem 0.75rem;
+
+  .callout-title {
+    justify-content: center;
+    padding-top: 0.75rem;
+  }
+
+  .callout-title-inner {
+    font-family: var(--headerFont);
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--darkgray);
+  }
+
+  .callout-content {
+    border-top: 1px solid var(--lightgray);
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+}
+
+/* A clipping from a broadsheet */
+.callout[data-callout="broadsheet"] {
+  --color: var(--dark);
+  --border: var(--gray);
+
+  border: none;
+  border-radius: 2px;
+  background: var(--light);
+  box-shadow:
+    0 1px 0 var(--lightgray),
+    0 6px 18px rgba(0, 0, 0, 0.12);
+  padding: 1rem 1.5rem 1.25rem;
+  transform: rotate(-0.4deg);
+
+  .callout-title-inner {
+    font-family: var(--headerFont);
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    width: 100%;
+    border-bottom: 3px double var(--darkgray);
+    padding-bottom: 0.4rem;
+  }
+
+  .callout-content {
+    column-gap: 1.5rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: auto;
+
+    @media #{$desktop} {
+      columns: 2;
+    }
+
+    p:first-child::first-letter {
+      float: left;
+      font-family: var(--headerFont);
+      font-size: 2.6em;
+      line-height: 0.8;
+      padding: 0.1em 0.08em 0 0;
+      color: var(--secondary);
+    }
+  }
+}
+
+/* An infernal contract. Deliberately uncomfortable. */
+.callout[data-callout="contract"] {
+  --color: var(--secondary);
+  --border: var(--secondary);
+
+  border: 1px solid var(--secondary);
+  border-radius: 2px;
+  background:
+    linear-gradient(to bottom right, var(--highlight), transparent 70%),
+    var(--light);
+  padding: 0.25rem 1.5rem 1rem;
+
+  .callout-title {
+    padding-top: 0.75rem;
+  }
+
+  .callout-title-inner {
+    font-family: var(--headerFont);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--secondary);
+  }
+
+  .callout-content {
+    font-family: var(--codeFont);
+    font-size: 0.86rem;
+    line-height: 1.7;
+
+    p {
+      margin: 0.6rem 0;
+    }
+
+    ol,
+    ul {
+      font-size: 0.86rem;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography polish
+   -------------------------------------------------------------------------- */
+
+/* Opt-in drop cap: add `dropcap: true` to frontmatter is not a thing,
+   so use a wrapping div: <div class="lead"> ... </div> */
+.lead > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--headerFont);
+  font-size: 3.2em;
+  line-height: 0.78;
+  padding: 0.08em 0.1em 0 0;
+  color: var(--secondary);
+}
+
+article {
+  h1,
+  h2 {
+    letter-spacing: 0.01em;
+  }
+
+  /* section rules under h2, quiet but structural */
+  h2 {
+    border-bottom: 1px solid var(--lightgray);
+    padding-bottom: 0.3rem;
+  }
+
+  /* pull quotes read as in-world voice */
+  blockquote:not(.callout) {
+    border-left: 3px solid var(--secondary);
+    font-style: italic;
+    color: var(--darkgray);
+  }
+}
+
+/* Tables: this wiki is mostly tables, so they should look deliberate */
+article table {
+  font-size: 0.93rem;
+
+  th {
+    font-family: var(--headerFont);
+    font-weight: $semiBoldWeight;
+    letter-spacing: 0.03em;
+    background: var(--highlight);
+  }
+
+  tbody tr:hover {
+    background: var(--highlight);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Encrypted pages: make the password gate look intentional
+   -------------------------------------------------------------------------- */
+
+.encrypted-container,
+.encrypted-page {
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom, var(--highlight), transparent);
+}

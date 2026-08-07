@@ -5,33 +5,65 @@ publish: true
 
 # Descent into Avernus
 
-Campaign run by **Extendo**, in Baldur's Gate.
+<div class="hero">
 
-> *"A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be. Baldur's Gate is choking on refugees, the Flaming Fist can't hold the Outer City, and something in the Lower City is very glad this happened."*
+*A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be.*
 
-This is the campaign wiki. Everything here is **what your characters know**. Session recaps, people you've met, places you've been, threads still hanging. It updates after each session.
+*Baldur's Gate is choking on refugees, the Flaming Fist has no commander, and something in the Lower City is very glad this happened.*
 
-## Start Here
+</div>
 
-- [[Campaign Primer]]: premise, tone, and what to expect
-- [[House Rules]]: how we play at this table
-- [[Safety Tools]]: how we keep this fun for everyone
-- [[Homebrew - LaserLlama]]: the homebrew options available to you
+A campaign run by **Extendo**, in Baldur's Gate.
 
-## The Party
+This is your characters' memory. Everything here is **what they know**, which is not always what is true. It updates after every session.
 
-- [[02-Characters/Party/|Party Roster]]
+## Start here
 
-## The Story So Far
+<div class="card-grid">
 
-- [[01-Sessions/|Session Recaps]]
+- ### [[Campaign Primer]]
+  The premise, the tone, and what you are signing up for.
 
-## What We Know
+- ### [[House Rules]]
+  How we play. Character creation, rulings, and the things devils are allowed to do to you.
 
-- [[02-Characters/NPCs/|People]]
-- [[03-Locations/|Places]]
-- [[04-Factions/|Factions]]
-- [[05-Quests/|Open Threads]]
+- ### [[Safety Tools]]
+  Lines, veils, the X-card, and the open door. These override every other rule.
+
+- ### [[Homebrew - LaserLlama|Homebrew]]
+  The expanded classes and feats available to you.
+
+</div>
+
+## The world
+
+<div class="card-grid">
+
+- ### [Places](03-Locations/)
+  Baldur's Gate, its three cities, and what is left of Elturel.
+
+- ### [Factions](04-Factions/)
+  The Flaming Fist, the patriars, the Guild, and the cults nobody talks about.
+
+- ### [People](02-Characters/NPCs/)
+  Who you have met, and what they told you.
+
+- ### [Open Threads](05-Quests/)
+  What you are chasing, and who you owe.
+
+</div>
+
+## The table
+
+<div class="card-grid">
+
+- ### [Party Roster](02-Characters/Party/)
+  Who you are, and what the rest of the table should remember.
+
+- ### [Session Recaps](01-Sessions/)
+  What happened, in order.
+
+</div>
 
 ---
 
