@@ -39,8 +39,11 @@ This is your characters' memory. Everything here is **what they know**, which is
 
 <div class="card-grid">
 
+- ### [[City Map|The Map]]
+  Baldur's Gate, pannable. Click a district to read about it.
+
 - ### [Places](03-Locations/)
-  Baldur's Gate, its three cities, and what is left of Elturel.
+  The three cities, the nine gates, and what is left of Elturel.
 
 - ### [Factions](04-Factions/)
   The Flaming Fist, the patriars, the Guild, and the cults nobody talks about.

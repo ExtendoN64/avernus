@@ -315,3 +315,264 @@ article table {
   padding: 1.5rem;
   background: linear-gradient(to bottom, var(--highlight), transparent);
 }
+
+/* --------------------------------------------------------------------------
+   6. Pannable map of Baldur's Gate
+   -------------------------------------------------------------------------- */
+
+.bg-map {
+  position: relative;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--light);
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    font-family: var(--headerFont);
+  }
+
+  &.is-dragging svg {
+    cursor: grabbing;
+  }
+
+  a {
+    background-color: transparent;
+    text-decoration: none;
+  }
+}
+
+.bg-map-controls {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.3rem;
+
+  button {
+    font-family: var(--bodyFont);
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0.4rem 0.6rem;
+    min-width: 2rem;
+    color: var(--darkgray);
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.9;
+
+    &:hover {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      opacity: 1;
+    }
+  }
+}
+
+/* ---- map geometry ---- */
+
+.bgm-land {
+  fill: var(--light);
+}
+.bgm-hatchline {
+  stroke: var(--lightgray);
+  stroke-width: 1;
+}
+.bgm-water {
+  fill: var(--lightgray);
+  opacity: 0.75;
+}
+.bgm-waterfx {
+  opacity: 0.5;
+}
+.bgm-waveline {
+  stroke: var(--gray);
+  stroke-width: 1;
+}
+
+.bgm-region path {
+  stroke: var(--gray);
+  stroke-width: 1.5;
+  transition:
+    fill 0.15s ease,
+    filter 0.15s ease;
+}
+
+.bgm-upper path {
+  fill: var(--highlight);
+}
+.bgm-lower path {
+  fill: var(--lightgray);
+  opacity: 0.55;
+}
+.bgm-outer path {
+  fill: var(--light);
+  /* no outline: the Outer City has no edge, that is the point of it */
+  stroke: none;
+}
+
+a:hover .bgm-region path {
+  fill: var(--tertiary);
+  filter: brightness(1.05);
+}
+
+.bgm-wall {
+  fill: none;
+  stroke: var(--darkgray);
+  stroke-width: 5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.bgm-oldwall {
+  stroke: var(--secondary);
+  stroke-width: 6;
+}
+
+.bgm-road {
+  fill: none;
+  stroke: var(--gray);
+  stroke-width: 3;
+  stroke-dasharray: 9 7;
+  stroke-linecap: round;
+}
+
+.bgm-bridge {
+  rect {
+    fill: var(--light);
+    stroke: var(--darkgray);
+    stroke-width: 2.5;
+  }
+  line {
+    stroke: var(--darkgray);
+    stroke-width: 1.5;
+  }
+}
+
+.bgm-hill {
+  path {
+    fill: none;
+    stroke: var(--gray);
+    stroke-width: 2;
+  }
+  text {
+    fill: var(--gray);
+    font-size: 15px;
+    font-style: italic;
+    text-anchor: middle;
+  }
+}
+
+/* ---- gates ---- */
+
+.bgm-gate {
+  circle {
+    r: 6px;
+    fill: var(--secondary);
+    stroke: var(--light);
+    stroke-width: 2.5;
+  }
+  text {
+    fill: var(--secondary);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-anchor: middle;
+    paint-order: stroke;
+    stroke: var(--light);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+  }
+}
+
+/* ---- labels ---- */
+
+.bgm-label text {
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--light);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+.bgm-district {
+  fill: var(--darkgray);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.bgm-sub {
+  fill: var(--gray);
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.bgm-water-label {
+  fill: var(--gray);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.bgm-road-label {
+  fill: var(--gray);
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+/* ---- furniture ---- */
+
+.bgm-compass {
+  circle {
+    fill: none;
+    stroke: var(--gray);
+    stroke-width: 2;
+  }
+  path {
+    fill: var(--light);
+    stroke: var(--darkgray);
+    stroke-width: 1.5;
+  }
+  .bgm-compass-n {
+    fill: var(--secondary);
+  }
+  text {
+    fill: var(--darkgray);
+    font-size: 17px;
+    font-weight: 700;
+    text-anchor: middle;
+  }
+}
+
+.bgm-cartouche {
+  text {
+    text-anchor: start;
+  }
+  line {
+    stroke: var(--secondary);
+    stroke-width: 2;
+  }
+  .bgm-title {
+    fill: var(--darkgray);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+  }
+  .bgm-subtitle {
+    fill: var(--gray);
+    font-size: 17px;
+    font-style: italic;
+    letter-spacing: 0.06em;
+  }
+}

@@ -14,6 +14,9 @@ Everything your characters would know about the world by living in it. No secret
 
 ## Baldur's Gate
 
+> [!tip] Start with the map
+> **[[City Map|Map of Baldur's Gate]]**, pannable and zoomable. Click a district to open its page.
+
 A port city on the Chionthar, rich, crowded, and run by people who are very good at not being blamed for things. It is built in three parts, and which part you were born in tells everyone almost everything they think they need to know about you.
 
 - **[[Upper City]]**, behind the Old Wall. Temples, government, and old money.
