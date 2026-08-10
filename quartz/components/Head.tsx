@@ -45,6 +45,31 @@ export default (() => {
       <head>
         <title>{title}</title>
         <meta charSet="utf-8" />
+        {/*
+          Stop the explorer yanking the page down on load.
+
+          explorer.inline.ts does:
+            const saved = sessionStorage.getItem("explorerScrollTop")
+            if (saved) el.scrollTop = parseInt(saved, 10)
+            else activeElement.scrollIntoView({ behavior: "smooth" })
+
+          That scrollIntoView has no `block` option, so it defaults to "start"
+          and scrolls the DOCUMENT to put the active file at the top of the
+          viewport. Any page nested deep in the tree therefore opens several
+          hundred pixels down, with its own header off screen.
+
+          Seeding the key takes the first branch instead, so the explorer sets
+          its own scrollTop and never touches the document. Later navigations
+          use whatever the explorer has genuinely stored. This runs in <head>,
+          before the explorer script.
+
+          Pre-existing Quartz behaviour, not introduced by the theme.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("explorerScrollTop")===null){sessionStorage.setItem("explorerScrollTop","0")}}catch(e){}`,
+          }}
+        ></script>
         {coreStylesheet && <link rel="preload" href={coreStylesheet} as="style" />}
         {coreScript && coreScript.contentType === "external" && (
           <link rel="preload" href={coreScript.src} as="script" />

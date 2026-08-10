@@ -80,6 +80,16 @@ h6 a {
   font-family: var(--bodyFont);
 }
 
+/* Bound the explorer so a growing tree scrolls in the sidebar rather than
+   stretching it. Note this does NOT stop the load-time page jump: see the
+   explorerScrollTop seed in quartz/components/Head.tsx for that. */
+.explorer-content {
+  max-height: min(60vh, 40rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
 /* ==========================================================================
    Descent into Avernus: campaign wiki styling
    Layered on top of the parchment/infernal palette in quartz.config.yaml.

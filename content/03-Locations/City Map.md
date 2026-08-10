@@ -7,8 +7,6 @@ tags:
   - map
 ---
 
-# Map of Baldur's Gate
-
 Drag to pan, scroll to zoom, click a district to open its page. Nine gates, three cities, one river.
 
 <div id="bg-map" class="bg-map">
@@ -226,7 +224,6 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
     [/basilisk/i, "basilisk"],
     [/cliffgate/i, "cliffgate"]
   ];
-
   function initGateTable() {
     var wrap = document.getElementById("bg-map");
     if (!wrap) return;
@@ -258,7 +255,6 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
       })(rows[i]);
     }
   }
-
   function init() { initMap(); initGateTable(); }
   if (document.readyState !== "loading") init();
   document.addEventListener("DOMContentLoaded", init);
