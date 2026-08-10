@@ -1,0 +1,99 @@
+<!-- @dsCard group="Components" name="City map" subtitle="Pannable SVG, token-driven, clickable districts" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>City map</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.55 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px}
+  .lede{color:#8a7c6c;margin:0 0 20px;max-width:70ch;font-size:13px}
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px}
+  .frame{padding:18px;border-radius:6px;border:1px solid #e3dbcc}
+  .frame.dark{background:#17120f;border-color:#3a2f28}
+  .mode{font:10px/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+        color:#b0a08d;display:block;margin-bottom:12px}
+  .frame.dark .mode{color:#6b5a4d}
+
+  .map{border:1px solid #e3dbcc;border-radius:4px;overflow:hidden}
+  .frame.dark .map{border-color:#3a2f28}
+  svg{display:block;width:100%;height:auto}
+
+  .light-map{--light:#f6f2e9;--lightgray:#e3dbcc;--gray:#b0a08d;--darkgray:#4a3f35;
+             --dark:#2a1f1a;--secondary:#8b2f22;--highlight:rgba(139,47,34,.10)}
+  .dark-map{--light:#17120f;--lightgray:#3a2f28;--gray:#6b5a4d;--darkgray:#d8cfc4;
+            --dark:#f0e6d8;--secondary:#d9603f;--highlight:rgba(217,96,63,.12)}
+
+  .spec{margin:22px 0 0;border-top:1px solid #e3dbcc;padding-top:14px;
+        font-size:12.5px;color:#7d6f60;max-width:74ch}
+  .spec b{color:#4a3f35}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>City map</h1>
+<p class="lede">Original SVG, drawn rather than scanned, so it can be clickable and theme-aware. Every colour
+comes from a token, which is why a palette change reaches all the way into the cartography. The three district
+regions are links; the walls, gates and labels are not.</p>
+
+<div class="pair">
+  <div class="frame">
+    <span class="mode">light</span>
+    <div class="map light-map">
+      <svg viewBox="0 0 600 200" role="img" aria-label="Reduced city map showing Upper City, Lower City, Outer City, harbour and river">
+        <rect x="0" y="0" width="600" height="200" style="fill:var(--light)"></rect>
+        <path d="M0,140 Q90,134 168,142 Q206,146 226,120 Q262,100 300,102 Q340,106 356,140 Q420,150 600,152 L600,200 L0,200 Z" style="fill:var(--lightgray)"></path>
+        <path d="M150,110 L142,72 Q160,44 232,42 Q302,44 330,74 Q344,96 338,110 Z" style="fill:var(--highlight);stroke:var(--secondary);stroke-width:5"></path>
+        <path d="M150,110 Q118,124 116,146" style="fill:none;stroke:var(--darkgray);stroke-width:4"></path>
+        <path d="M338,110 Q372,124 380,150" style="fill:none;stroke:var(--darkgray);stroke-width:4"></path>
+        <circle cx="238" cy="42" r="5" style="fill:var(--secondary);stroke:var(--light);stroke-width:2"></circle>
+        <circle cx="244" cy="110" r="5" style="fill:var(--secondary);stroke:var(--light);stroke-width:2"></circle>
+        <circle cx="380" cy="126" r="5" style="fill:var(--secondary);stroke:var(--light);stroke-width:2"></circle>
+        <text x="242" y="88" style="fill:var(--darkgray);font:700 15px 'Cinzel',Georgia,serif;letter-spacing:3px;text-anchor:middle">UPPER CITY</text>
+        <text x="244" y="136" style="fill:var(--darkgray);font:700 13px 'Cinzel',Georgia,serif;letter-spacing:3px;text-anchor:middle">LOWER CITY</text>
+        <text x="486" y="86" style="fill:var(--darkgray);font:700 13px 'Cinzel',Georgia,serif;letter-spacing:3px;text-anchor:middle">OUTER CITY</text>
+        <text x="290" y="170" style="fill:var(--gray);font:italic 11px 'Source Sans Pro',sans-serif;text-anchor:middle">Gray Harbor</text>
+        <text x="70" y="180" style="fill:var(--gray);font:700 10px 'Source Sans Pro',sans-serif;letter-spacing:2px">CHIONTHAR</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="frame dark">
+    <span class="mode">dark</span>
+    <div class="map dark-map">
+      <svg viewBox="0 0 600 200" role="img" aria-label="Reduced city map in dark mode">
+        <rect x="0" y="0" width="600" height="200" style="fill:var(--light)"></rect>
+        <path d="M0,140 Q90,134 168,142 Q206,146 226,120 Q262,100 300,102 Q340,106 356,140 Q420,150 600,152 L600,200 L0,200 Z" style="fill:var(--lightgray)"></path>
+        <path d="M150,110 L142,72 Q160,44 232,42 Q302,44 330,74 Q344,96 338,110 Z" style="fill:var(--highlight);stroke:var(--secondary);stroke-width:5"></path>
+        <path d="M150,110 Q118,124 116,146" style="fill:none;stroke:var(--darkgray);stroke-width:4"></path>
+        <path d="M338,110 Q372,124 380,150" style="fill:none;stroke:var(--darkgray);stroke-width:4"></path>
+        <circle cx="238" cy="42" r="5" style="fill:var(--secondary);stroke:var(--light);stroke-width:2"></circle>
+        <circle cx="244" cy="110" r="5" style="fill:var(--secondary);stroke:var(--light);stroke-width:2"></circle>
+        <circle cx="380" cy="126" r="5" style="fill:var(--secondary);stroke:var(--light);stroke-width:2"></circle>
+        <text x="242" y="88" style="fill:var(--darkgray);font:700 15px 'Cinzel',Georgia,serif;letter-spacing:3px;text-anchor:middle">UPPER CITY</text>
+        <text x="244" y="136" style="fill:var(--darkgray);font:700 13px 'Cinzel',Georgia,serif;letter-spacing:3px;text-anchor:middle">LOWER CITY</text>
+        <text x="486" y="86" style="fill:var(--darkgray);font:700 13px 'Cinzel',Georgia,serif;letter-spacing:3px;text-anchor:middle">OUTER CITY</text>
+        <text x="290" y="170" style="fill:var(--gray);font:italic 11px 'Source Sans Pro',sans-serif;text-anchor:middle">Gray Harbor</text>
+        <text x="70" y="180" style="fill:var(--gray);font:700 10px 'Source Sans Pro',sans-serif;letter-spacing:2px">CHIONTHAR</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<p class="spec">
+<b>Token mapping:</b> land <code>light</code>, water <code>lightgray</code>, Upper City fill
+<code>highlight</code>, Old Wall and gate markers <code>secondary</code>, later city walls
+<code>darkgray</code>, minor labels <code>gray</code>. The Old Wall is deliberately the only structure in
+<code>secondary</code>, so it reads as the oldest thing on the map.<br>
+<b>Interaction:</b> drag to pan, wheel to zoom, buttons for zoom and reset. A drag that travels more than six
+units cancels the click, so panning across a district does not navigate.<br>
+<b>Build notes:</b> <code>var()</code> must go in a <code>style</code> attribute, not a presentation
+attribute like <code>fill="var(--x)"</code>, which is not reliably supported. Gate marker radii are set with
+an <code>r</code> attribute rather than the CSS <code>r</code> property, for the same reason.<br>
+<b>Palette risk:</b> this is the component most exposed to a palette change. A softer
+<code>secondary</code> stops reading as a city wall and starts reading as decoration.
+</p>
+</body>
+</html>

@@ -3,23 +3,50 @@ title: Ascent from Avernus
 publish: true
 ---
 
-# Ascent from Avernus
-
-*That which falls can rise again.*
-
-<div class="hero">
-
-*A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be.*
-
-*Baldur's Gate is choking on refugees, the Flaming Fist has no commander, and something in the Lower City is very glad this happened.*
-
+<div class="masthead">
+<p class="epigraph">That which falls can rise again.</p>
+<div class="masthead-title">Ascent from Avernus</div>
+<div class="masthead-strip">
+<span>Baldur's Gate</span>
+<span>Run by Extendo</span>
+<span>Updated after each session</span>
+</div>
 </div>
 
-A campaign run by **Extendo**, in Baldur's Gate.
+<div class="frontpage">
+<div class="lead">
 
-This is your characters' memory. Everything here is **what they know**, which is not always what is true. It updates after every session.
+A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be, four days upriver, and a road full of people walking away from it.
 
-## Start here
+Everyone here is calling it Elturel's tragedy. A neighbour's horror, already over, nothing to do with us.
+
+They are wrong. It is starting **here**. It starts small: a murder that is *wrong*, a cellar cold to the eye and scalding to the touch, a street the animals stopped walking down. Then it stops being small.
+
+Something is bleeding up into this city from underneath, a little more every day, and Baldur's Gate has never handled a crisis gracefully, least of all one it does not know how to fight.
+
+You are what the city has. You will hold the line as long as the line can be held, and when holding stops being enough, you will go down after the thing doing this and put it out at the source.
+
+You are going to find out what happened to Elturel. You are probably going to wish you hadn't.
+
+</div>
+<div class="aside">
+<div class="issue-box">
+<h3>In this issue</h3>
+<ol>
+<li>The premise, and what you are signing up for</li>
+<li>How we play, and what devils may do to you</li>
+<li>Lines, veils, and the open door</li>
+<li>Three cities and nine gates</li>
+<li>Who holds what, and who resents it</li>
+</ol>
+</div>
+
+**[The map](03-Locations/City-Map)** is the fastest way in. Drag it, zoom it, click a district.
+
+</div>
+</div>
+
+<div class="section-rule"><span>Start here</span></div>
 
 <div class="card-grid">
 
@@ -37,7 +64,7 @@ This is your characters' memory. Everything here is **what they know**, which is
 
 </div>
 
-## The world
+<div class="section-rule"><span>The world</span></div>
 
 <div class="card-grid">
 
@@ -58,7 +85,7 @@ This is your characters' memory. Everything here is **what they know**, which is
 
 </div>
 
-## The table
+<div class="section-rule"><span>The table</span></div>
 
 <div class="card-grid">
 
@@ -69,8 +96,6 @@ This is your characters' memory. Everything here is **what they know**, which is
   What happened, in order.
 
 </div>
-
----
 
 > [!note] Players
 > If something here is wrong or missing, tell me. This wiki is your characters' memory, and their memory is better than mine.

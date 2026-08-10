@@ -20,30 +20,41 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Cinzel
+      # IM Fell English ships a 400 cut only (roman + italic). The header slot otherwise
+      # defaults to requesting weights [400, 700]; Google Fonts errors on a weight that
+      # does not exist, and that would take body and code down with it since they share
+      # one URL. Hence the explicit object form.
+      #
+      # Cinzel (section rules) and IM Fell's italic are loaded by a second <link> in
+      # quartz/components/Head.tsx, because theme.ts builds its URL from this block alone.
+      header:
+        name: IM Fell English
+        weights: [400]
       body: Source Sans Pro
       code: IBM Plex Mono
+    # "Nightwatch": charcoal plum with brass, dark-led.
+    # The infernal palette is deliberately NOT derived from these, see custom.scss.
     colors:
       lightMode:
-        light: "#f6f2e9"
-        lightgray: "#e3dbcc"
-        gray: "#b0a08d"
-        darkgray: "#4a3f35"
-        dark: "#2a1f1a"
-        secondary: "#8b2f22"
-        tertiary: "#c25b3a"
-        highlight: rgba(139, 47, 34, 0.1)
-        textHighlight: "#e8b34288"
+        light: "#f1eff2"
+        lightgray: "#dcd8de"
+        gray: "#9a94a0"
+        darkgray: "#3e3843"
+        dark: "#1e1a22"
+        secondary: "#6b3a52"
+        tertiary: "#9b6a3f"
+        highlight: rgba(107, 58, 82, 0.09)
+        textHighlight: "#cfa85e88"
       darkMode:
-        light: "#17120f"
-        lightgray: "#3a2f28"
-        gray: "#6b5a4d"
-        darkgray: "#d8cfc4"
-        dark: "#f0e6d8"
-        secondary: "#d9603f"
-        tertiary: "#e8974f"
-        highlight: rgba(217, 96, 63, 0.12)
-        textHighlight: "#b3560288"
+        light: "#16121a"
+        lightgray: "#302838"
+        gray: "#5e5468"
+        darkgray: "#d4ccdc"
+        dark: "#f0eaf4"
+        secondary: "#c9a24a"
+        tertiary: "#e0b968"
+        highlight: rgba(201, 162, 74, 0.12)
+        textHighlight: "#8a6a2088"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
@@ -102,8 +113,19 @@ plugins:
   - source: github:quartz-community/roam
     enabled: false
     order: 92
+  # This plugin resolves the h1-h6 / interface font variables, and will ALSO emit its
+  # own Google Fonts <link> if left alone. Its `useThemeFonts` reads the quartz-themes
+  # registry, NOT theme.typography above, so with that plugin disabled it falls through
+  # to its own default header face (Schibsted Grotesk). Set the faces explicitly, and
+  # use fontOrigin: local so it does not emit a second, duplicate font link. Head.tsx
+  # already loads all four faces.
   - source: github:quartz-community/fonts
     enabled: true
+    options:
+      header: IM Fell English
+      body: Source Sans Pro
+      code: IBM Plex Mono
+      fontOrigin: local
   - source: github:quartz-community/remove-draft
     enabled: true
   # THE IMPORTANT ONE.

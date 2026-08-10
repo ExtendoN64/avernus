@@ -1,0 +1,71 @@
+{
+  "_note": "Native Quartz palettes. These swap configuration.theme in quartz.config.yaml, so they cost no extra CSS and your custom.scss keeps authority. Preview with: .\\tools\\preview-theme.ps1 -Palette <name>",
+
+  "avernus": {
+    "description": "Your current palette. Parchment and infernal orange.",
+    "typography": { "header": "Cinzel", "body": "Source Sans Pro", "code": "IBM Plex Mono" },
+    "lightMode": {
+      "light": "#f6f2e9", "lightgray": "#e3dbcc", "gray": "#b0a08d",
+      "darkgray": "#4a3f35", "dark": "#2a1f1a",
+      "secondary": "#8b2f22", "tertiary": "#c25b3a",
+      "highlight": "rgba(139, 47, 34, 0.1)", "textHighlight": "#e8b34288"
+    },
+    "darkMode": {
+      "light": "#17120f", "lightgray": "#3a2f28", "gray": "#6b5a4d",
+      "darkgray": "#d8cfc4", "dark": "#f0e6d8",
+      "secondary": "#d9603f", "tertiary": "#e8974f",
+      "highlight": "rgba(217, 96, 63, 0.12)", "textHighlight": "#b3560288"
+    }
+  },
+
+  "claude": {
+    "description": "The Claude app look: warm paper, clay accent, calm serif. Full commitment, loses the fantasy feel.",
+    "typography": { "header": "Source Serif 4", "body": "Inter", "code": "JetBrains Mono" },
+    "lightMode": {
+      "light": "#faf9f5", "lightgray": "#e8e6dc", "gray": "#9a9890",
+      "darkgray": "#3d3d3a", "dark": "#1f1e1d",
+      "secondary": "#c96442", "tertiary": "#d97757",
+      "highlight": "rgba(201, 100, 66, 0.09)", "textHighlight": "#dba85c55"
+    },
+    "darkMode": {
+      "light": "#262624", "lightgray": "#3e3e3c", "gray": "#8b8b8b",
+      "darkgray": "#d6d4cc", "dark": "#f5f4ef",
+      "secondary": "#d4714e", "tertiary": "#e08a63",
+      "highlight": "rgba(212, 113, 78, 0.13)", "textHighlight": "#c9784255"
+    }
+  },
+
+  "claude-cinzel": {
+    "description": "Claude's palette, but Cinzel headings kept. Calm and warm, still reads as a fantasy wiki. Recommended.",
+    "typography": { "header": "Cinzel", "body": "Inter", "code": "JetBrains Mono" },
+    "lightMode": {
+      "light": "#faf9f5", "lightgray": "#e8e6dc", "gray": "#9a9890",
+      "darkgray": "#3d3d3a", "dark": "#1f1e1d",
+      "secondary": "#c96442", "tertiary": "#d97757",
+      "highlight": "rgba(201, 100, 66, 0.09)", "textHighlight": "#dba85c55"
+    },
+    "darkMode": {
+      "light": "#262624", "lightgray": "#3e3e3c", "gray": "#8b8b8b",
+      "darkgray": "#d6d4cc", "dark": "#f5f4ef",
+      "secondary": "#d4714e", "tertiary": "#e08a63",
+      "highlight": "rgba(212, 113, 78, 0.13)", "textHighlight": "#c9784255"
+    }
+  },
+
+  "claude-ember": {
+    "description": "Claude's neutrals with your hotter infernal accent. A midpoint between the two.",
+    "typography": { "header": "Cinzel", "body": "Inter", "code": "JetBrains Mono" },
+    "lightMode": {
+      "light": "#faf9f5", "lightgray": "#e8e4d8", "gray": "#a09a8c",
+      "darkgray": "#3d3a35", "dark": "#1f1d1a",
+      "secondary": "#a83f28", "tertiary": "#d97757",
+      "highlight": "rgba(168, 63, 40, 0.09)", "textHighlight": "#dba85c55"
+    },
+    "darkMode": {
+      "light": "#24211f", "lightgray": "#3e3a36", "gray": "#8a827a",
+      "darkgray": "#d8d2c8", "dark": "#f5f2ea",
+      "secondary": "#e0764c", "tertiary": "#eb9a63",
+      "highlight": "rgba(224, 118, 76, 0.13)", "textHighlight": "#b3560255"
+    }
+  }
+}

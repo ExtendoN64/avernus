@@ -1,0 +1,53 @@
+<!-- @dsCard group="Foundations" name="Type scale" subtitle="Cinzel display, Source Sans body, Plex Mono data" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Type scale</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.6 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  .hd{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px;letter-spacing:.02em}
+  .lede{color:#8a7c6c;margin:0 0 22px;max-width:66ch;font-size:13px}
+  .row{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:16px;
+       padding:12px 0;border-top:1px solid #e3dbcc;align-items:baseline}
+  .meta{font:11.5px/1.4 ui-monospace,Consolas,monospace;color:#a09080;
+        font-variant-numeric:tabular-nums}
+  .meta b{display:block;color:#7d6f60;font-weight:600}
+  .h1{font:700 2rem/1.15 'Cinzel',Georgia,serif;color:#2a1f1a;letter-spacing:.01em}
+  .h2{font:700 1.5rem/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;
+      border-bottom:1px solid #e3dbcc;padding-bottom:.3rem}
+  .h3{font:700 1.15rem/1.25 'Cinzel',Georgia,serif;color:#2a1f1a}
+  .body{font-size:1rem;max-width:65ch}
+  .small{font-size:.86rem;color:#8a7c6c}
+  .mono{font:.85rem ui-monospace,"IBM Plex Mono",Consolas,monospace;color:#4a3f35}
+  .lbl{font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.14em;
+       text-transform:uppercase;color:#8b2f22}
+  .quote{font-style:italic;color:#4a3f35;border-left:3px solid #8b2f22;padding-left:14px}
+  .note{margin:22px 0 0;font-size:12px;color:#8a7c6c;max-width:70ch;
+        border-top:1px solid #e3dbcc;padding-top:14px}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<p class="hd">Type scale</p>
+<p class="lede">Three faces, loaded from Google Fonts by Quartz. Cinzel is the campaign's voice: it is a
+Roman inscriptional capital, which is why it carries headings and map labels and nothing else. Body text is
+a plain humanist sans on purpose, so the pages stay readable at length.</p>
+
+<div class="row"><div class="meta"><b>h1</b>Cinzel 700<br>2rem / 1.15</div><div class="h1">Ascent from Avernus</div></div>
+<div class="row"><div class="meta"><b>h2</b>Cinzel 700<br>1.5rem / 1.2<br>1px rule under</div><div class="h2">The Vanished City</div></div>
+<div class="row"><div class="meta"><b>h3</b>Cinzel 700<br>1.15rem / 1.25</div><div class="h3">What is established</div></div>
+<div class="row"><div class="meta"><b>body</b>Source Sans Pro<br>1rem / 1.6<br>max 65ch</div><div class="body">Elturel is gone. Not sacked, not burned. Gone, along with everyone in it, in a single night, leaving a shape in the landscape and a river of refugees heading downstream.</div></div>
+<div class="row"><div class="meta"><b>small</b>0.86rem<br>gray token</div><div class="small">Updated after each session. Your memory beats my notes.</div></div>
+<div class="row"><div class="meta"><b>label</b>system-ui 600<br>0.72rem<br>0.14em tracking</div><div class="lbl">By order of the Flaming Fist</div></div>
+<div class="row"><div class="meta"><b>blockquote</b>italic<br>3px secondary rule</div><div class="quote">You think I opened it. I anchored it. There is a difference.</div></div>
+<div class="row"><div class="meta"><b>mono</b>IBM Plex Mono<br>0.85rem<br>contracts, code</div><div class="mono">4. This agreement is binding upon signature.</div></div>
+
+<p class="note">Cinzel has no lowercase worth the name at small sizes and no italic, so it never runs as body
+copy or inline emphasis. If a heading needs to be long, let it wrap: headings carry
+<code>text-wrap: balance</code>. Where the face is unavailable the stack falls back to Georgia, which keeps
+the serif texture but loses the inscriptional feel.</p>
+</body>
+</html>

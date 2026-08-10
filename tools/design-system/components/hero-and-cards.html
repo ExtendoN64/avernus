@@ -1,0 +1,97 @@
+<!-- @dsCard group="Components" name="Hero and card grid" subtitle="Landing page epigraph and navigation cards" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hero and card grid</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.55 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px}
+  .lede{color:#8a7c6c;margin:0 0 20px;max-width:70ch;font-size:13px}
+  .frame{padding:22px;border-radius:6px;border:1px solid #e3dbcc;margin-bottom:18px}
+  .frame.dark{background:#17120f;border-color:#3a2f28;color:#d8cfc4}
+  .mode{font:10px/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+        color:#b0a08d;display:block;margin-bottom:14px}
+  .frame.dark .mode{color:#6b5a4d}
+
+  /* hero */
+  .hero{margin:0 0 26px;padding:26px 30px;position:relative;
+        border-top:2px solid #8b2f22;border-bottom:2px solid #8b2f22;
+        background:linear-gradient(to bottom, rgba(139,47,34,.10), transparent 60%)}
+  .hero::before{content:"";position:absolute;top:-6px;left:50%;width:10px;height:10px;
+        background:#8b2f22;transform:translateX(-50%) rotate(45deg)}
+  .hero p{font:1.15rem/1.6 'Cinzel',Georgia,serif;text-align:center;color:#4a3f35;
+        margin:.6rem 0;text-wrap:balance}
+  .frame.dark .hero{border-color:#d9603f;background:linear-gradient(to bottom, rgba(217,96,63,.12), transparent 60%)}
+  .frame.dark .hero::before{background:#d9603f}
+  .frame.dark .hero p{color:#d8cfc4}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;
+        list-style:none;padding:0;margin:0}
+  .cards li{margin:0;padding:1.1rem 1.25rem 1.25rem;border:1px solid #e3dbcc;
+        border-left:3px solid #8b2f22;border-radius:4px;background:#f6f2e9}
+  .cards li:first-child{border-left-color:#c25b3a;transform:translateY(-2px);
+        box-shadow:0 4px 14px rgba(0,0,0,.09)}
+  .cards h3{margin:0 0 .4rem;font:700 1.05rem/1.3 'Cinzel',Georgia,serif;color:#2a1f1a}
+  .cards p{margin:0;font-size:.9rem;line-height:1.5;color:#b0a08d}
+  .frame.dark .cards li{background:#17120f;border-color:#3a2f28;border-left-color:#d9603f}
+  .frame.dark .cards li:first-child{border-left-color:#e8974f;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+  .frame.dark .cards h3{color:#f0e6d8}
+  .frame.dark .cards p{color:#6b5a4d}
+
+  .badge{font:600 9.5px/1 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;
+        color:#8b2f22;border:1px solid #8b2f22;border-radius:99px;padding:2px 6px;
+        vertical-align:middle;margin-left:6px}
+  .spec{margin:4px 0 0;border-top:1px solid #e3dbcc;padding-top:14px;
+        font-size:12.5px;color:#7d6f60;max-width:74ch}
+  .spec b{color:#4a3f35}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Hero and card grid</h1>
+<p class="lede">The two structural pieces of the landing page. The hero carries the campaign's pitch in the
+GM's voice; the cards are the whole navigation, since the site has no top nav bar.</p>
+
+<div class="frame">
+  <span class="mode">light</span>
+  <div class="hero">
+    <p>A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be.</p>
+    <p>Baldur's Gate is choking on refugees, the Flaming Fist has no commander, and something in the Lower City is very glad this happened.</p>
+  </div>
+  <ul class="cards">
+    <li><h3>The Map<span class="badge">hover</span></h3><p>Baldur's Gate, pannable. Click a district to read about it.</p></li>
+    <li><h3>Places</h3><p>The three cities, the nine gates, and what is left of Elturel.</p></li>
+    <li><h3>Factions</h3><p>The Flaming Fist, the patriars, the Guild, and the cults nobody talks about.</p></li>
+  </ul>
+</div>
+
+<div class="frame dark">
+  <span class="mode">dark</span>
+  <div class="hero">
+    <p>A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be.</p>
+  </div>
+  <ul class="cards">
+    <li><h3>The Map<span class="badge" style="color:#d9603f;border-color:#d9603f">hover</span></h3><p>Baldur's Gate, pannable. Click a district to read about it.</p></li>
+    <li><h3>Places</h3><p>The three cities, the nine gates, and what is left of Elturel.</p></li>
+    <li><h3>Factions</h3><p>The Flaming Fist, the patriars, the Guild, and the cults nobody talks about.</p></li>
+  </ul>
+</div>
+
+<p class="spec">
+<b>Markup:</b> a <code>&lt;div class="hero"&gt;</code> or <code>&lt;div class="card-grid"&gt;</code> wrapped
+around ordinary Markdown. Blank lines are required around the div for the Markdown inside to parse, but
+<b>never inside raw HTML blocks</b>: a blank line there terminates the block and orphans everything after it
+into stray paragraphs.<br>
+<b>Hero:</b> Cinzel at 1.15rem, centred, <code>text-wrap: balance</code>. Rules top and bottom in
+<code>secondary</code>, with a rotated square straddling the top rule. The gradient fades out by 60% so the
+text never sits on a tint.<br>
+<b>Cards:</b> the first card above shows the hover state: left border moves from <code>secondary</code> to
+<code>tertiary</code>, a 2px lift, and a soft shadow. Minimum column 15rem, so the grid drops to one column
+on a phone rather than crushing.
+</p>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!-- @dsCard group="Callouts" name="Notice" subtitle="Official proclamation, centred, uppercase" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Callout: notice</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.55 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px}
+  .lede{color:#8a7c6c;margin:0 0 20px;max-width:70ch;font-size:13px}
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .frame{padding:20px;border-radius:6px;border:1px solid #e3dbcc}
+  .frame.dark{background:#17120f;border-color:#3a2f28}
+  .mode{font:10px/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+        color:#b0a08d;display:block;margin-bottom:12px}
+  .frame.dark .mode{color:#6b5a4d}
+
+  /* the component */
+  .notice{border:2px solid #4a3f35;background:#f6f2e9;padding:4px 20px 12px}
+  .notice .title{font:600 .95rem/1.3 'Cinzel',Georgia,serif;letter-spacing:.14em;
+        text-transform:uppercase;text-align:center;color:#4a3f35;padding-top:12px}
+  .notice .content{border-top:1px solid #e3dbcc;margin-top:10px;padding-top:10px;
+        text-align:center;font-size:.95rem}
+  .frame.dark .notice{border-color:#d8cfc4;background:#17120f}
+  .frame.dark .notice .title{color:#d8cfc4}
+  .frame.dark .notice .content{border-top-color:#3a2f28;color:#d8cfc4}
+
+  .spec{margin:22px 0 0;border-top:1px solid #e3dbcc;padding-top:14px;
+        font-size:12.5px;color:#7d6f60;max-width:74ch}
+  .spec b{color:#4a3f35}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Callout: notice</h1>
+<p class="lede">A proclamation nailed to a post. Used where the city is speaking officially at the players
+rather than a narrator describing something to them.</p>
+
+<div class="pair">
+  <div class="frame">
+    <span class="mode">light</span>
+    <div class="notice">
+      <div class="title">By Order of the Flaming Fist</div>
+      <div class="content">All able persons are subject to conscription for the duration of the present emergency. Refusal is a civil offense. Report to the Basilisk Gate.</div>
+    </div>
+  </div>
+  <div class="frame dark">
+    <span class="mode">dark</span>
+    <div class="notice">
+      <div class="title">By Order of the Flaming Fist</div>
+      <div class="content">All able persons are subject to conscription for the duration of the present emergency. Refusal is a civil offense. Report to the Basilisk Gate.</div>
+    </div>
+  </div>
+</div>
+
+<p class="spec">
+<b>Markdown:</b> <code>&gt; [!notice] By Order of the Flaming Fist</code><br>
+<b>Tokens:</b> border and text <code>darkgray</code>, ground <code>light</code>, divider <code>lightgray</code>.<br>
+<b>Rules:</b> square corners, never rounded, because it is a printed bill. Title centred, uppercase,
+0.14em tracking, Cinzel. The admonition icon is suppressed: this is a prop, not a warning.
+Content is centred, which is what separates it from ordinary body copy at a glance.
+</p>
+</body>
+</html>

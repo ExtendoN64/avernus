@@ -1,6 +1,86 @@
 @use "./variables.scss" as *;
 
 /* ==========================================================================
+   0. Nightwatch: extra tokens and type corrections
+   Quartz generates nine colour tokens from quartz.config.yaml. These four are
+   not among them.
+   ========================================================================== */
+
+:root {
+  /* Cinzel is reserved for section rules and nothing else. Loaded via the
+     second <link> in quartz/components/Head.tsx, not by theme.ts. */
+  --sectionFont: "Cinzel", Georgia, serif;
+
+  /* The infernal palette is deliberately NOT derived from --secondary.
+     The backdrop art was drawn against warm accents; once the palette moved to
+     plum and brass, hellfire drawn from --secondary turned brass too, which
+     defeats the whole effect. Keep these warm regardless of the theme so the
+     city can be any colour while the seepage is always fire. */
+  --infernal: #8b2f22;
+  --infernal-hot: #c25b3a;
+  --infernal-glow: #e8b342;
+}
+
+:root[saved-theme="dark"] {
+  --infernal: #d9603f;
+  --infernal-hot: #e8974f;
+  --infernal-glow: #f0c266;
+}
+
+/* --------------------------------------------------------------------------
+   IM Fell English ships a 400 cut only. Anything asking for 600/700 gets
+   browser-synthesised faux bold, which is muddy at display sizes. Size and
+   spacing carry the hierarchy instead.
+   -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page-title,
+article h1,
+article h2,
+article h3 {
+  font-weight: 400;
+}
+
+/* base.scss sets `a { font-weight: 600 }`, which targets heading anchors
+   DIRECTLY and so beats anything inherited from the h2 or h3. */
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  font-weight: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   IM Fell English has only old-style figures and its zero is an o-shape, with
+   no lining set to switch to. Left on the heading face, the explorer renders
+   the folder `00-Campaign` as `oo-Campaign`.
+   Anything that is signage rather than voice stays on the body font. This is
+   also the right editorial call.
+   -------------------------------------------------------------------------- */
+
+.explorer,
+.explorer button,
+.explorer a,
+.explorer-content,
+.explorer-ul,
+.explorer-toggle,
+.folder-button,
+.folder-title,
+.breadcrumb-container,
+.content-meta,
+.toc,
+.backlinks {
+  font-family: var(--bodyFont);
+}
+
+/* ==========================================================================
    Descent into Avernus: campaign wiki styling
    Layered on top of the parchment/infernal palette in quartz.config.yaml.
    Uses the theme's own CSS variables, so light and dark both track the config.
@@ -191,6 +271,28 @@
     padding-bottom: 0.4rem;
   }
 
+  /* Dateline strip under the masthead. Author it in the note as the first line
+     of the callout body:  *Baldur's Gate* ... *Third Edition*
+     rendered here as place left, edition right. */
+  .callout-content > p:first-child > em:first-child {
+    font-style: normal;
+  }
+
+  .dateline {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 0.7rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--lightgray);
+    font-family: var(--bodyFont);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray);
+    column-span: all;
+  }
+
   .callout-content {
     column-gap: 1.5rem;
     font-size: 0.92rem;
@@ -251,6 +353,48 @@
       font-size: 0.86rem;
     }
   }
+
+  /* Signature lines. Author in the note as:
+     <div class="signatures"><span>The party of the first part</span>
+     <span>of the second part</span></div>   */
+  .signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 1.6rem;
+
+    span {
+      display: block;
+      position: relative;
+      border-bottom: 1px solid var(--darkgray);
+      height: 1.6rem;
+
+      &::after {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        top: 1.75rem;
+        font-family: var(--bodyFont);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gray);
+        white-space: nowrap;
+      }
+    }
+
+    /* the mark, on the first line only */
+    span:first-child::before {
+      content: "\2717";
+      position: absolute;
+      left: 0.6rem;
+      bottom: 0.1rem;
+      font-family: var(--headerFont);
+      font-size: 1.3rem;
+      color: var(--secondary);
+      transform: rotate(-2deg);
+    }
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -292,11 +436,16 @@ article {
 article table {
   font-size: 0.93rem;
 
+  /* Column headers are signage, and they carry digits. Sans, per the handoff. */
   th {
-    font-family: var(--headerFont);
+    font-family: var(--bodyFont);
     font-weight: $semiBoldWeight;
-    letter-spacing: 0.03em;
-    background: var(--highlight);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    background: none;
+    border-bottom: 2px solid var(--secondary);
   }
 
   tbody tr:hover {
@@ -314,6 +463,668 @@ article table {
   border-radius: 4px;
   padding: 1.5rem;
   background: linear-gradient(to bottom, var(--highlight), transparent);
+}
+
+/* ==========================================================================
+   8. Page layouts
+   Three treatments: the broadsheet landing, the location template, and the
+   map page furniture. All keep the existing three-column Quartz shell and the
+   1200px / 800px breakpoints from variables.scss.
+   ========================================================================== */
+
+/* ---- section rules: THE WORLD / THE TABLE ----
+   Cinzel is the deliberate second voice here and nowhere else. Keeping it rare
+   is the entire point. */
+.section-rule {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0 1.5rem;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 1px;
+    background: var(--darkgray);
+  }
+
+  span {
+    font-family: var(--sectionFont);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--darkgray);
+    white-space: nowrap;
+  }
+}
+
+/* ---- a) the broadsheet landing ---- */
+
+/* The landing supplies its own masthead, so suppress the plugin-rendered
+   article title and reading-time meta there. Without this the page carries two
+   <h1>s with the same text, which it did before this change. */
+body[data-slug="index"] .page-header {
+  display: none;
+}
+
+.masthead {
+  margin: 0 0 1.5rem;
+
+  .epigraph {
+    text-align: center;
+    font-style: italic;
+    color: var(--gray);
+    margin: 0 0 0.75rem;
+    text-wrap: balance;
+  }
+
+  h1,
+  .masthead-title {
+    font-family: var(--headerFont);
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin: 0;
+    color: var(--dark);
+    text-wrap: balance;
+  }
+
+  @media #{$mobile} {
+    h1,
+    .masthead-title {
+      font-size: 2.1rem;
+    }
+  }
+}
+
+.masthead-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--lightgray);
+  border-bottom: 3px double var(--darkgray);
+  font-family: var(--bodyFont);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gray);
+
+  @media #{$mobile} {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+  }
+}
+
+.frontpage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+
+  > .lead {
+    flex: 3 1 22rem;
+    min-width: 0;
+
+    /* drop cap on the opening paragraph only */
+    > p:first-of-type::first-letter {
+      float: left;
+      font-family: var(--headerFont);
+      font-size: 3.1em;
+      line-height: 0.78;
+      padding: 0.06em 0.1em 0 0;
+      color: var(--secondary);
+    }
+  }
+
+  > .aside {
+    flex: 2 1 15rem;
+    min-width: 0;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--lightgray);
+
+    @media #{$mobile} {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid var(--lightgray);
+      padding-top: 1rem;
+    }
+  }
+}
+
+/* "In this issue" */
+.issue-box {
+  border: 2px solid var(--darkgray);
+  padding: 0.8rem 1rem 0.9rem;
+  margin-bottom: 1.25rem;
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--headerFont);
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--dark);
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: issue;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    counter-increment: issue;
+    display: grid;
+    grid-template-columns: 2.1rem 1fr;
+    gap: 0.4rem;
+    align-items: baseline;
+    padding: 0.28rem 0;
+    font-size: 0.88rem;
+
+    & + li {
+      border-top: 1px dotted var(--lightgray);
+    }
+
+    /* roman numerals, per the spec */
+    &::before {
+      content: counter(issue, upper-roman) ".";
+      font-family: var(--bodyFont);
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      color: var(--secondary);
+    }
+  }
+}
+
+/* ---- b) location pages ---- */
+
+/* District pages carry their own header (kicker, standfirst, chips, locator),
+   so the plugin-rendered title is suppressed on any page that has one. Keyed
+   off the markup rather than the slug, so it works wherever .loc-header is used
+   and never hides a title on a page that lacks one. */
+.page-header:has(+ article .loc-header) {
+  display: none;
+}
+
+.loc-header {
+  border-bottom: 3px double var(--darkgray);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: flex-start;
+
+  > .loc-headings {
+    flex: 1 1 20rem;
+    min-width: 0;
+  }
+
+  > .loc-locator {
+    flex: 0 0 auto;
+    width: 12rem;
+    max-width: 40%;
+
+    @media #{$mobile} {
+      display: none;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--lightgray);
+      border-radius: 3px;
+    }
+  }
+
+  .kicker {
+    font-family: var(--bodyFont);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gray);
+    margin: 0 0 0.35rem;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    line-height: 1.08;
+    margin: 0 0 0.4rem;
+    text-wrap: balance;
+  }
+
+  .standfirst {
+    font-style: italic;
+    color: var(--secondary);
+    margin: 0 0 0.6rem;
+    font-size: 1.02rem;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+
+  span {
+    font-family: var(--bodyFont);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    border: 1px solid var(--lightgray);
+    border-radius: 3px;
+    padding: 0.12rem 0.45rem;
+  }
+}
+
+.loc-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  > .loc-main {
+    flex: 1 1 340px;
+    min-width: 0;
+  }
+
+  > .loc-side {
+    flex: 0 1 250px;
+    min-width: 0;
+  }
+}
+
+.at-a-glance {
+  border: 2px solid var(--darkgray);
+  padding: 0.85rem 1rem 1rem;
+  position: sticky;
+  top: 2rem;
+
+  h3 {
+    margin: 0 0 0.6rem;
+    font-family: var(--headerFont);
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    font-family: var(--bodyFont);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray);
+    margin-top: 0.7rem;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  dd {
+    margin: 0.1rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+}
+
+/* rumours */
+.rumours blockquote,
+blockquote.rumour {
+  border-left: 3px solid var(--secondary);
+  background: linear-gradient(to right, var(--highlight), transparent 70%);
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.9rem;
+  font-style: normal;
+}
+
+/* ---- c) map page furniture ---- */
+
+.bg-map {
+  position: relative;
+}
+
+.bg-map-legend {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
+  z-index: 2;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--light) 90%, transparent);
+  backdrop-filter: blur(2px);
+  font-family: var(--bodyFont);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--darkgray);
+  max-width: 12rem;
+
+  b {
+    display: block;
+    font-family: var(--headerFont);
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+    color: var(--dark);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.12rem 0;
+  }
+
+  i {
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 0;
+    border-top-style: solid;
+
+    &.k-oldwall {
+      border-top: 4px solid var(--secondary);
+    }
+    &.k-wall {
+      border-top: 4px solid var(--darkgray);
+    }
+    &.k-road {
+      border-top: 2px dashed var(--gray);
+    }
+  }
+
+  .k-gate {
+    flex: 0 0 auto;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--secondary);
+    border: 1.5px solid var(--light);
+  }
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+/* gate cross-referencing: hovering a row in the gates table rings that gate */
+/* Animating the SVG `r` geometry property from CSS is patchy across engines,
+   so this breathes on opacity and stroke width instead, which is universal. */
+@keyframes bgm-gate-breathe {
+  0%,
+  100% {
+    opacity: 0.3;
+    stroke-width: 3;
+  }
+  50% {
+    opacity: 1;
+    stroke-width: 6;
+  }
+}
+
+.bgm-gate .bgm-ring {
+  fill: none;
+  stroke: var(--infernal-hot);
+  stroke-width: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bgm-gate .bgm-ring.is-lit {
+  animation: bgm-gate-breathe 1.2s ease-in-out infinite;
+}
+
+tr[data-gate] {
+  cursor: help;
+}
+tr[data-gate]:hover {
+  background: var(--highlight);
+}
+
+/* ==========================================================================
+   7. Infernal backdrop
+   Markup: quartz/components/HellscapeBackdrop.tsx, rendered once by Body.tsx.
+   Every var() carries a fallback, so with JS disabled this degrades to a
+   static graphic instead of vanishing.
+   ========================================================================== */
+
+@keyframes afa-ember {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.7);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-210px) translateX(16px) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes afa-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes afa-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hellscape {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* content paints above the backdrop */
+#quartz-body {
+  position: relative;
+  z-index: 1;
+}
+
+.hellscape-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(34vh, 320px);
+  opacity: 0.55;
+  /* dissolve before it reaches body copy */
+  mask-image: linear-gradient(
+    to top,
+    rgb(0 0 0) 0%,
+    rgb(0 0 0) 34%,
+    rgb(0 0 0 / 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgb(0 0 0) 0%,
+    rgb(0 0 0) 34%,
+    rgb(0 0 0 / 0) 100%
+  );
+}
+
+.hellscape-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--infernal, var(--secondary)) 55%, transparent),
+    color-mix(in srgb, var(--infernal-hot, var(--tertiary)) 22%, transparent) 34%,
+    transparent 72%
+  );
+  opacity: var(--afa-glow, 0.16);
+  animation: afa-breathe 11s ease-in-out infinite;
+}
+
+.hellscape-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---- gradient stops ---- */
+.hs-stop-glow {
+  stop-color: var(--infernal-glow, var(--textHighlight));
+}
+.hs-stop-hot {
+  stop-color: var(--infernal-hot, var(--tertiary));
+}
+.hs-stop-base {
+  stop-color: var(--infernal, var(--secondary));
+}
+
+/* ---- skyline ----
+   Silhouettes must use --darkgray, NOT --gray. --darkgray inverts between
+   modes, so the city keeps contrast against the ground either way; a mid-grey
+   vanishes in dark mode. */
+.hs-far {
+  opacity: 0.3;
+  transform: translateY(var(--afa-par2, 0px)) skewX(var(--afa-skew, 0deg));
+  transform-origin: 50% 100%;
+}
+.hs-far-fill {
+  fill: var(--gray);
+}
+.hs-near {
+  opacity: 0.3;
+  transform: translateY(var(--afa-par1, 0px));
+}
+.hs-near-fill {
+  fill: var(--darkgray);
+}
+.hs-masts {
+  fill: none;
+  stroke: var(--darkgray);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.45;
+}
+
+/* ---- brickwork ---- */
+.hs-brickface {
+  fill: var(--darkgray);
+}
+.hs-brick {
+  opacity: var(--afa-brick, 0.24);
+}
+.hs-brickline {
+  stroke: var(--darkgray);
+  stroke-width: 3;
+  opacity: 0.3;
+}
+
+/* ---- glow pooling in the mortar ---- */
+.hs-joints {
+  opacity: var(--afa-corrupt, 0.22);
+  mix-blend-mode: multiply;
+}
+
+/* ---- crack veins ----
+   Staggered thresholds are what make corruption compound rather than merely
+   brighten: early sessions light one or two, later ones light the rest. */
+.hs-veins {
+  fill: none;
+  stroke: url(#afa-seepgrad);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hs-branch {
+  stroke-width: 1.4;
+}
+.hs-vjoint {
+  stroke-width: 1.3;
+  opacity: var(--afa-vjoint, 0);
+}
+
+@for $i from 1 through 8 {
+  .hs-v#{$i} {
+    opacity: var(--afa-v#{$i}, 0);
+  }
+}
+
+/* ---- the doubled skyline, a few pixels out of register ---- */
+.hs-ghost {
+  opacity: var(--afa-ghost, 0);
+  mix-blend-mode: multiply;
+
+  path {
+    fill: var(--infernal, var(--secondary));
+  }
+}
+
+/* ---- embers ---- */
+.hellscape-embers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70%;
+  opacity: var(--afa-embers, 0);
+
+  span {
+    position: absolute;
+    border-radius: 50%;
+    animation-name: afa-ember;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .is-hot {
+    background: var(--infernal-hot, var(--tertiary));
+  }
+  .is-glow {
+    background: var(--infernal-glow, var(--textHighlight));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hellscape-glow,
+  .hellscape-embers span,
+  .hs-veins path {
+    animation: none !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -482,7 +1293,8 @@ a:hover .bgm-region path {
   text {
     fill: var(--secondary);
     font-size: 15px;
-    font-weight: 700;
+    /* IM Fell has no bold cut: 400 everywhere on the map lettering */
+    font-weight: 400;
     letter-spacing: 0.04em;
     text-anchor: middle;
     paint-order: stroke;
@@ -505,7 +1317,7 @@ a:hover .bgm-region path {
 .bgm-district {
   fill: var(--darkgray);
   font-size: 27px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.18em;
 }
 
@@ -519,7 +1331,7 @@ a:hover .bgm-region path {
 .bgm-water-label {
   fill: var(--gray);
   font-size: 19px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.22em;
 }
 
@@ -550,7 +1362,7 @@ a:hover .bgm-region path {
   text {
     fill: var(--darkgray);
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 400;
     text-anchor: middle;
   }
 }
@@ -566,7 +1378,7 @@ a:hover .bgm-region path {
   .bgm-title {
     fill: var(--darkgray);
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.13em;
   }
   .bgm-subtitle {

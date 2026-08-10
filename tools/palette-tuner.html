@@ -1,0 +1,737 @@
+<title>Palette Tuner &mdash; Ascent from Avernus</title>
+<style>
+  /* ---------------------------------------------------------------
+     Chrome tokens. Bare :root is the complete light palette.
+     Dark is redefined twice: once for system preference (guarded so an
+     explicit light choice still wins), once for an explicit dark stamp.
+     Every component reads tokens only, never a literal.
+     --------------------------------------------------------------- */
+  :root {
+    --paper: #faf9f5;
+    --raised: #f0eee6;
+    --sunk: #eceadf;
+    --ink: #1f1e1d;
+    --muted: #6f6e69;
+    --line: #e5e3dc;
+    --clay: #c96442;
+    --clay-soft: rgba(201, 100, 66, 0.10);
+    --good: #3f7a52;
+    --bad: #a93b2a;
+
+    --serif: Georgia, "Iowan Old Style", "Source Serif 4", "Times New Roman", serif;
+    --ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+
+    --step: 0.35rem;
+    --radius: 5px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #262624;
+      --raised: #1f1e1d;
+      --sunk: #1a1a18;
+      --ink: #f5f4ef;
+      --muted: #8b8b8b;
+      --line: #3e3e3c;
+      --clay: #d4714e;
+      --clay-soft: rgba(212, 113, 78, 0.14);
+      --good: #6aab7f;
+      --bad: #e07a63;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #262624;
+    --raised: #1f1e1d;
+    --sunk: #1a1a18;
+    --ink: #f5f4ef;
+    --muted: #8b8b8b;
+    --line: #3e3e3c;
+    --clay: #d4714e;
+    --clay-soft: rgba(212, 113, 78, 0.14);
+    --good: #6aab7f;
+    --bad: #e07a63;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--ui);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  /* ---------------- header ---------------- */
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 1.5rem 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .titles { display: flex; flex-direction: column; gap: 0.15rem; }
+
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .sub { margin: 0; color: var(--muted); font-size: 0.9rem; max-width: 62ch; }
+
+  .presets { display: flex; flex-wrap: wrap; gap: var(--step); align-items: center; }
+
+  .presets .label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+    margin-right: 0.3rem;
+  }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--raised);
+    color: var(--ink);
+    padding: 0.34rem 0.7rem;
+    font-size: 0.85rem;
+    transition: border-color 0.12s ease, color 0.12s ease;
+  }
+  button:hover { border-color: var(--clay); color: var(--clay); }
+  button[aria-pressed="true"] { border-color: var(--clay); color: var(--clay); background: var(--clay-soft); }
+
+  /* ---------------- layout ---------------- */
+
+  main {
+    display: grid;
+    grid-template-columns: 20rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 1.75rem 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 940px) {
+    main { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  aside { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  fieldset {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.9rem 0.9rem 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    background: var(--raised);
+  }
+
+  legend {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+    padding: 0 0.4rem;
+  }
+
+  .row { display: grid; grid-template-columns: 1fr auto auto; gap: 0.5rem; align-items: center; }
+  .row label { font-size: 0.82rem; }
+  .row .hint { display: block; color: var(--muted); font-size: 0.72rem; }
+
+  input[type="color"] {
+    inline-size: 2rem;
+    block-size: 1.6rem;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: none;
+    cursor: pointer;
+  }
+
+  input[type="number"], select {
+    font: inherit;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.3rem;
+    inline-size: 4.1rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  select { inline-size: 100%; }
+
+  .field { display: flex; flex-direction: column; gap: 0.2rem; }
+  .field > span { font-size: 0.78rem; color: var(--muted); }
+
+  /* ---------------- contrast readout ---------------- */
+
+  .checks { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .check {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  .check .ratio { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  .pill {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 99px;
+    border: 1px solid currentColor;
+  }
+  .pill.pass { color: var(--good); }
+  .pill.fail { color: var(--bad); }
+
+  /* ---------------- preview ---------------- */
+
+  .stage { display: flex; flex-direction: column; gap: 0.9rem; min-width: 0; }
+
+  .stage-bar { display: flex; gap: var(--step); align-items: center; flex-wrap: wrap; }
+  .stage-bar .spacer { flex: 1; }
+  .stage-bar .note { color: var(--muted); font-size: 0.8rem; }
+
+  .device {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* the mock owns its own palette via --w-* vars set from JS */
+  .wiki {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr);
+    background: var(--w-light);
+    color: var(--w-darkgray);
+    font-family: var(--w-body);
+    min-block-size: 30rem;
+  }
+  @media (max-width: 620px) {
+    .wiki { grid-template-columns: minmax(0, 1fr); }
+    .wiki .rail { display: none; }
+  }
+
+  .rail {
+    background: var(--w-lightgray);
+    border-right: 1px solid var(--w-lightgray);
+    padding: 1rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .rail .brand {
+    font-family: var(--w-header);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--w-dark);
+    line-height: 1.25;
+  }
+  .rail .search {
+    font-size: 0.72rem;
+    color: var(--w-gray);
+    border: 1px solid var(--w-gray);
+    border-radius: 3px;
+    padding: 0.2rem 0.4rem;
+    opacity: 0.7;
+  }
+  .rail nav { display: flex; flex-direction: column; gap: 0.28rem; }
+  .rail a { color: var(--w-secondary); font-size: 0.8rem; text-decoration: none; }
+  .rail a.dim { color: var(--w-gray); }
+
+  .sheet { padding: 1.3rem 1.5rem 1.8rem; display: flex; flex-direction: column; gap: 0.85rem; min-width: 0; }
+
+  .crumb { font-size: 0.72rem; color: var(--w-gray); }
+
+  .sheet h2 {
+    margin: 0;
+    font-family: var(--w-header);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--w-dark);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .sheet h3 {
+    margin: 0.4rem 0 0;
+    font-family: var(--w-header);
+    font-size: 1rem;
+    color: var(--w-dark);
+    border-bottom: 1px solid var(--w-lightgray);
+    padding-bottom: 0.25rem;
+  }
+  .sheet p { margin: 0; font-size: 0.88rem; }
+  .sheet a { color: var(--w-secondary); }
+  .sheet .mark { background: var(--w-textHighlight); padding: 0 0.15rem; }
+
+  .broadsheet {
+    border: none;
+    background: var(--w-light);
+    box-shadow: 0 1px 0 var(--w-lightgray), 0 5px 14px rgba(0, 0, 0, 0.10);
+    padding: 0.8rem 1rem 0.9rem;
+    transform: rotate(-0.4deg);
+  }
+  .broadsheet .head {
+    font-family: var(--w-header);
+    font-size: 0.95rem;
+    text-align: center;
+    color: var(--w-dark);
+    border-bottom: 3px double var(--w-darkgray);
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
+  }
+  .broadsheet p { font-size: 0.78rem; text-align: justify; }
+
+  .contract {
+    border: 1px solid var(--w-secondary);
+    background: var(--w-highlight);
+    padding: 0.6rem 0.9rem 0.7rem;
+  }
+  .contract .head {
+    font-family: var(--w-header);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--w-secondary);
+    margin-bottom: 0.25rem;
+  }
+  .contract p { font-family: var(--w-code); font-size: 0.74rem; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.6rem; }
+  .card {
+    border: 1px solid var(--w-lightgray);
+    border-left: 3px solid var(--w-secondary);
+    border-radius: 4px;
+    padding: 0.55rem 0.7rem;
+    background: var(--w-light);
+  }
+  .card b { font-family: var(--w-header); color: var(--w-dark); font-size: 0.85rem; display: block; }
+  .card span { color: var(--w-gray); font-size: 0.74rem; }
+
+  .maprow { display: flex; flex-direction: column; gap: 0.3rem; }
+  .maprow .cap { font-size: 0.72rem; color: var(--w-gray); }
+  .mapstrip { display: block; inline-size: 100%; block-size: auto; border: 1px solid var(--w-lightgray); border-radius: 3px; }
+
+  /* ---------------- export ---------------- */
+
+  .export { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 0.6rem; }
+  .export .bar { display: flex; gap: var(--step); align-items: center; }
+  .export .bar .spacer { flex: 1; }
+
+  pre {
+    margin: 0;
+    background: var(--sunk);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<header>
+  <div class="titles">
+    <h1>Palette Tuner</h1>
+    <p class="sub">
+      Every colour below maps to one variable in <code>quartz.config.yaml</code>. The preview is a mock of your
+      actual wiki, callouts and map strip included, so you can see what a change costs before you build it.
+      Paste the YAML at the bottom, or tell me the preset name and I will apply it.
+    </p>
+  </div>
+  <div class="presets">
+    <span class="label">Preset</span>
+    <button type="button" data-preset="avernus">avernus (current)</button>
+    <button type="button" data-preset="claude">claude</button>
+    <button type="button" data-preset="claude-cinzel">claude-cinzel</button>
+    <button type="button" data-preset="claude-ember">claude-ember</button>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <fieldset>
+      <legend>Typography</legend>
+      <div class="field">
+        <span>Headings</span>
+        <select id="fHeader">
+          <option>Cinzel</option>
+          <option>Source Serif 4</option>
+          <option>Lora</option>
+          <option>EB Garamond</option>
+          <option>Spectral</option>
+          <option>Inter</option>
+        </select>
+      </div>
+      <div class="field">
+        <span>Body</span>
+        <select id="fBody">
+          <option>Inter</option>
+          <option>Source Sans Pro</option>
+          <option>Public Sans</option>
+          <option>Source Serif 4</option>
+        </select>
+      </div>
+      <div class="field">
+        <span>Code</span>
+        <select id="fCode">
+          <option>JetBrains Mono</option>
+          <option>IBM Plex Mono</option>
+          <option>Source Code Pro</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Readability</legend>
+      <div class="checks" id="checks"></div>
+      <p class="sub" style="font-size:0.75rem;margin-top:0.2rem">
+        WCAG AA wants 4.5 for body text and 3.0 for large headings.
+      </p>
+    </fieldset>
+
+    <fieldset id="controls">
+      <legend>Colours <span id="modeTag"></span></legend>
+    </fieldset>
+  </aside>
+
+  <section class="stage">
+    <div class="stage-bar">
+      <button type="button" id="mLight" aria-pressed="true">Light mode</button>
+      <button type="button" id="mDark" aria-pressed="false">Dark mode</button>
+      <span class="spacer"></span>
+      <span class="note" id="editing"></span>
+    </div>
+
+    <div class="device">
+      <div class="wiki" id="wiki">
+        <div class="rail">
+          <div class="brand">Ascent from Avernus</div>
+          <div class="search">Search</div>
+          <nav>
+            <a href="#" onclick="return false">Places</a>
+            <a href="#" onclick="return false">Factions</a>
+            <a href="#" onclick="return false">People</a>
+            <a href="#" onclick="return false">Open Threads</a>
+            <a href="#" class="dim" onclick="return false">Session Recaps</a>
+          </nav>
+        </div>
+
+        <div class="sheet">
+          <div class="crumb">Home / Open Threads / The Vanished City</div>
+          <h2>The Vanished City</h2>
+
+          <div class="broadsheet">
+            <div class="head">THE BALDUR'S MOUTH</div>
+            <p>
+              Council concludes a third closed session without issuing a statement on the fate of Elturel.
+              Refugee numbers at Rivington are past what the temples can feed.
+            </p>
+          </div>
+
+          <p>
+            Elturel is gone. Not sacked, not burned. Gone, along with everyone in it, leaving a shape in the
+            landscape and a river of refugees heading downstream. <a href="#" onclick="return false">Ulder Ravengard</a>
+            was inside it. There has been <span class="mark">no word</span> since.
+          </p>
+
+          <h3>Leads</h3>
+          <div class="cards">
+            <div class="card"><b>Refugees</b><span>Accounts that agree on nothing</span></div>
+            <div class="card"><b>The Fist</b><span>What they have not made public</span></div>
+          </div>
+
+          <div class="contract">
+            <div class="head">Terms of Agreement</div>
+            <p>4. This agreement is binding upon signature and is not dissolved by the death of either party.</p>
+          </div>
+
+          <div class="maprow">
+            <span class="cap">Map colours: land, water, Old Wall, city wall, gate markers</span>
+            <svg class="mapstrip" viewBox="0 0 600 84" role="img" aria-label="Strip showing how the city map reads in this palette">
+              <rect x="0" y="0" width="600" height="84" style="fill: var(--w-light)"></rect>
+              <path d="M0,58 Q90,52 170,60 Q230,66 268,44 Q320,30 372,42 Q408,52 424,62 Q500,70 600,66 L600,84 L0,84 Z" style="fill: var(--w-lightgray)"></path>
+              <path d="M150,56 L142,30 Q160,12 230,10 Q300,8 330,26 Q344,42 340,56 Z" style="fill: var(--w-highlight); stroke: var(--w-secondary); stroke-width: 4"></path>
+              <path d="M150,56 Q120,66 118,80" style="fill: none; stroke: var(--w-darkgray); stroke-width: 3.5"></path>
+              <path d="M340,56 Q372,64 380,78" style="fill: none; stroke: var(--w-darkgray); stroke-width: 3.5"></path>
+              <circle cx="238" cy="10" r="4.5" style="fill: var(--w-secondary); stroke: var(--w-light); stroke-width: 1.8"></circle>
+              <circle cx="150" cy="56" r="4.5" style="fill: var(--w-secondary); stroke: var(--w-light); stroke-width: 1.8"></circle>
+              <circle cx="340" cy="56" r="4.5" style="fill: var(--w-secondary); stroke: var(--w-light); stroke-width: 1.8"></circle>
+              <text x="244" y="40" style="fill: var(--w-darkgray); font-family: var(--w-header); font-size: 13px; font-weight: 700; letter-spacing: 2px">UPPER CITY</text>
+              <text x="470" y="40" style="fill: var(--w-gray); font-family: var(--w-body); font-size: 11px; font-style: italic">Outer City</text>
+              <text x="40" y="78" style="fill: var(--w-gray); font-family: var(--w-body); font-size: 10px; font-weight: 700; letter-spacing: 2px">CHIONTHAR</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="export">
+    <div class="bar">
+      <strong style="font-family:var(--serif);font-size:1rem">quartz.config.yaml</strong>
+      <span class="spacer"></span>
+      <button type="button" id="copy">Copy</button>
+    </div>
+    <pre id="yaml"></pre>
+  </div>
+</main>
+
+<script>
+  const KEYS = [
+    ["light", "page background"],
+    ["lightgray", "borders, sidebar"],
+    ["gray", "muted text"],
+    ["darkgray", "body text"],
+    ["dark", "headings"],
+    ["secondary", "links, Old Wall, gates"],
+    ["tertiary", "hover accent"],
+    ["highlight", "callout tint"],
+    ["textHighlight", "marked text"]
+  ];
+  /* highlight and textHighlight carry alpha, handled separately */
+  const ALPHA = { highlight: true, textHighlight: true };
+
+  const PRESETS = {
+    "avernus": {
+      typography: { header: "Cinzel", body: "Source Sans Pro", code: "IBM Plex Mono" },
+      lightMode: { light: "#f6f2e9", lightgray: "#e3dbcc", gray: "#b0a08d", darkgray: "#4a3f35", dark: "#2a1f1a", secondary: "#8b2f22", tertiary: "#c25b3a", highlight: "#8b2f22", highlightA: 0.10, textHighlight: "#e8b342", textHighlightA: 0.53 },
+      darkMode: { light: "#17120f", lightgray: "#3a2f28", gray: "#6b5a4d", darkgray: "#d8cfc4", dark: "#f0e6d8", secondary: "#d9603f", tertiary: "#e8974f", highlight: "#d9603f", highlightA: 0.12, textHighlight: "#b35602", textHighlightA: 0.53 }
+    },
+    "claude": {
+      typography: { header: "Source Serif 4", body: "Inter", code: "JetBrains Mono" },
+      lightMode: { light: "#faf9f5", lightgray: "#e8e6dc", gray: "#9a9890", darkgray: "#3d3d3a", dark: "#1f1e1d", secondary: "#c96442", tertiary: "#d97757", highlight: "#c96442", highlightA: 0.09, textHighlight: "#dba85c", textHighlightA: 0.33 },
+      darkMode: { light: "#262624", lightgray: "#3e3e3c", gray: "#8b8b8b", darkgray: "#d6d4cc", dark: "#f5f4ef", secondary: "#d4714e", tertiary: "#e08a63", highlight: "#d4714e", highlightA: 0.13, textHighlight: "#c96442", textHighlightA: 0.33 }
+    },
+    "claude-cinzel": {
+      typography: { header: "Cinzel", body: "Inter", code: "JetBrains Mono" },
+      lightMode: { light: "#faf9f5", lightgray: "#e8e6dc", gray: "#9a9890", darkgray: "#3d3d3a", dark: "#1f1e1d", secondary: "#c96442", tertiary: "#d97757", highlight: "#c96442", highlightA: 0.09, textHighlight: "#dba85c", textHighlightA: 0.33 },
+      darkMode: { light: "#262624", lightgray: "#3e3e3c", gray: "#8b8b8b", darkgray: "#d6d4cc", dark: "#f5f4ef", secondary: "#d4714e", tertiary: "#e08a63", highlight: "#d4714e", highlightA: 0.13, textHighlight: "#c96442", textHighlightA: 0.33 }
+    },
+    "claude-ember": {
+      typography: { header: "Cinzel", body: "Inter", code: "JetBrains Mono" },
+      lightMode: { light: "#faf9f5", lightgray: "#e8e4d8", gray: "#a09a8c", darkgray: "#3d3a35", dark: "#1f1d1a", secondary: "#a83f28", tertiary: "#d97757", highlight: "#a83f28", highlightA: 0.09, textHighlight: "#dba85c", textHighlightA: 0.33 },
+      darkMode: { light: "#24211f", lightgray: "#3e3a36", gray: "#8a827a", darkgray: "#d8d2c8", dark: "#f5f2ea", secondary: "#e0764c", tertiary: "#eb9a63", highlight: "#e0764c", highlightA: 0.13, textHighlight: "#b35602", textHighlightA: 0.33 }
+    }
+  };
+
+  const FONT_STACK = {
+    "Cinzel": "'Cinzel', Georgia, serif",
+    "Source Serif 4": "Georgia, 'Times New Roman', serif",
+    "Lora": "Georgia, serif",
+    "EB Garamond": "Garamond, Georgia, serif",
+    "Spectral": "Georgia, serif",
+    "Inter": "system-ui, 'Segoe UI', sans-serif",
+    "Source Sans Pro": "system-ui, 'Segoe UI', sans-serif",
+    "Public Sans": "system-ui, sans-serif",
+    "JetBrains Mono": "ui-monospace, Consolas, monospace",
+    "IBM Plex Mono": "ui-monospace, Consolas, monospace",
+    "Source Code Pro": "ui-monospace, Consolas, monospace"
+  };
+
+  let state = structuredClone(PRESETS["claude-cinzel"]);
+  let mode = "lightMode";
+
+  const $ = (id) => document.getElementById(id);
+  const wiki = $("wiki");
+
+  /* ---------- colour maths ---------- */
+
+  function toRgb(hex) {
+    const h = hex.replace("#", "");
+    const f = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+    return [parseInt(f.slice(0, 2), 16), parseInt(f.slice(2, 4), 16), parseInt(f.slice(4, 6), 16)];
+  }
+  function lum(hex) {
+    const [r, g, b] = toRgb(hex).map((v) => {
+      const s = v / 255;
+      return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+  function ratio(a, b) {
+    const la = lum(a), lb = lum(b);
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+  }
+  function rgba(hex, a) {
+    const [r, g, b] = toRgb(hex);
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+  }
+  function hex8(hex, a) {
+    return hex + Math.round(Math.max(0, Math.min(1, a)) * 255).toString(16).padStart(2, "0");
+  }
+
+  /* ---------- render ---------- */
+
+  function paintPreview() {
+    const c = state[mode];
+    for (const [k] of KEYS) {
+      if (ALPHA[k]) continue;
+      wiki.style.setProperty("--w-" + k, c[k]);
+    }
+    wiki.style.setProperty("--w-highlight", rgba(c.highlight, c.highlightA));
+    wiki.style.setProperty("--w-textHighlight", rgba(c.textHighlight, c.textHighlightA));
+    wiki.style.setProperty("--w-header", FONT_STACK[state.typography.header] || "Georgia, serif");
+    wiki.style.setProperty("--w-body", FONT_STACK[state.typography.body] || "system-ui, sans-serif");
+    wiki.style.setProperty("--w-code", FONT_STACK[state.typography.code] || "ui-monospace, monospace");
+  }
+
+  function buildControls() {
+    const box = $("controls");
+    box.querySelectorAll(".row").forEach((n) => n.remove());
+    const c = state[mode];
+    for (const [k, hint] of KEYS) {
+      const row = document.createElement("div");
+      row.className = "row";
+      const alphaInput = ALPHA[k]
+        ? `<input type="number" min="0" max="1" step="0.01" value="${c[k + "A"]}" data-alpha="${k}" aria-label="${k} opacity">`
+        : `<span></span>`;
+      row.innerHTML = `
+        <label for="c-${k}">${k}<span class="hint">${hint}</span></label>
+        ${alphaInput}
+        <input type="color" id="c-${k}" value="${c[k]}" data-key="${k}">`;
+      box.appendChild(row);
+    }
+    box.querySelectorAll('input[type="color"]').forEach((i) =>
+      i.addEventListener("input", (e) => {
+        state[mode][e.target.dataset.key] = e.target.value;
+        refresh(false);
+      })
+    );
+    box.querySelectorAll('input[type="number"]').forEach((i) =>
+      i.addEventListener("input", (e) => {
+        const v = parseFloat(e.target.value);
+        if (!Number.isNaN(v)) { state[mode][e.target.dataset.alpha + "A"] = v; refresh(false); }
+      })
+    );
+  }
+
+  function paintChecks() {
+    const c = state[mode];
+    const tests = [
+      ["Body text on background", ratio(c.darkgray, c.light), 4.5],
+      ["Headings on background", ratio(c.dark, c.light), 3.0],
+      ["Links on background", ratio(c.secondary, c.light), 4.5],
+      ["Muted text on background", ratio(c.gray, c.light), 4.5]
+    ];
+    $("checks").innerHTML = tests
+      .map(([name, r, need]) => {
+        const ok = r >= need;
+        return `<div class="check"><span>${name}</span>
+          <span class="ratio">${r.toFixed(2)}</span>
+          <span class="pill ${ok ? "pass" : "fail"}">${ok ? "pass" : "low"}</span></div>`;
+      })
+      .join("");
+  }
+
+  function paintYaml() {
+    const q = (k, v) => `        ${k}: "${v}"`;
+    const block = (name, c) =>
+      [`      ${name}:`,
+        q("light", c.light), q("lightgray", c.lightgray), q("gray", c.gray),
+        q("darkgray", c.darkgray), q("dark", c.dark), q("secondary", c.secondary),
+        q("tertiary", c.tertiary),
+        `        highlight: ${rgba(c.highlight, c.highlightA)}`,
+        q("textHighlight", hex8(c.textHighlight, c.textHighlightA))
+      ].join("\n");
+
+    $("yaml").textContent = [
+      "  theme:",
+      "    fontOrigin: googleFonts",
+      "    cdnCaching: true",
+      "    typography:",
+      `      header: ${state.typography.header}`,
+      `      body: ${state.typography.body}`,
+      `      code: ${state.typography.code}`,
+      "    colors:",
+      block("lightMode", state.lightMode),
+      block("darkMode", state.darkMode)
+    ].join("\n");
+  }
+
+  function refresh(rebuild = true) {
+    if (rebuild) buildControls();
+    paintPreview();
+    paintChecks();
+    paintYaml();
+    $("modeTag").textContent = mode === "lightMode" ? "(light)" : "(dark)";
+    $("editing").textContent = "Editing " + (mode === "lightMode" ? "light" : "dark") + " mode values";
+  }
+
+  /* ---------- wiring ---------- */
+
+  document.querySelectorAll("[data-preset]").forEach((b) =>
+    b.addEventListener("click", () => {
+      state = structuredClone(PRESETS[b.dataset.preset]);
+      document.querySelectorAll("[data-preset]").forEach((o) => o.setAttribute("aria-pressed", String(o === b)));
+      $("fHeader").value = state.typography.header;
+      $("fBody").value = state.typography.body;
+      $("fCode").value = state.typography.code;
+      refresh();
+    })
+  );
+
+  for (const [id, key] of [["fHeader", "header"], ["fBody", "body"], ["fCode", "code"]]) {
+    $(id).addEventListener("change", (e) => { state.typography[key] = e.target.value; refresh(false); });
+  }
+
+  $("mLight").addEventListener("click", () => {
+    mode = "lightMode";
+    $("mLight").setAttribute("aria-pressed", "true");
+    $("mDark").setAttribute("aria-pressed", "false");
+    refresh();
+  });
+  $("mDark").addEventListener("click", () => {
+    mode = "darkMode";
+    $("mDark").setAttribute("aria-pressed", "true");
+    $("mLight").setAttribute("aria-pressed", "false");
+    refresh();
+  });
+
+  $("copy").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText($("yaml").textContent);
+      $("copy").textContent = "Copied";
+      setTimeout(() => ($("copy").textContent = "Copy"), 1400);
+    } catch {
+      $("copy").textContent = "Select it manually";
+      setTimeout(() => ($("copy").textContent = "Copy"), 2000);
+    }
+  });
+
+  document.querySelector('[data-preset="claude-cinzel"]').setAttribute("aria-pressed", "true");
+  $("fHeader").value = state.typography.header;
+  $("fBody").value = state.typography.body;
+  $("fCode").value = state.typography.code;
+  refresh();
+</script>

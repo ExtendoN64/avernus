@@ -1,0 +1,87 @@
+<!-- @dsCard group="Foundations" name="Colour tokens" subtitle="Nine Quartz variables, light and dark" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Colour tokens</title>
+<style>
+  :root {
+    --l-light:#f6f2e9; --l-lightgray:#e3dbcc; --l-gray:#b0a08d; --l-darkgray:#4a3f35;
+    --l-dark:#2a1f1a; --l-secondary:#8b2f22; --l-tertiary:#c25b3a;
+    --l-highlight:rgba(139,47,34,0.10); --l-textHighlight:#e8b34288;
+    --d-light:#17120f; --d-lightgray:#3a2f28; --d-gray:#6b5a4d; --d-darkgray:#d8cfc4;
+    --d-dark:#f0e6d8; --d-secondary:#d9603f; --d-tertiary:#e8974f;
+    --d-highlight:rgba(217,96,63,0.12); --d-textHighlight:#b3560288;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#2a1f1a;
+       font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;margin:0 0 4px;letter-spacing:.02em}
+  .lede{color:#7d6f60;margin:0 0 20px;max-width:66ch;font-size:13px}
+  .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  section{border:1px solid #e3dbcc;border-radius:6px;overflow:hidden}
+  section > h2{margin:0;padding:8px 12px;font:600 11px/1 system-ui,sans-serif;
+       letter-spacing:.12em;text-transform:uppercase;color:#7d6f60;
+       background:#efe9dc;border-bottom:1px solid #e3dbcc}
+  table{width:100%;border-collapse:collapse}
+  td{padding:7px 12px;border-bottom:1px solid #efe9dc;vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  .sw{width:34px}
+  .chip{width:26px;height:26px;border-radius:4px;border:1px solid rgba(0,0,0,.18);
+        display:block}
+  .name{font:600 12.5px/1.3 ui-monospace,Consolas,monospace}
+  .role{color:#8a7c6c;font-size:11.5px;display:block;font-family:system-ui,sans-serif}
+  .hex{font:12px/1 ui-monospace,Consolas,monospace;color:#7d6f60;text-align:right;
+       white-space:nowrap;font-variant-numeric:tabular-nums}
+  .dark-preview{background:#17120f}
+  .dark-preview td{border-bottom-color:#241d18}
+  .dark-preview .name{color:#f0e6d8}
+  .dark-preview .role,.dark-preview .hex{color:#8a7869}
+  .note{margin:18px 0 0;font-size:12px;color:#8a7c6c;max-width:70ch}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Colour tokens</h1>
+<p class="lede">The complete palette. These nine names are Quartz's, set in
+<code>quartz.config.yaml</code> under <code>configuration.theme.colors</code>, and every rule in
+<code>custom.scss</code> reads them rather than hard-coding a value. Changing a token here changes
+the whole site, including the city map.</p>
+
+<div class="modes">
+  <section>
+    <h2>Light mode</h2>
+    <table>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-light)"></span></td><td><span class="name">light</span><span class="role">page background</span></td><td class="hex">#f6f2e9</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-lightgray)"></span></td><td><span class="name">lightgray</span><span class="role">borders, sidebar, rules</span></td><td class="hex">#e3dbcc</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-gray)"></span></td><td><span class="name">gray</span><span class="role">muted text, captions</span></td><td class="hex">#b0a08d</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-darkgray)"></span></td><td><span class="name">darkgray</span><span class="role">body text</span></td><td class="hex">#4a3f35</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-dark)"></span></td><td><span class="name">dark</span><span class="role">headings</span></td><td class="hex">#2a1f1a</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-secondary)"></span></td><td><span class="name">secondary</span><span class="role">links, Old Wall, gate markers</span></td><td class="hex">#8b2f22</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-tertiary)"></span></td><td><span class="name">tertiary</span><span class="role">hover accent</span></td><td class="hex">#c25b3a</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-highlight)"></span></td><td><span class="name">highlight</span><span class="role">callout tint, link background</span></td><td class="hex">rgba(139,47,34,.10)</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--l-textHighlight)"></span></td><td><span class="name">textHighlight</span><span class="role">marked text</span></td><td class="hex">#e8b34288</td></tr>
+    </table>
+  </section>
+
+  <section class="dark-preview">
+    <h2>Dark mode</h2>
+    <table>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-light)"></span></td><td><span class="name">light</span><span class="role">page background</span></td><td class="hex">#17120f</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-lightgray)"></span></td><td><span class="name">lightgray</span><span class="role">borders, sidebar, rules</span></td><td class="hex">#3a2f28</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-gray)"></span></td><td><span class="name">gray</span><span class="role">muted text, captions</span></td><td class="hex">#6b5a4d</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-darkgray)"></span></td><td><span class="name">darkgray</span><span class="role">body text</span></td><td class="hex">#d8cfc4</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-dark)"></span></td><td><span class="name">dark</span><span class="role">headings</span></td><td class="hex">#f0e6d8</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-secondary)"></span></td><td><span class="name">secondary</span><span class="role">links, Old Wall, gate markers</span></td><td class="hex">#d9603f</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-tertiary)"></span></td><td><span class="name">tertiary</span><span class="role">hover accent</span></td><td class="hex">#e8974f</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-highlight)"></span></td><td><span class="name">highlight</span><span class="role">callout tint, link background</span></td><td class="hex">rgba(217,96,63,.12)</td></tr>
+      <tr><td class="sw"><span class="chip" style="background:var(--d-textHighlight)"></span></td><td><span class="name">textHighlight</span><span class="role">marked text</span></td><td class="hex">#b3560288</td></tr>
+    </table>
+  </section>
+</div>
+
+<p class="note">In dark mode the names invert semantically: <code>light</code> is the dark page ground and
+<code>dark</code> is the pale text. That is Quartz's convention, not a mistake. The trap it sets: writing a
+rule against <code>dark</code> expecting a dark colour gives you a pale one in dark mode.</p>
+</body>
+</html>

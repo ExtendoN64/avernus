@@ -1,0 +1,124 @@
+<!-- @dsCard group="Foundations" name="Palette candidates" subtitle="Deployed vs Claude-derived alternatives" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Palette candidates</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px}
+  .lede{color:#8a7c6c;margin:0 0 20px;max-width:70ch;font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+  .cand{border:1px solid #e3dbcc;border-radius:6px;overflow:hidden;background:#fff}
+  .cand.live{border-color:#8b2f22;border-width:2px}
+  .cap{padding:8px 12px;border-bottom:1px solid #e3dbcc;background:#efe9dc}
+  .cap b{font:600 13px/1.2 system-ui,sans-serif;color:#2a1f1a;display:block}
+  .cap span{font-size:11.5px;color:#8a7c6c}
+  .tag{float:right;font:600 10px/1 system-ui,sans-serif;letter-spacing:.1em;
+       text-transform:uppercase;color:#8b2f22;border:1px solid #8b2f22;
+       border-radius:99px;padding:3px 7px}
+  .panes{display:grid;grid-template-columns:1fr 1fr}
+  .pane{padding:12px 13px 14px;min-height:132px}
+  .pane .mode{font:10px/1 system-ui,sans-serif;letter-spacing:.1em;
+              text-transform:uppercase;opacity:.65;display:block;margin-bottom:8px}
+  .pane h4{font:700 15px/1.2 'Cinzel',Georgia,serif;margin:0 0 6px}
+  .pane .rule{height:2px;margin:0 0 8px}
+  .pane p{margin:0 0 5px;font-size:11.5px;line-height:1.45}
+  .pane a{font-size:11.5px;text-decoration:none}
+  .swatches{display:flex;gap:3px;margin-top:9px}
+  .swatches i{width:15px;height:15px;border-radius:3px;border:1px solid rgba(0,0,0,.2);display:block}
+  .note{margin:20px 0 0;font-size:12px;color:#8a7c6c;max-width:74ch;
+        border-top:1px solid #e3dbcc;padding-top:14px}
+</style>
+</head>
+<body>
+<h1>Palette candidates</h1>
+<p class="lede">Three directions considered. Only one is deployed. Kept here so the reasoning survives:
+the question was whether to adopt the Claude application's warm-paper and clay palette wholesale, keep the
+campaign's own parchment and oxblood, or take the neutrals from one and the accent from the other.</p>
+
+<div class="grid">
+
+  <div class="cand live">
+    <div class="cap"><span class="tag">Deployed</span><b>avernus</b><span>Parchment and oxblood. Cinzel / Source Sans Pro.</span></div>
+    <div class="panes">
+      <div class="pane" style="background:#f6f2e9;color:#4a3f35">
+        <span class="mode" style="color:#b0a08d">light</span>
+        <h4 style="color:#2a1f1a">The Vanished City</h4>
+        <div class="rule" style="background:#8b2f22"></div>
+        <p>Elturel is gone. No rubble, no bodies.</p>
+        <p style="color:#b0a08d">Updated after each session.</p>
+        <a style="color:#8b2f22">Ulder Ravengard</a>
+        <div class="swatches"><i style="background:#f6f2e9"></i><i style="background:#e3dbcc"></i><i style="background:#b0a08d"></i><i style="background:#4a3f35"></i><i style="background:#8b2f22"></i><i style="background:#c25b3a"></i></div>
+      </div>
+      <div class="pane" style="background:#17120f;color:#d8cfc4">
+        <span class="mode" style="color:#6b5a4d">dark</span>
+        <h4 style="color:#f0e6d8">The Vanished City</h4>
+        <div class="rule" style="background:#d9603f"></div>
+        <p>Elturel is gone. No rubble, no bodies.</p>
+        <p style="color:#6b5a4d">Updated after each session.</p>
+        <a style="color:#d9603f">Ulder Ravengard</a>
+        <div class="swatches"><i style="background:#17120f"></i><i style="background:#3a2f28"></i><i style="background:#6b5a4d"></i><i style="background:#d8cfc4"></i><i style="background:#d9603f"></i><i style="background:#e8974f"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cand">
+    <div class="cap"><b>claude-cinzel</b><span>Claude's paper and clay, Cinzel headings kept.</span></div>
+    <div class="panes">
+      <div class="pane" style="background:#faf9f5;color:#3d3d3a">
+        <span class="mode" style="color:#9a9890">light</span>
+        <h4 style="color:#1f1e1d">The Vanished City</h4>
+        <div class="rule" style="background:#c96442"></div>
+        <p>Elturel is gone. No rubble, no bodies.</p>
+        <p style="color:#9a9890">Updated after each session.</p>
+        <a style="color:#c96442">Ulder Ravengard</a>
+        <div class="swatches"><i style="background:#faf9f5"></i><i style="background:#e8e6dc"></i><i style="background:#9a9890"></i><i style="background:#3d3d3a"></i><i style="background:#c96442"></i><i style="background:#d97757"></i></div>
+      </div>
+      <div class="pane" style="background:#262624;color:#d6d4cc">
+        <span class="mode" style="color:#8b8b8b">dark</span>
+        <h4 style="color:#f5f4ef">The Vanished City</h4>
+        <div class="rule" style="background:#d4714e"></div>
+        <p>Elturel is gone. No rubble, no bodies.</p>
+        <p style="color:#8b8b8b">Updated after each session.</p>
+        <a style="color:#d4714e">Ulder Ravengard</a>
+        <div class="swatches"><i style="background:#262624"></i><i style="background:#3e3e3c"></i><i style="background:#8b8b8b"></i><i style="background:#d6d4cc"></i><i style="background:#d4714e"></i><i style="background:#e08a63"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cand">
+    <div class="cap"><b>claude-ember</b><span>Claude's neutrals, the campaign's hotter accent.</span></div>
+    <div class="panes">
+      <div class="pane" style="background:#faf9f5;color:#3d3a35">
+        <span class="mode" style="color:#a09a8c">light</span>
+        <h4 style="color:#1f1d1a">The Vanished City</h4>
+        <div class="rule" style="background:#a83f28"></div>
+        <p>Elturel is gone. No rubble, no bodies.</p>
+        <p style="color:#a09a8c">Updated after each session.</p>
+        <a style="color:#a83f28">Ulder Ravengard</a>
+        <div class="swatches"><i style="background:#faf9f5"></i><i style="background:#e8e4d8"></i><i style="background:#a09a8c"></i><i style="background:#3d3a35"></i><i style="background:#a83f28"></i><i style="background:#d97757"></i></div>
+      </div>
+      <div class="pane" style="background:#24211f;color:#d8d2c8">
+        <span class="mode" style="color:#8a827a">dark</span>
+        <h4 style="color:#f5f2ea">The Vanished City</h4>
+        <div class="rule" style="background:#e0764c"></div>
+        <p>Elturel is gone. No rubble, no bodies.</p>
+        <p style="color:#8a827a">Updated after each session.</p>
+        <a style="color:#e0764c">Ulder Ravengard</a>
+        <div class="swatches"><i style="background:#24211f"></i><i style="background:#3e3a36"></i><i style="background:#8a827a"></i><i style="background:#d8d2c8"></i><i style="background:#e0764c"></i><i style="background:#eb9a63"></i></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="note">The stock Claude themes shipped with Quartz were rejected on inspection rather than taste:
+the one called <b>claude</b> defines dark mode only, and the site has a light and dark toggle, so light mode
+would fall through unstyled. <b>claude-warm</b> has both modes but its accent is a gold, not Claude's clay.
+Both alternatives above are therefore hand-built into the config's own colour block, which also avoids the
+740 KB stylesheet the plugin themes carry.</p>
+</body>
+</html>

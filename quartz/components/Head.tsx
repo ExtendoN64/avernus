@@ -54,6 +54,17 @@ export default (() => {
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" />
             <link rel="stylesheet" href={googleFontHref(cfg.theme)} />
+            {/*
+              Two faces theme.ts cannot express from quartz.config.yaml:
+                - Cinzel, used only for the section rules (see --sectionFont in custom.scss)
+                - IM Fell English's italic, for pull quotes and in-world <em>
+              The header slot pins weights to [400] so the generated URL stays valid, which
+              also means it never requests the italic. Both are picked up here instead.
+            */}
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap"
+            />
             {cfg.theme.typography.title && (
               <link rel="stylesheet" href={googleFontSubsetHref(cfg.theme, cfg.pageTitle)} />
             )}

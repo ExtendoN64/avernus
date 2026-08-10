@@ -30,3 +30,13 @@ private/
 replit.nix
 .quartz/
 quartz/cli/tui/dist/
+
+# ==========================================================
+#  Theme previewing (tools/ scripts ARE tracked, their output is not)
+# ==========================================================
+preview/
+tools/theme-gallery.html
+tools/.quartz.config.backup.yaml
+# regenerable renders: node tools/contact-sheet.mjs, tools/palette-sheet.mjs
+tools/*.png
+tools/*.svg

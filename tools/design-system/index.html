@@ -1,0 +1,82 @@
+<!-- @dsCard group="Overview" name="Read me first" subtitle="What this is, and where the real source of truth lives" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ascent from Avernus: design system</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:28px;background:#f6f2e9;color:#4a3f35;
+       font:14.5px/1.6 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  .wrap{max-width:68ch}
+  h1{font:700 1.7rem/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 2px;letter-spacing:.02em}
+  .sub{color:#8a7c6c;margin:0 0 26px;font-size:13.5px}
+  h2{font:700 1.05rem/1.3 'Cinzel',Georgia,serif;color:#2a1f1a;
+     border-bottom:1px solid #e3dbcc;padding-bottom:.3rem;margin:26px 0 10px}
+  p{margin:0 0 12px}
+  ul{margin:0 0 12px;padding-left:1.2rem}
+  li{margin:.25rem 0}
+  code{font:12.5px ui-monospace,Consolas,monospace;background:#efe9dc;
+       padding:1px 5px;border-radius:3px}
+  .warn{border-left:3px solid #8b2f22;background:rgba(139,47,34,.07);
+        padding:12px 16px;margin:0 0 14px}
+  .warn b{color:#8b2f22}
+  table{border-collapse:collapse;width:100%;margin:0 0 14px;font-size:13.5px}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid #e3dbcc;vertical-align:top}
+  th{font:600 11px/1.3 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#8a7c6c}
+  .foot{margin-top:26px;padding-top:14px;border-top:1px solid #e3dbcc;
+        font-size:12.5px;color:#8a7c6c}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Ascent from Avernus</h1>
+<p class="sub">Design system for the campaign wiki at extendon64.github.io/avernus</p>
+
+<p>A Dungeons and Dragons campaign wiki, built on Quartz 5, read by players between sessions. The house
+premise inverts the published adventure: instead of Baldur's Gate being dragged down into Avernus, part of
+Avernus bleeds up into the city. The visual language follows from that, warm parchment against something
+hotter pushing through, rather than the cold navy that stock fantasy themes reach for.</p>
+
+<h2>This is a mirror, not the source</h2>
+<div class="warn">
+<p><b>Do not treat these files as the implementation.</b> They are previews, kept so the system can be seen
+in one place. Editing them changes nothing on the site.</p>
+<p style="margin:0">The real definitions live in two files in the site repository:</p>
+</div>
+<table>
+  <tr><th>File</th><th>Owns</th></tr>
+  <tr><td><code>quartz.config.yaml</code></td><td>The nine colour tokens for both modes, and the three typefaces. Under <code>configuration.theme</code>.</td></tr>
+  <tr><td><code>quartz/styles/custom.scss</code></td><td>Every component: hero, card grid, the three callouts, table and blockquote treatment, and the map.</td></tr>
+</table>
+
+<h2>Rules the system runs on</h2>
+<ul>
+  <li><b>Components read tokens, never literals.</b> That is what lets a palette swap reach the map's Old Wall and the contract callout's border without touching either file.</li>
+  <li><b>Dark mode inverts the token names, not the roles.</b> <code>light</code> is the page ground in both modes; in dark mode it happens to be near-black.</li>
+  <li><b>Callout props suppress the admonition icon.</b> Notice, broadsheet and contract are objects in the world, not warnings to the reader.</li>
+  <li><b>One flourish per component.</b> The broadsheet gets a rotation, the contract gets the only gradient, the hero gets the only diamond. Stacking them reads as noise.</li>
+</ul>
+
+<h2>Traps worth remembering</h2>
+<ul>
+  <li><b>Blank lines inside raw HTML blocks in Markdown terminate the block.</b> Everything after gets orphaned into stray paragraphs, and the build still reports success. This silently broke the map once.</li>
+  <li><b>Quartz slugifies URLs to lowercase</b>, and mixed-case links serve a meta-refresh stub rather than the page.</li>
+  <li><b>Apostrophes survive slugification.</b> A note called "Map of Baldur's Gate" becomes <code>map-of-baldur's-gate</code>. Name files to avoid it.</li>
+  <li><b>Plugin themes cost about 740 KB of CSS.</b> Native palette changes cost nothing, which is why the palette candidates are built into the config rather than adopted as themes.</li>
+</ul>
+
+<h2>Where things sit</h2>
+<table>
+  <tr><th>Group</th><th>Contents</th></tr>
+  <tr><td>Foundations</td><td>Colour tokens, type scale, palette candidates considered</td></tr>
+  <tr><td>Callouts</td><td>Notice, broadsheet, contract</td></tr>
+  <tr><td>Components</td><td>Hero and card grid, city map</td></tr>
+</table>
+
+<p class="foot">Typefaces are Cinzel for display and Source Sans Pro for text, served by Quartz from Google
+Fonts. These preview files fall back to Georgia and system sans where those are not installed locally, so
+letterforms here may differ slightly from the live site.</p>
+</div>
+</body>
+</html>

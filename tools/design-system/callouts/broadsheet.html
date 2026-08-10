@@ -1,0 +1,74 @@
+<!-- @dsCard group="Callouts" name="Broadsheet" subtitle="Newspaper clipping, two columns, drop cap" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Callout: broadsheet</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.55 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px}
+  .lede{color:#8a7c6c;margin:0 0 20px;max-width:70ch;font-size:13px}
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+  .frame{padding:24px 20px;border-radius:6px;border:1px solid #e3dbcc}
+  .frame.dark{background:#17120f;border-color:#3a2f28}
+  .mode{font:10px/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+        color:#b0a08d;display:block;margin-bottom:14px}
+  .frame.dark .mode{color:#6b5a4d}
+
+  /* the component */
+  .broadsheet{background:#f6f2e9;border-radius:2px;padding:16px 22px 20px;
+        box-shadow:0 1px 0 #e3dbcc, 0 6px 18px rgba(0,0,0,.12);
+        transform:rotate(-.4deg)}
+  .broadsheet .title{font:1.2rem/1.2 'Cinzel',Georgia,serif;text-align:center;
+        color:#2a1f1a;border-bottom:3px double #4a3f35;padding-bottom:.4rem;margin-bottom:.7rem}
+  .broadsheet .content{font-size:.92rem;line-height:1.5;text-align:justify;hyphens:auto;
+        columns:2;column-gap:1.4rem}
+  .broadsheet .content p{margin:0}
+  .broadsheet .content p::first-letter{float:left;font:2.6em/0.8 'Cinzel',Georgia,serif;
+        padding:.1em .08em 0 0;color:#8b2f22}
+  .frame.dark .broadsheet{background:#17120f;box-shadow:0 1px 0 #3a2f28, 0 6px 18px rgba(0,0,0,.5)}
+  .frame.dark .broadsheet .title{color:#f0e6d8;border-bottom-color:#d8cfc4}
+  .frame.dark .broadsheet .content{color:#d8cfc4}
+  .frame.dark .broadsheet .content p::first-letter{color:#d9603f}
+
+  .spec{margin:22px 0 0;border-top:1px solid #e3dbcc;padding-top:14px;
+        font-size:12.5px;color:#7d6f60;max-width:74ch}
+  .spec b{color:#4a3f35}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Callout: broadsheet</h1>
+<p class="lede">A clipping from the city paper. Used to deliver public knowledge in the city's own voice,
+including the parts it is getting wrong.</p>
+
+<div class="pair">
+  <div class="frame">
+    <span class="mode">light</span>
+    <div class="broadsheet">
+      <div class="title">THE BALDUR'S MOUTH</div>
+      <div class="content"><p>Elturan question unanswered as Council meets third time. The Council of Four concluded a third closed session this tenday without issuing a statement on the fate of Elturel or of Grand Duke Ravengard. Sources within the Citadel Streets describe the mood as orderly. Refugee numbers at Rivington and Wyrm's Crossing are now past the capacity of the temples to feed.</p></div>
+    </div>
+  </div>
+  <div class="frame dark">
+    <span class="mode">dark</span>
+    <div class="broadsheet">
+      <div class="title">THE BALDUR'S MOUTH</div>
+      <div class="content"><p>Elturan question unanswered as Council meets third time. The Council of Four concluded a third closed session this tenday without issuing a statement on the fate of Elturel or of Grand Duke Ravengard. Sources within the Citadel Streets describe the mood as orderly. Refugee numbers at Rivington and Wyrm's Crossing are now past the capacity of the temples to feed.</p></div>
+    </div>
+  </div>
+</div>
+
+<p class="spec">
+<b>Markdown:</b> <code>&gt; [!broadsheet] THE BALDUR'S MOUTH</code><br>
+<b>Tokens:</b> ground <code>light</code>, double rule <code>darkgray</code>, drop cap <code>secondary</code>,
+shadow keyline <code>lightgray</code>.<br>
+<b>Rules:</b> no border, a drop shadow instead, so it reads as paper lying on the page rather than a box drawn
+on it. Rotated 0.4 degrees, which is the entire trick: any more looks like a mistake, any less reads as
+straight. Two columns on desktop only, collapsing to one below 1200px so the justified text does not
+break up. Drop cap on the first paragraph only.
+</p>
+</body>
+</html>

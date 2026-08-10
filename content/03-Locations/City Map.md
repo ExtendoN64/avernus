@@ -67,6 +67,15 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
 <line x1="866" y1="714" x2="902" y2="714"/>
 </g>
 <g class="bgm-gate">
+<circle class="bgm-ring" data-gate="blackdragon" cx="452" cy="158" r="15"/>
+<circle class="bgm-ring" data-gate="patriar" cx="318" cy="214" r="15"/>
+<circle class="bgm-ring" data-gate="patriar" cx="284" cy="300" r="15"/>
+<circle class="bgm-ring" data-gate="baldurs" cx="505" cy="380" r="15"/>
+<circle class="bgm-ring" data-gate="patriar" cx="672" cy="380" r="15"/>
+<circle class="bgm-ring" data-gate="citadel" cx="742" cy="326" r="15"/>
+<circle class="bgm-ring" data-gate="sea" cx="246" cy="524" r="15"/>
+<circle class="bgm-ring" data-gate="basilisk" cx="812" cy="466" r="15"/>
+<circle class="bgm-ring" data-gate="cliffgate" cx="786" cy="566" r="15"/>
 <circle cx="452" cy="158" r="6"/><text x="452" y="138">Black Dragon Gate</text>
 <circle cx="318" cy="214" r="6"/><text x="268" y="200">Manor Gate</text>
 <circle cx="284" cy="300" r="6"/><text x="230" y="296">Gond Gate</text>
@@ -119,6 +128,15 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
 </g>
 </g>
 </svg>
+<div class="bg-map-legend">
+<b>Key</b>
+<ul>
+<li><i class="k-oldwall"></i>The Old Wall</li>
+<li><i class="k-wall"></i>City walls</li>
+<li><span class="k-gate"></span>Gates (nine)</li>
+<li><i class="k-road"></i>Roads</li>
+</ul>
+</div>
 </div>
 <script>
 (function () {
@@ -195,9 +213,56 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
       })(btns[i]);
     }
   }
-  if (document.readyState !== "loading") initMap();
-  document.addEventListener("DOMContentLoaded", initMap);
-  document.addEventListener("nav", initMap);
+  /* Cross-reference the nine-gates table with the map: hovering a row rings
+     that gate. The three patriar gates share one key, so they light together.
+     Keyed off the row's first cell rather than data attributes, so the table
+     stays an ordinary Markdown table. */
+  var GATE_KEYS = [
+    [/black dragon/i, "blackdragon"],
+    [/baldur/i, "baldurs"],
+    [/citadel/i, "citadel"],
+    [/gond|heap|manor/i, "patriar"],
+    [/sea gate/i, "sea"],
+    [/basilisk/i, "basilisk"],
+    [/cliffgate/i, "cliffgate"]
+  ];
+
+  function initGateTable() {
+    var wrap = document.getElementById("bg-map");
+    if (!wrap) return;
+    var article = wrap.closest("article") || document;
+    var rows = article.querySelectorAll("table tbody tr");
+    for (var i = 0; i < rows.length; i++) {
+      (function (row) {
+        if (row.dataset.gateBound) return;
+        var cell = row.cells && row.cells[0];
+        if (!cell) return;
+        var text = cell.textContent || "";
+        var key = null;
+        for (var k = 0; k < GATE_KEYS.length; k++) {
+          if (GATE_KEYS[k][0].test(text)) { key = GATE_KEYS[k][1]; break; }
+        }
+        if (!key) return;
+        row.dataset.gateBound = "1";
+        row.setAttribute("data-gate", key);
+        function light(on) {
+          var rings = wrap.querySelectorAll('.bgm-ring[data-gate="' + key + '"]');
+          for (var r = 0; r < rings.length; r++) {
+            rings[r].classList.toggle("is-lit", on);
+          }
+        }
+        row.addEventListener("mouseenter", function () { light(true); });
+        row.addEventListener("mouseleave", function () { light(false); });
+        row.addEventListener("focusin", function () { light(true); });
+        row.addEventListener("focusout", function () { light(false); });
+      })(rows[i]);
+    }
+  }
+
+  function init() { initMap(); initGateTable(); }
+  if (document.readyState !== "loading") init();
+  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("nav", init);
 })();
 </script>
 

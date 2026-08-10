@@ -1,0 +1,83 @@
+<!-- @dsCard group="Callouts" name="Contract" subtitle="Infernal bargain, monospaced, deliberately cold" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Callout: contract</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;padding:24px;background:#f6f2e9;color:#4a3f35;
+       font:14px/1.55 "Source Sans Pro",system-ui,"Segoe UI",sans-serif}
+  h1{font:600 18px/1.2 'Cinzel',Georgia,serif;color:#2a1f1a;margin:0 0 4px}
+  .lede{color:#8a7c6c;margin:0 0 20px;max-width:70ch;font-size:13px}
+  .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .frame{padding:20px;border-radius:6px;border:1px solid #e3dbcc}
+  .frame.dark{background:#17120f;border-color:#3a2f28}
+  .mode{font:10px/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+        color:#b0a08d;display:block;margin-bottom:12px}
+  .frame.dark .mode{color:#6b5a4d}
+
+  /* the component */
+  .contract{border:1px solid #8b2f22;border-radius:2px;padding:4px 22px 14px;
+        background:linear-gradient(to bottom right, rgba(139,47,34,.10), transparent 70%), #f6f2e9}
+  .contract .title{font:.9rem/1.3 'Cinzel',Georgia,serif;letter-spacing:.08em;
+        text-transform:uppercase;color:#8b2f22;padding-top:12px}
+  .contract ol{font:.86rem/1.7 ui-monospace,"IBM Plex Mono",Consolas,monospace;
+        margin:.6rem 0 0;padding-left:1.3rem}
+  .contract li{margin:.35rem 0}
+  .frame.dark .contract{border-color:#d9603f;
+        background:linear-gradient(to bottom right, rgba(217,96,63,.12), transparent 70%), #17120f;
+        color:#d8cfc4}
+  .frame.dark .contract .title{color:#d9603f}
+
+  .spec{margin:22px 0 0;border-top:1px solid #e3dbcc;padding-top:14px;
+        font-size:12.5px;color:#7d6f60;max-width:74ch}
+  .spec b{color:#4a3f35}
+  code{font:12px ui-monospace,Consolas,monospace;background:#efe9dc;padding:1px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Callout: contract</h1>
+<p class="lede">An infernal bargain, reproduced as written. This is the one component with a job beyond
+legibility: it should make the reader uneasy. House rule is that any deal offered is real and will be honoured
+exactly as written, so the horror has to come from the terms, not from decoration.</p>
+
+<div class="pair">
+  <div class="frame">
+    <span class="mode">light</span>
+    <div class="contract">
+      <div class="title">Terms of Agreement</div>
+      <ol>
+        <li>The party of the first part shall provide safe passage, without delay or condition, to the bearer.</li>
+        <li>The party of the second part shall provide, at a time of the first part's choosing, one service.</li>
+        <li>The nature of the service is not specified herein and shall not be refused.</li>
+        <li>This agreement is binding upon signature and is not dissolved by the death of either party.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="frame dark">
+    <span class="mode">dark</span>
+    <div class="contract">
+      <div class="title">Terms of Agreement</div>
+      <ol>
+        <li>The party of the first part shall provide safe passage, without delay or condition, to the bearer.</li>
+        <li>The party of the second part shall provide, at a time of the first part's choosing, one service.</li>
+        <li>The nature of the service is not specified herein and shall not be refused.</li>
+        <li>This agreement is binding upon signature and is not dissolved by the death of either party.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<p class="spec">
+<b>Markdown:</b> <code>&gt; [!contract] Terms of Agreement</code><br>
+<b>Tokens:</b> border and title <code>secondary</code>, wash <code>highlight</code> over
+<code>light</code>, body inherits <code>darkgray</code>.<br>
+<b>Rules:</b> monospaced body, because a contract is typed, not written. Numbered clauses always, even for a
+single term. 1.7 line height, which is looser than anything else on the site and is what makes it read as a
+document rather than a quote. The diagonal wash is the only gradient in the system.<br>
+<b>Warning:</b> this component is the first casualty of a calmer palette. It works because
+<code>secondary</code> is an alarming colour. Swap in a softer accent and the clauses stop landing.
+</p>
+</body>
+</html>
