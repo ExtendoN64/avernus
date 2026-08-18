@@ -1,16 +1,16 @@
 filters:
   or:
-    - 'file.hasTag("locations")'
-    - 'file.hasTag("factions")'
-    - 'file.hasTag("npcs")'
-    - 'file.hasTag("quests")'
+    - file.hasTag("locations")
+    - file.hasTag("factions")
+    - file.hasTag("npcs")
+    - file.hasTag("quests")
 views:
   - type: table
-    name: "Everything"
+    name: Everything
     order:
       - file.name
       - tags
   - type: cards
-    name: "Cards"
+    name: Cards
     order:
       - file.name

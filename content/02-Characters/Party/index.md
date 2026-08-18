@@ -16,7 +16,11 @@ Who you are, and what the rest of the table should remember about you.
 
 <!-- One line per PC. Link to their page once it exists. -->
 
-*Characters are created at session zero.*
+- **[[Tam]]** and **[[Seam]]**, the Muaser brothers. Played by Noah and Willie.
+- **[[Vedmaak Yaga]]**, a wanderer. Played by Juan.
+- **[[Midas Tactus]]**, a cleric. Played by Khal.
+
+*The rest are created at session zero.*
 
 ## What goes on a character page
 
