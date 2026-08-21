@@ -858,15 +858,37 @@ blockquote.rumour {
     height: 0;
     border-top-style: solid;
 
-    &.k-oldwall {
-      border-top: 4px solid var(--secondary);
+    /* Walls and roads are drawn on the map itself now, so the legend keys
+       the three districts instead. These colours are fixed rather than
+       themed: the art underneath is parchment in both modes, and a token
+       that inverts would vanish into it. Same reasoning as --infernal. */
+    &.k-upper,
+    &.k-lower,
+    &.k-outer {
+      width: 0.62rem;
+      height: 0.62rem;
+      border-top: 0;
+      border-radius: 50%;
     }
-    &.k-wall {
-      border-top: 4px solid var(--darkgray);
+    &.k-upper {
+      background: #8a2f4a;
     }
-    &.k-road {
-      border-top: 2px dashed var(--gray);
+    &.k-lower {
+      background: #1d6a8c;
     }
+    &.k-outer {
+      background: #6a4c93;
+    }
+  }
+
+  li[data-district] {
+    cursor: help;
+  }
+
+  .k-n {
+    margin-left: auto;
+    opacity: 0.55;
+    font-variant-numeric: tabular-nums;
   }
 
   .k-gate {
@@ -874,7 +896,7 @@ blockquote.rumour {
     width: 0.6rem;
     height: 0.6rem;
     border-radius: 50%;
-    background: var(--secondary);
+    background: #c0492b;
     border: 1.5px solid var(--light);
   }
 
@@ -900,8 +922,10 @@ blockquote.rumour {
 
 .bgm-gate .bgm-ring {
   fill: none;
-  stroke: var(--infernal-hot);
-  stroke-width: 5;
+  stroke: #c0492b;
+  /* The viewBox is now the image's own 5250x3488, so every length in here is
+     roughly 4.4x what it was against the old 1200-unit drawing. */
+  stroke-width: 18;
   opacity: 0;
   pointer-events: none;
 }
@@ -1130,203 +1154,110 @@ tr[data-gate]:hover {
   }
 }
 
-/* ---- map geometry ---- */
+/* ---- the art ----
+   Real cartography now rather than drawn geometry, so every .bgm-land,
+   .bgm-water, .bgm-wall and friend that used to live here is gone with the
+   shapes they styled.
 
-.bgm-land {
-  fill: var(--light);
-}
-.bgm-hatchline {
-  stroke: var(--lightgray);
-  stroke-width: 1;
-}
-.bgm-water {
-  fill: var(--lightgray);
-  opacity: 0.75;
-}
-.bgm-waterfx {
-  opacity: 0.5;
-}
-.bgm-waveline {
-  stroke: var(--gray);
-  stroke-width: 1;
+   Two <image> layers at identical geometry: a 1000px placeholder that paints
+   almost at once, and the 3200px map stacked over it, which simply covers the
+   placeholder the moment it decodes. No JavaScript and no load handler, just
+   paint order, so there is never a blank frame while 1.3MB arrives. */
+
+:root[saved-theme="dark"] .bgm-art {
+  /* Parchment is parchment in both modes. At full brightness in dark mode the
+     map is a lamp in a dark room, so take it down instead. */
+  filter: brightness(0.76) saturate(0.86);
 }
 
-.bgm-region path {
-  stroke: var(--gray);
-  stroke-width: 1.5;
+/* ---- neighbourhood pins ---- */
+
+.bgm-pin {
+  cursor: pointer;
+}
+
+.bgm-hit {
+  /* Invisible, and the reason a pin is comfortable to hit on a phone: the
+     visible dot is 30 units but the target is 95. */
+  fill: transparent;
+}
+
+.bgm-dot {
+  fill: var(--pin, #8a2f4a);
+  stroke: #fdf6e4;
+  stroke-width: 10;
+  opacity: 0.9;
+  /* Scaling the dot rather than animating r: SVG geometry properties are
+     unevenly animatable across browsers, transforms are not. */
+  transform-box: fill-box;
+  transform-origin: center;
   transition:
-    fill 0.15s ease,
-    filter 0.15s ease;
+    transform 0.13s ease,
+    opacity 0.13s ease;
 }
 
-.bgm-upper path {
-  fill: var(--highlight);
+.bgm-pin[data-district="upper"] {
+  --pin: #8a2f4a;
 }
-.bgm-lower path {
-  fill: var(--lightgray);
-  opacity: 0.55;
+.bgm-pin[data-district="lower"] {
+  --pin: #1d6a8c;
 }
-.bgm-outer path {
-  fill: var(--light);
-  /* no outline: the Outer City has no edge, that is the point of it */
-  stroke: none;
+.bgm-pin[data-district="outer"] {
+  --pin: #6a4c93;
 }
 
-a:hover .bgm-region path {
-  fill: var(--tertiary);
-  filter: brightness(1.05);
-}
-
-.bgm-wall {
-  fill: none;
-  stroke: var(--darkgray);
-  stroke-width: 5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.bgm-oldwall {
-  stroke: var(--secondary);
-  stroke-width: 6;
-}
-
-.bgm-road {
-  fill: none;
-  stroke: var(--gray);
-  stroke-width: 3;
-  stroke-dasharray: 9 7;
-  stroke-linecap: round;
-}
-
-.bgm-bridge {
-  rect {
-    fill: var(--light);
-    stroke: var(--darkgray);
-    stroke-width: 2.5;
-  }
-  line {
-    stroke: var(--darkgray);
-    stroke-width: 1.5;
-  }
-}
-
-.bgm-hill {
-  path {
-    fill: none;
-    stroke: var(--gray);
-    stroke-width: 2;
-  }
-  text {
-    fill: var(--gray);
-    font-size: 15px;
-    font-style: italic;
-    text-anchor: middle;
-  }
-}
-
-/* ---- gates ---- */
-
-.bgm-gate {
-  circle {
-    r: 6px;
-    fill: var(--secondary);
-    stroke: var(--light);
-    stroke-width: 2.5;
-  }
-  text {
-    fill: var(--secondary);
-    font-size: 15px;
-    /* IM Fell has no bold cut: 400 everywhere on the map lettering */
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    text-anchor: middle;
-    paint-order: stroke;
-    stroke: var(--light);
-    stroke-width: 4px;
-    stroke-linejoin: round;
-  }
-}
-
-/* ---- labels ---- */
-
-.bgm-label text {
+.bgm-tip {
+  font-family: var(--headerFont);
+  font-size: 82px;
   text-anchor: middle;
+  fill: #21160f;
+  stroke: #fdf6e4;
+  stroke-width: 16;
   paint-order: stroke;
-  stroke: var(--light);
-  stroke-width: 5px;
-  stroke-linejoin: round;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.13s ease;
 }
 
-.bgm-district {
-  fill: var(--darkgray);
-  font-size: 27px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
+.bgm-pin:hover .bgm-dot,
+.bgm-pin:focus-visible .bgm-dot,
+.bgm-pin.is-lit .bgm-dot {
+  transform: scale(1.55);
+  opacity: 1;
 }
 
-.bgm-sub {
-  fill: var(--gray);
-  font-size: 16px;
-  font-style: italic;
-  letter-spacing: 0.04em;
+/* Deliberately NOT .is-lit: lighting a whole district from the legend would
+   print "Lower City" six times across the map. The tip is for pointing at one
+   pin, the legend highlight is for seeing the set. */
+.bgm-pin:hover .bgm-tip,
+.bgm-pin:focus-visible .bgm-tip {
+  opacity: 1;
 }
 
-.bgm-water-label {
-  fill: var(--gray);
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: 0.22em;
+/* ---- gates ----
+   Placed by eye against the walls on the art, so they are deliberately quiet
+   until the gate table calls one out. */
+
+.bgm-gatedot {
+  fill: #c0492b;
+  stroke: #fdf6e4;
+  stroke-width: 8;
+  opacity: 0.5;
+  transition: opacity 0.13s ease;
 }
 
-.bgm-road-label {
-  fill: var(--gray);
-  font-size: 14px;
-  font-style: italic;
-  letter-spacing: 0.06em;
-  opacity: 0.85;
+.bgm-gate:hover .bgm-gatedot {
+  opacity: 1;
 }
 
-/* ---- furniture ---- */
-
-.bgm-compass {
-  circle {
-    fill: none;
-    stroke: var(--gray);
-    stroke-width: 2;
+@media (prefers-reduced-motion: reduce) {
+  .bgm-dot,
+  .bgm-tip,
+  .bgm-gatedot {
+    transition: none;
   }
-  path {
-    fill: var(--light);
-    stroke: var(--darkgray);
-    stroke-width: 1.5;
-  }
-  .bgm-compass-n {
-    fill: var(--secondary);
-  }
-  text {
-    fill: var(--darkgray);
-    font-size: 17px;
-    font-weight: 400;
-    text-anchor: middle;
-  }
-}
-
-.bgm-cartouche {
-  text {
-    text-anchor: start;
-  }
-  line {
-    stroke: var(--secondary);
-    stroke-width: 2;
-  }
-  .bgm-title {
-    fill: var(--darkgray);
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: 0.13em;
-  }
-  .bgm-subtitle {
-    fill: var(--gray);
-    font-size: 17px;
-    font-style: italic;
-    letter-spacing: 0.06em;
+  .bgm-gate .bgm-ring.is-lit {
+    animation: none;
+    opacity: 1;
   }
 }

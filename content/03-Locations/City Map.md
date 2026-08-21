@@ -7,7 +7,8 @@ tags:
   - map
 ---
 
-Drag to pan, scroll to zoom, click a district to open its page. Nine gates, three cities, one river.
+Drag to pan, scroll to zoom. **Twenty neighbourhoods are marked**; click any one to open its
+district. Hover a row in the gate table below and that gate lights up on the map.
 
 <div id="bg-map" class="bg-map">
 <div class="bg-map-controls">
@@ -15,124 +16,52 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
 <button type="button" data-map="out" aria-label="Zoom out">&minus;</button>
 <button type="button" data-map="reset" aria-label="Reset view">Reset</button>
 </div>
-<svg viewBox="0 0 1200 830" role="img" aria-label="Stylised map of Baldur's Gate showing the Upper City, Lower City, Outer City, Gray Harbor and the River Chionthar">
-<defs>
-<pattern id="bgm-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-<line x1="0" y1="0" x2="0" y2="6" class="bgm-hatchline"/>
-</pattern>
-<pattern id="bgm-wave" width="34" height="16" patternUnits="userSpaceOnUse">
-<path d="M0,8 q8.5,-6 17,0 q8.5,6 17,0" fill="none" class="bgm-waveline"/>
-</pattern>
-</defs>
+<svg viewBox="0 0 5250 3488" role="img" aria-label="Map of Baldur's Gate. Twenty neighbourhoods are marked and link to the Upper City, Lower City and Outer City pages.">
 <g id="bg-map-viewport">
-<rect x="0" y="0" width="1200" height="830" class="bgm-land"/>
-<rect x="0" y="0" width="1200" height="830" fill="url(#bgm-hatch)" opacity="0.3"/>
-<path class="bgm-water" d="M0,632 Q140,626 262,636 Q320,642 356,614 Q382,556 448,544 Q516,534 566,558 Q606,578 620,636 Q664,650 726,648 Q880,652 1030,670 Q1120,682 1200,692 L1200,742 Q1040,716 880,722 Q700,730 520,738 Q300,746 0,736 Z"/>
-<path class="bgm-waterfx" d="M0,632 Q140,626 262,636 Q320,642 356,614 Q382,556 448,544 Q516,534 566,558 Q606,578 620,636 Q664,650 726,648 Q880,652 1030,670 Q1120,682 1200,692 L1200,742 Q1040,716 880,722 Q700,730 520,738 Q300,746 0,736 Z" fill="url(#bgm-wave)"/>
-<a href="../03-locations/outer-city">
-<g class="bgm-region bgm-outer">
-<path d="M730,380 L796,430 Q824,520 790,600 L726,648 Q880,652 1030,670 Q1120,682 1200,692 L1200,214 Q1030,184 890,216 Q790,240 740,330 Z"/>
-<path d="M0,736 Q300,746 520,738 Q700,730 880,722 Q1040,716 1200,742 L1200,830 L0,830 Z"/>
+<image class="bgm-art" href="../static/maps/baldursgate-low.webp" x="0" y="0" width="5250" height="3488" preserveAspectRatio="none"></image>
+<image class="bgm-art" href="../static/maps/baldursgate.webp" x="0" y="0" width="5250" height="3488" preserveAspectRatio="none"></image>
+<g class="bgm-gates">
+<g class="bgm-gate"><title>Black Dragon Gate</title><circle class="bgm-ring" data-gate="blackdragon" cx="849" cy="702" r="74"></circle><circle class="bgm-gatedot" cx="849" cy="702" r="16"></circle></g>
+<g class="bgm-gate"><title>Heap Gate</title><circle class="bgm-ring" data-gate="heap" cx="1402" cy="760" r="74"></circle><circle class="bgm-gatedot" cx="1402" cy="760" r="16"></circle></g>
+<g class="bgm-gate"><title>Citadel Gate</title><circle class="bgm-ring" data-gate="citadel" cx="698" cy="995" r="74"></circle><circle class="bgm-gatedot" cx="698" cy="995" r="16"></circle></g>
+<g class="bgm-gate"><title>Baldur&#39;s Gate</title><circle class="bgm-ring" data-gate="baldurs" cx="1211" cy="1012" r="74"></circle><circle class="bgm-gatedot" cx="1211" cy="1012" r="16"></circle></g>
+<g class="bgm-gate"><title>Basilisk Gate</title><circle class="bgm-ring" data-gate="basilisk" cx="2291" cy="1048" r="74"></circle><circle class="bgm-gatedot" cx="2291" cy="1048" r="16"></circle></g>
+<g class="bgm-gate"><title>Gond Gate</title><circle class="bgm-ring" data-gate="gond" cx="1045" cy="1312" r="74"></circle><circle class="bgm-gatedot" cx="1045" cy="1312" r="16"></circle></g>
+<g class="bgm-gate"><title>Manor Gate</title><circle class="bgm-ring" data-gate="manor" cx="874" cy="1403" r="74"></circle><circle class="bgm-gatedot" cx="874" cy="1403" r="16"></circle></g>
+<g class="bgm-gate"><title>Sea Gate</title><circle class="bgm-ring" data-gate="sea" cx="684" cy="1756" r="74"></circle><circle class="bgm-gatedot" cx="684" cy="1756" r="16"></circle></g>
+<g class="bgm-gate"><title>Cliffgate</title><circle class="bgm-ring" data-gate="cliffgate" cx="2421" cy="1633" r="74"></circle><circle class="bgm-gatedot" cx="2421" cy="1633" r="16"></circle></g>
 </g>
-</a>
-<a href="../03-locations/lower-city">
-<g class="bgm-region bgm-lower">
-<path d="M300,380 L252,412 Q224,486 244,548 L262,636 Q320,642 356,614 Q382,556 448,544 Q516,534 566,558 Q606,578 620,636 Q664,650 726,648 L790,600 Q824,520 796,430 L730,380 Z"/>
-</g>
-</a>
-<a href="../03-locations/upper-city">
-<g class="bgm-region bgm-upper">
-<path d="M300,380 L282,296 Q286,228 350,194 Q440,158 560,158 Q664,165 714,224 Q746,278 740,340 L730,380 Z"/>
-</g>
-</a>
-<path class="bgm-road" d="M452,158 L448,80 Q446,40 452,8"/>
-<path class="bgm-road" d="M812,466 Q950,488 1080,518 Q1150,534 1200,548"/>
-<path class="bgm-road" d="M786,566 Q832,598 884,626"/>
-<path class="bgm-road" d="M884,742 Q890,780 896,824"/>
-<path class="bgm-road" d="M505,380 L505,452"/>
-<path class="bgm-wall bgm-oldwall" d="M300,380 L282,296 Q286,228 350,194 Q440,158 560,158 Q664,165 714,224 Q746,278 740,340 L730,380 Z"/>
-<path class="bgm-wall" d="M300,380 L252,412 Q224,486 244,548 L262,636"/>
-<path class="bgm-wall" d="M730,380 L796,430 Q824,520 790,600 L726,648"/>
-<g class="bgm-hill">
-<path d="M1042,446 q28,-42 56,0 q22,34 -56,0 Z"/>
-<path d="M1026,466 q42,-56 84,0 q30,42 -84,0 Z"/>
-<text x="1068" y="498">Dusthawk Hill</text>
-</g>
-<g class="bgm-bridge">
-<rect x="866" y="624" width="36" height="120" rx="3"/>
-<line x1="866" y1="654" x2="902" y2="654"/>
-<line x1="866" y1="684" x2="902" y2="684"/>
-<line x1="866" y1="714" x2="902" y2="714"/>
-</g>
-<g class="bgm-gate">
-<circle class="bgm-ring" data-gate="blackdragon" cx="452" cy="158" r="15"/>
-<circle class="bgm-ring" data-gate="patriar" cx="318" cy="214" r="15"/>
-<circle class="bgm-ring" data-gate="patriar" cx="284" cy="300" r="15"/>
-<circle class="bgm-ring" data-gate="baldurs" cx="505" cy="380" r="15"/>
-<circle class="bgm-ring" data-gate="patriar" cx="672" cy="380" r="15"/>
-<circle class="bgm-ring" data-gate="citadel" cx="742" cy="326" r="15"/>
-<circle class="bgm-ring" data-gate="sea" cx="246" cy="524" r="15"/>
-<circle class="bgm-ring" data-gate="basilisk" cx="812" cy="466" r="15"/>
-<circle class="bgm-ring" data-gate="cliffgate" cx="786" cy="566" r="15"/>
-<circle cx="452" cy="158" r="6"/><text x="452" y="138">Black Dragon Gate</text>
-<circle cx="318" cy="214" r="6"/><text x="268" y="200">Manor Gate</text>
-<circle cx="284" cy="300" r="6"/><text x="230" y="296">Gond Gate</text>
-<circle cx="505" cy="380" r="6"/><text x="505" y="404">Baldur's Gate</text>
-<circle cx="672" cy="380" r="6"/><text x="692" y="404">Heap Gate</text>
-<circle cx="742" cy="326" r="6"/><text x="800" y="320">Citadel Gate</text>
-<circle cx="246" cy="524" r="6"/><text x="196" y="530">Sea Gate</text>
-<circle cx="812" cy="466" r="6"/><text x="872" y="462">Basilisk Gate</text>
-<circle cx="786" cy="566" r="6"/><text x="826" y="588">Cliffgate</text>
-</g>
-<g class="bgm-label">
-<text class="bgm-district" x="510" y="284">UPPER CITY</text>
-<text class="bgm-sub" x="510" y="224">The Wide</text>
-<text class="bgm-sub" x="372" y="328">Manorborn</text>
-<text class="bgm-sub" x="644" y="246">Citadel Streets</text>
-<text class="bgm-sub" x="628" y="332">Temples</text>
-<text class="bgm-district" x="486" y="472">LOWER CITY</text>
-<text class="bgm-sub" x="330" y="442">Seatower</text>
-<text class="bgm-sub" x="310" y="506">The Steeps</text>
-<text class="bgm-sub" x="318" y="582">Bloomridge</text>
-<text class="bgm-sub" x="654" y="444">Eastway</text>
-<text class="bgm-sub" x="714" y="506">Heapside</text>
-<text class="bgm-sub" x="678" y="580">Brampton</text>
-<text class="bgm-district" x="990" y="320">OUTER CITY</text>
-<text class="bgm-sub" x="868" y="266">Blackgate</text>
-<text class="bgm-sub" x="1098" y="392">Twin Songs</text>
-<text class="bgm-sub" x="902" y="430">Tumbledown</text>
-<text class="bgm-sub" x="1004" y="552">Stonyeyes</text>
-<text class="bgm-sub" x="1136" y="590">Whitkeep</text>
-<text class="bgm-sub" x="830" y="662">Sow's Foot</text>
-<text class="bgm-sub" x="978" y="640">Wyrm's Crossing</text>
-<text class="bgm-sub" x="330" y="794">Rivington</text>
-<text class="bgm-sub" x="640" y="800">Little Calimshan</text>
-<text class="bgm-sub" x="1046" y="790">Norchapel</text>
-<text class="bgm-road-label" x="512" y="60">the north road, to Waterdeep</text>
-<text class="bgm-road-label" x="1104" y="566">the Coast Way</text>
-<text class="bgm-water-label" x="486" y="602">GRAY HARBOR</text>
-<text class="bgm-water-label" x="196" y="694">RIVER CHIONTHAR</text>
-</g>
-<g class="bgm-compass" transform="translate(1112,92)">
-<circle r="34"/>
-<path d="M0,-30 L8,0 L0,30 L-8,0 Z"/>
-<path d="M0,-30 L8,0 L-8,0 Z" class="bgm-compass-n"/>
-<text y="-42">N</text>
-</g>
-<g class="bgm-cartouche" transform="translate(56,64)">
-<text class="bgm-title" x="0" y="0">BALDUR'S GATE</text>
-<text class="bgm-subtitle" x="0" y="28">on the Chionthar</text>
-<line x1="0" y1="44" x2="252" y2="44"/>
+<g class="bgm-pins">
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>Citadel Streets, Upper City</title><circle class="bgm-hit" cx="470" cy="1152" r="95"></circle><circle class="bgm-dot" cx="470" cy="1152" r="26"></circle><text class="bgm-tip" x="470" y="1256">Upper City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>The Wide, Upper City</title><circle class="bgm-hit" cx="1120" cy="886" r="95"></circle><circle class="bgm-dot" cx="1120" cy="886" r="26"></circle><text class="bgm-tip" x="1120" y="990">Upper City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>Temples, Upper City</title><circle class="bgm-hit" cx="830" cy="1299" r="95"></circle><circle class="bgm-dot" cx="830" cy="1299" r="26"></circle><text class="bgm-tip" x="830" y="1403">Upper City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>Manorborn, Upper City</title><circle class="bgm-hit" cx="658" cy="1678" r="95"></circle><circle class="bgm-dot" cx="658" cy="1678" r="26"></circle><text class="bgm-tip" x="658" y="1782">Upper City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Heapside, Lower City</title><circle class="bgm-hit" cx="1707" cy="940" r="95"></circle><circle class="bgm-dot" cx="1707" cy="940" r="26"></circle><text class="bgm-tip" x="1707" y="1044">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>The Steeps, Lower City</title><circle class="bgm-hit" cx="1175" cy="1305" r="95"></circle><circle class="bgm-dot" cx="1175" cy="1305" r="26"></circle><text class="bgm-tip" x="1175" y="1409">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Eastway, Lower City</title><circle class="bgm-hit" cx="1935" cy="1271" r="95"></circle><circle class="bgm-dot" cx="1935" cy="1271" r="26"></circle><text class="bgm-tip" x="1935" y="1375">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Brampton, Lower City</title><circle class="bgm-hit" cx="2264" cy="1522" r="95"></circle><circle class="bgm-dot" cx="2264" cy="1522" r="26"></circle><text class="bgm-tip" x="2264" y="1626">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Bloomridge, Lower City</title><circle class="bgm-hit" cx="972" cy="1607" r="95"></circle><circle class="bgm-dot" cx="972" cy="1607" r="26"></circle><text class="bgm-tip" x="972" y="1711">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Seatower, Lower City</title><circle class="bgm-hit" cx="844" cy="1935" r="95"></circle><circle class="bgm-dot" cx="844" cy="1935" r="26"></circle><text class="bgm-tip" x="844" y="2039">Lower City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Blackgate, Outer City</title><circle class="bgm-hit" cx="693" cy="589" r="95"></circle><circle class="bgm-dot" cx="693" cy="589" r="26"></circle><text class="bgm-tip" x="693" y="693">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Stonyeyes, Outer City</title><circle class="bgm-hit" cx="2261" cy="1021" r="95"></circle><circle class="bgm-dot" cx="2261" cy="1021" r="26"></circle><text class="bgm-tip" x="2261" y="1125">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Norchapel, Outer City</title><circle class="bgm-hit" cx="2871" cy="736" r="95"></circle><circle class="bgm-dot" cx="2871" cy="736" r="26"></circle><text class="bgm-tip" x="2871" y="840">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Little Calimshan, Outer City</title><circle class="bgm-hit" cx="3002" cy="431" r="95"></circle><circle class="bgm-dot" cx="3002" cy="431" r="26"></circle><text class="bgm-tip" x="3002" y="535">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Whitkeep, Outer City</title><circle class="bgm-hit" cx="3487" cy="651" r="95"></circle><circle class="bgm-dot" cx="3487" cy="651" r="26"></circle><text class="bgm-tip" x="3487" y="755">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Sow&#39;s Foot, Outer City</title><circle class="bgm-hit" cx="4396" cy="1238" r="95"></circle><circle class="bgm-dot" cx="4396" cy="1238" r="26"></circle><text class="bgm-tip" x="4396" y="1342">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Tumbledown, Outer City</title><circle class="bgm-hit" cx="2828" cy="1763" r="95"></circle><circle class="bgm-dot" cx="2828" cy="1763" r="26"></circle><text class="bgm-tip" x="2828" y="1867">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Twin Songs, Outer City</title><circle class="bgm-hit" cx="4216" cy="1907" r="95"></circle><circle class="bgm-dot" cx="4216" cy="1907" r="26"></circle><text class="bgm-tip" x="4216" y="2011">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Wyrm&#39;s Crossing, Outer City</title><circle class="bgm-hit" cx="4511" cy="2508" r="95"></circle><circle class="bgm-dot" cx="4511" cy="2508" r="26"></circle><text class="bgm-tip" x="4511" y="2612">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Rivington, Outer City</title><circle class="bgm-hit" cx="4675" cy="2901" r="95"></circle><circle class="bgm-dot" cx="4675" cy="2901" r="26"></circle><text class="bgm-tip" x="4675" y="3005">Outer City</text></a>
 </g>
 </g>
 </svg>
 <div class="bg-map-legend">
-<b>Key</b>
+<b>Districts</b>
 <ul>
-<li><i class="k-oldwall"></i>The Old Wall</li>
-<li><i class="k-wall"></i>City walls</li>
-<li><span class="k-gate"></span>Gates (nine)</li>
-<li><i class="k-road"></i>Roads</li>
+<li data-district="upper"><i class="k-upper"></i>Upper City <span class="k-n">4</span></li>
+<li data-district="lower"><i class="k-lower"></i>Lower City <span class="k-n">6</span></li>
+<li data-district="outer"><i class="k-outer"></i>Outer City <span class="k-n">10</span></li>
+<li data-district="gates"><span class="k-gate"></span>Gates <span class="k-n">9</span></li>
 </ul>
 </div>
 </div>
@@ -145,7 +74,7 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
     var g = wrap.querySelector("#bg-map-viewport");
     if (!svg || !g) return;
     wrap.dataset.ready = "1";
-    var s = 1, tx = 0, ty = 0, MIN = 0.7, MAX = 8;
+    var s = 1, tx = 0, ty = 0, MIN = 0.9, MAX = 6;
     function apply() {
       g.setAttribute("transform", "translate(" + tx + " " + ty + ") scale(" + s + ")");
     }
@@ -255,7 +184,31 @@ Drag to pan, scroll to zoom, click a district to open its page. Nine gates, thre
       })(rows[i]);
     }
   }
-  function init() { initMap(); initGateTable(); }
+  /* Hovering a district in the legend lights every pin belonging to it, the
+     same idiom the gate table uses. The legend sits outside the <svg>, so it
+     cannot be done in CSS alone. */
+  function initLegend() {
+    var wrap = document.getElementById("bg-map");
+    if (!wrap) return;
+    var items = wrap.querySelectorAll(".bg-map-legend li[data-district]");
+    for (var i = 0; i < items.length; i++) {
+      (function (li) {
+        if (li.dataset.bound) return;
+        li.dataset.bound = "1";
+        var key = li.getAttribute("data-district");
+        function light(on) {
+          var sel = key === "gates" ? ".bgm-ring" : '.bgm-pin[data-district="' + key + '"]';
+          var els = wrap.querySelectorAll(sel);
+          for (var n = 0; n < els.length; n++) els[n].classList.toggle("is-lit", on);
+        }
+        li.addEventListener("mouseenter", function () { light(true); });
+        li.addEventListener("mouseleave", function () { light(false); });
+        li.addEventListener("focusin", function () { light(true); });
+        li.addEventListener("focusout", function () { light(false); });
+      })(items[i]);
+    }
+  }
+  function init() { initMap(); initGateTable(); initLegend(); }
   if (document.readyState !== "loading") init();
   document.addEventListener("DOMContentLoaded", init);
   document.addEventListener("nav", init);
