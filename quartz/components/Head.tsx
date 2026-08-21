@@ -70,6 +70,21 @@ export default (() => {
             __html: `try{if(sessionStorage.getItem("explorerScrollTop")===null){sessionStorage.setItem("explorerScrollTop","0")}}catch(e){}`,
           }}
         ></script>
+        {/* Ambient video backdrop. Starts the one video that matches the current
+            theme, and only on a desktop viewport whose reader has not asked for
+            reduced motion; on anything else neither file is ever requested,
+            because the markup has preload="none" and no autoplay.
+
+            Re-runs on `nav` (fired on first load and on every SPA navigation),
+            on `themechange`, and on tab visibility so a backgrounded tab stops
+            decoding video. Guarded by a global flag: identical inline head
+            scripts are not re-executed by the SPA diff, but the flag makes that
+            an assumption we do not depend on. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){if(window.__afaBackdropVideo)return;window.__afaBackdropVideo=true;function allowed(){try{var c=navigator.connection;if(c&&c.saveData)return false;if(!window.matchMedia("(min-width: 1200px)").matches)return false;if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return false;}catch(e){return false}return true}function apply(){var v=document.querySelectorAll(".afa-video");if(!v.length)return;var dark=document.documentElement.getAttribute("saved-theme")==="dark";var want=dark?"afa-night":"afa-day";for(var i=0;i<v.length;i++){var el=v[i];el.muted=true;if(el.classList.contains(want)&&allowed()&&!document.hidden){var p=el.play();if(p&&p.catch)p.catch(function(){})}else{el.pause()}}}document.addEventListener("nav",apply);document.addEventListener("themechange",apply);document.addEventListener("visibilitychange",apply);try{window.matchMedia("(min-width: 1200px)").addEventListener("change",apply)}catch(e){}})();`,
+          }}
+        ></script>
         {coreStylesheet && <link rel="preload" href={coreStylesheet} as="style" />}
         {coreScript && coreScript.contentType === "external" && (
           <link rel="preload" href={coreScript.src} as="script" />

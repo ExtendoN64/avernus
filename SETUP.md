@@ -43,8 +43,9 @@ npm install
 npx quartz build
 ```
 
-A correct build emits roughly **one .webp og-image per page**, plus the four backdrop images
-in `static/bg/`. At the time of writing that is 151 files, 48 pages, 47 og-images. The exact
+A correct build emits roughly **one .webp og-image per page**, plus the six backdrop assets in
+`static/bg/` (four .webp stills and two .mp4 loops). At the time of writing that is 153 files,
+48 pages, 47 og-images. The exact
 counts drift as content grows, so the signal that matters is that the og-image count is close
 to the page count and is **not zero**. Zero og-images, with about 96 files in total, means the
 plugin symlinks are broken. See below.

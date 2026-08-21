@@ -932,16 +932,18 @@ tr[data-gate]:hover {
 
        veil    light mode    dark mode
        0.70      4.87:1        4.46:1   <- dark fails AA
-       0.80      6.30:1        6.43:1   <- AA in both
-       0.86      7.20:1        7.90:1   <- AAA in both, current
+       0.75      5.56:1        5.35:1   <- AA in both, current
+       0.80      6.30:1        6.43:1
+       0.86      7.20:1        7.90:1   <- AAA in both
    ========================================================================== */
 
 :root {
   /* Opacity of the ground colour laid over the art, across the reading
      column. Higher is flatter and safer, lower shows more painting.
-     Do not go below 80% without re-running the measurement above: light mode
-     is the binding constraint and it fails AA at 70%. */
-  --afa-veil: 86%;
+     At 75% the worst pixel clears AA (4.5:1) with margin in both modes but is
+     short of AAA. Do not go below 70%: that is where dark mode fails AA
+     outright, and light mode is only just above it. */
+  --afa-veil: 75%;
 
   /* The page container is capped at 1500px, so on a wide screen the outer
      margins carry no text and can afford far more art. This is the veil out
@@ -1002,6 +1004,7 @@ tr[data-gate]:hover {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to right,
     color-mix(in srgb, var(--light) var(--afa-veil-edge), transparent) 0,
@@ -1017,6 +1020,47 @@ tr[data-gate]:hover {
 #quartz-body {
   position: relative;
   z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   The moving version. Same two paintings, animated: 1920x1080, ten second
+   loops, roughly 3.1MB each and encoded faststart so they begin playing
+   without waiting for the whole file.
+
+   Desktop only, and only when the reader has not asked for reduced motion.
+   The gating is done twice on purpose: this block keeps the element out of
+   the layout, and the script in Head.tsx refuses to call play(). Because the
+   markup carries `preload="none"` and no `autoplay`, a file that is never
+   played is never fetched, so phones pay nothing for these at all.
+   -------------------------------------------------------------------------- */
+
+.afa-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+/* Only the one matching the current theme is ever shown, and the script only
+   ever plays that one, so exactly one file is on the wire. */
+:root:not([saved-theme="dark"]) .afa-video.afa-day,
+:root[saved-theme="dark"] .afa-video.afa-night {
+  display: block;
+}
+
+@media all and not ($desktop) {
+  .afa-video {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .afa-video {
+    display: none !important;
+  }
 }
 
 @media print {
