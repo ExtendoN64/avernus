@@ -1,14 +1,13 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import HellscapeBackdrop from "./HellscapeBackdrop"
 
 const Body: QuartzComponent = ({ children }: QuartzComponentProps) => {
   return (
     <>
       {/* Fixed, decorative, behind everything. Rendered here rather than via a
           layout entry so it exists once on every page type without needing a
-          plugin position. #quartz-body takes z-index: 1 in custom.scss so all
-          content paints above it. */}
-      <HellscapeBackdrop />
+          plugin position. All of it is CSS: see custom.scss section 7, which
+          also gives #quartz-body z-index 1 so content paints above it. */}
+      <div class="afa-backdrop" aria-hidden="true"></div>
       <div id="quartz-body">{children}</div>
     </>
   )
