@@ -228,8 +228,11 @@ plugins:
     enabled: true
     options:
       links:
-        Campaign Primer: https://extendon64.github.io/avernus/00-Campaign/Campaign-Primer
-        Safety Tools: https://extendon64.github.io/avernus/00-Campaign/Safety-Tools
+        # lowercase: Quartz slugifies, and mixed case only serves a meta-refresh stub
+        Campaign Primer: https://extendon64.github.io/avernus/00-campaign/campaign-primer
+        Safety Tools: https://extendon64.github.io/avernus/00-campaign/safety-tools
+        Maps & tokens by TessaPresentsMaps: https://www.reddit.com/user/TessaPresentsMaps/
+        Fan Content Policy: https://company.wizards.com/en/legal/fancontentpolicy
   - source: github:quartz-community/recent-notes
     enabled: false
   - source: github:quartz-community/spacer

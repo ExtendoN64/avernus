@@ -64,3 +64,7 @@ This is a campaign about **infernal bargains and what people trade away when the
 ## Sources & Credit
 
 This campaign runs on Wizards of the Coast's *Baldur's Gate: Descent into Avernus*, with homebrew by **LaserLlama** (see [[Homebrew - LaserLlama]] for links to the original GM Binder documents). This wiki contains **my own notes and our table's story**. It isn't a copy of either work. If you want the actual rules text or the adventure itself, go support the people who made it.
+
+Maps and tokens at our table come from **[TessaPresentsMaps](https://www.reddit.com/user/TessaPresentsMaps/)**, who puts a great deal of this work out for free and sells more of it on DMs Guild. If you run this adventure yourself, go and look at what they have made.
+
+*Ascent from Avernus* is unofficial Fan Content permitted under the [Fan Content Policy](https://company.wizards.com/en/legal/fancontentpolicy). Not approved or endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. Copyright Wizards of the Coast LLC. This wiki is not for sale, carries no advertising, and takes no money.
