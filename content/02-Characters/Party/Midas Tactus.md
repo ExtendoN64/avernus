@@ -28,7 +28,7 @@ He is dead. Midas does not volunteer how, and does not react well to being asked
 
 ## Known to
 
-- **The Muaser Brothers.** [[Tam]] and [[Seam]]. They have crossed paths on jobs more than
+- **The Mauser Brothers.** [[Tam]] and [[Seam]]. They have crossed paths on jobs more than
   once, being in the same trade. Not friends. Familiar.
 - **[[Vedmaak Yaga|The Drifter]].** Midas heard wailing, followed it, and found Vedmaak at the
   bottom of a pit. He hauled him out, warned him about the area they were standing in, and went
