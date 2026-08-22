@@ -1250,6 +1250,36 @@ tr[data-gate]:hover {
   opacity: 1;
 }
 
+/* ---- the close up ----
+   The Lower City map is a 1:1 crop of the same art, so its viewBox is 2350
+   wide where the city map's is 5250. Both render at the same page width,
+   which makes one viewBox unit 2.23x larger here. Radii are scaled in the
+   markup; these are the lengths that live in CSS and need the same haircut,
+   or the pins arrive looking like dinner plates. */
+
+.bg-map[data-scale="close"] {
+  /* Bottom left on this crop lands squarely on Seatower and hides one of the
+     six pins the page is about. Bottom right is open water. */
+  .bg-map-legend {
+    left: auto;
+    right: 0.6rem;
+  }
+
+  .bgm-dot {
+    stroke-width: 4.5;
+  }
+  .bgm-tip {
+    font-size: 37px;
+    stroke-width: 7;
+  }
+  .bgm-gatedot {
+    stroke-width: 3.6;
+  }
+  .bgm-gate .bgm-ring {
+    stroke-width: 8;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .bgm-dot,
   .bgm-tip,

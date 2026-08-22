@@ -33,6 +33,58 @@ tags:
 
 Crowded, loud, and layered. The city has been built on top of itself so many times that half the cellars down here open into something older. If Baldur's Gate has a heart, it is down here, and it works for a living.
 
+Drag to pan, scroll to zoom. The six neighbourhoods below are marked on the map, along with
+the Upper City above the Old Wall and the nine gates.
+
+<div class="bg-map" data-scale="close" data-min="0.9" data-max="4">
+<div class="bg-map-controls">
+<button type="button" data-map="in" aria-label="Zoom in">+</button>
+<button type="button" data-map="out" aria-label="Zoom out">&minus;</button>
+<button type="button" data-map="reset" aria-label="Reset view">Reset</button>
+</div>
+<svg viewBox="0 0 2350 1760" role="img" aria-label="Close up map of the Lower City of Baldur's Gate, showing its six neighbourhoods around Gray Harbor, the Old Wall, and the nine gates.">
+<g class="bg-map-viewport">
+<image class="bgm-art" href="../static/maps/lowercity-low.webp" x="0" y="0" width="2350" height="1760" preserveAspectRatio="none"></image>
+<image class="bgm-art" href="../static/maps/lowercity.webp" x="0" y="0" width="2350" height="1760" preserveAspectRatio="none"></image>
+<g class="bgm-gates">
+<g class="bgm-gate"><title>Black Dragon Gate</title><circle class="bgm-ring" data-gate="blackdragon" cx="519" cy="322" r="33"></circle><circle class="bgm-gatedot" cx="519" cy="322" r="7"></circle></g>
+<g class="bgm-gate"><title>Heap Gate</title><circle class="bgm-ring" data-gate="heap" cx="1072" cy="380" r="33"></circle><circle class="bgm-gatedot" cx="1072" cy="380" r="7"></circle></g>
+<g class="bgm-gate"><title>Citadel Gate</title><circle class="bgm-ring" data-gate="citadel" cx="368" cy="615" r="33"></circle><circle class="bgm-gatedot" cx="368" cy="615" r="7"></circle></g>
+<g class="bgm-gate"><title>Baldur&#39;s Gate</title><circle class="bgm-ring" data-gate="baldurs" cx="881" cy="632" r="33"></circle><circle class="bgm-gatedot" cx="881" cy="632" r="7"></circle></g>
+<g class="bgm-gate"><title>Basilisk Gate</title><circle class="bgm-ring" data-gate="basilisk" cx="1961" cy="668" r="33"></circle><circle class="bgm-gatedot" cx="1961" cy="668" r="7"></circle></g>
+<g class="bgm-gate"><title>Gond Gate</title><circle class="bgm-ring" data-gate="gond" cx="715" cy="932" r="33"></circle><circle class="bgm-gatedot" cx="715" cy="932" r="7"></circle></g>
+<g class="bgm-gate"><title>Manor Gate</title><circle class="bgm-ring" data-gate="manor" cx="544" cy="1023" r="33"></circle><circle class="bgm-gatedot" cx="544" cy="1023" r="7"></circle></g>
+<g class="bgm-gate"><title>Sea Gate</title><circle class="bgm-ring" data-gate="sea" cx="354" cy="1376" r="33"></circle><circle class="bgm-gatedot" cx="354" cy="1376" r="7"></circle></g>
+<g class="bgm-gate"><title>Cliffgate</title><circle class="bgm-ring" data-gate="cliffgate" cx="2091" cy="1253" r="33"></circle><circle class="bgm-gatedot" cx="2091" cy="1253" r="7"></circle></g>
+</g>
+<g class="bgm-pins">
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Heapside, Lower City</title><circle class="bgm-hit" cx="1377" cy="501" r="43"></circle><circle class="bgm-dot" cx="1377" cy="501" r="12"></circle><text class="bgm-tip" x="1377" y="548">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>The Steeps, Lower City</title><circle class="bgm-hit" cx="845" cy="841" r="43"></circle><circle class="bgm-dot" cx="845" cy="841" r="12"></circle><text class="bgm-tip" x="845" y="888">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Eastway, Lower City</title><circle class="bgm-hit" cx="1605" cy="832" r="43"></circle><circle class="bgm-dot" cx="1605" cy="832" r="12"></circle><text class="bgm-tip" x="1605" y="879">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Brampton, Lower City</title><circle class="bgm-hit" cx="1934" cy="1083" r="43"></circle><circle class="bgm-dot" cx="1934" cy="1083" r="12"></circle><text class="bgm-tip" x="1934" y="1130">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Bloomridge, Lower City</title><circle class="bgm-hit" cx="642" cy="1168" r="43"></circle><circle class="bgm-dot" cx="642" cy="1168" r="12"></circle><text class="bgm-tip" x="642" y="1215">Lower City</text></a>
+<a href="../03-locations/lower-city" class="bgm-pin" data-district="lower"><title>Seatower, Lower City</title><circle class="bgm-hit" cx="514" cy="1496" r="43"></circle><circle class="bgm-dot" cx="514" cy="1496" r="12"></circle><text class="bgm-tip" x="514" y="1543">Lower City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>Citadel Streets, Upper City</title><circle class="bgm-hit" cx="140" cy="688" r="43"></circle><circle class="bgm-dot" cx="140" cy="688" r="12"></circle><text class="bgm-tip" x="140" y="735">Upper City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>The Wide, Upper City</title><circle class="bgm-hit" cx="790" cy="422" r="43"></circle><circle class="bgm-dot" cx="790" cy="422" r="12"></circle><text class="bgm-tip" x="790" y="469">Upper City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>Temples, Upper City</title><circle class="bgm-hit" cx="500" cy="860" r="43"></circle><circle class="bgm-dot" cx="500" cy="860" r="12"></circle><text class="bgm-tip" x="500" y="907">Upper City</text></a>
+<a href="../03-locations/upper-city" class="bgm-pin" data-district="upper"><title>Manorborn, Upper City</title><circle class="bgm-hit" cx="328" cy="1239" r="43"></circle><circle class="bgm-dot" cx="328" cy="1239" r="12"></circle><text class="bgm-tip" x="328" y="1286">Upper City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Blackgate, Outer City</title><circle class="bgm-hit" cx="363" cy="150" r="43"></circle><circle class="bgm-dot" cx="363" cy="150" r="12"></circle><text class="bgm-tip" x="363" y="197">Outer City</text></a>
+<a href="../03-locations/outer-city" class="bgm-pin" data-district="outer"><title>Stonyeyes, Outer City</title><circle class="bgm-hit" cx="1931" cy="582" r="43"></circle><circle class="bgm-dot" cx="1931" cy="582" r="12"></circle><text class="bgm-tip" x="1931" y="629">Outer City</text></a>
+</g>
+</g>
+</svg>
+<div class="bg-map-legend">
+<b>Districts</b>
+<ul>
+<li data-district="lower"><i class="k-lower"></i>Lower City <span class="k-n">6</span></li>
+<li data-district="upper"><i class="k-upper"></i>Upper City <span class="k-n">4</span></li>
+<li data-district="outer"><i class="k-outer"></i>Outer City <span class="k-n">2</span></li>
+<li data-district="gates"><span class="k-gate"></span>Gates <span class="k-n">9</span></li>
+</ul>
+</div>
+</div>
+<script src="../static/js/map.js"></script>
+
 ## Neighbourhoods
 
 | Neighbourhood | What it is |
