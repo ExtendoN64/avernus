@@ -12,13 +12,16 @@ tags:
 
 ## Character Creation
 
+Full walkthrough on **[[Character Creation]]**. The short version:
+
 - **Starting level:** 1
-- **Ability scores:** **DECIDE** between standard array (15/14/13/12/10/8), point buy (27), or rolled
+- **Ability scores:** Roll or pick a line from one of three tables. See [[Character Creation]]
 - **Hit points:** Max at 1st level, then **DECIDE**: average (round up) or roll with a floor
-- **Starting gear:** Class/background equipment, or gold (your choice)
+- **Backgrounds:** The 27 custom ones, not the PHB versions. See [[Backgrounds]]
+- **Starting gear:** Per class, and more generous than the PHB. See [[Starting Equipment]]
 - **Multiclassing:** Allowed. Talk to me first so we can make it land narratively.
-- **Feats:** Allowed, including [[Homebrew - LaserLlama|LaserLlama expanded feats]]
-- **Sources allowed:** Core 5e + LaserLlama homebrew. Anything else, ask.
+- **Feats:** Allowed. See [[Homebrew]]
+- **Sources allowed:** ManBat's house rules and everything they link. See [[Homebrew]] for the full list and the credits. Anything outside that, ask.
 
 ## Required of Every Character
 
@@ -30,10 +33,49 @@ tags:
 
 - **Rolls:** Roll in the open. I roll in the open too, mostly.
 - **Nat 20 / Nat 1 on ability checks:** Not auto-success/fail. They're checks, not attacks. Expect a *notable* outcome, not a miracle.
-- **Inspiration:** Awarded for playing your bonds and flaws into trouble, not for optimal tactics.
+- **Inspiration:** Awarded for playing your bonds and flaws into trouble, not for optimal tactics. You can hold **up to your proficiency bonus**, so two at level 1. Each [[Backgrounds|background]] says what specifically earns it.
 - **Rule disputes:** I make a fast call mid-session, we look it up after. Speed over precision at the table.
 - **Absent players:** **DECIDE**: run as NPC, fade to background, or hard pause
 - **Session recaps:** I post them to this wiki. Corrections welcome; your memory beats my notes.
+
+## Combat
+
+These come from ManBat's house rules and they change how fights feel. Read them before session one.
+
+### Group initiative
+
+We do **not** roll initiative individually. When combat starts, **each side rolls one d10**. Highest wins.
+
+- Whichever side wins, its members act **in any order they choose**, then the other side goes.
+- A round ends when both sides have acted.
+- Ties are rerolled.
+- Holding the high or low ground gives that side **+2 or -2** on the roll.
+- If you have a feature that modifies initiative (Tactical Wit, Dread Ambusher and so on), it applies to your side's d10.
+
+> [!tip] This is the single biggest change at the table
+> You can deliberately act after an ally, so setting up combos actually works. Talk to each other before you start declaring.
+
+### High and low ground
+
+Attacking from at least **10 feet above** your target gives **+2** to the attack roll. Attacking from below gives **-2**.
+
+### Critical hits
+
+A crit deals **double the total of your damage roll**, modifiers included, rather than double dice only.
+
+> A longsword rolling 5 with a +5 modifier deals 10, so the crit deals **20**.
+
+That is a significant buff over the standard rule. Big single hits hurt more, and so do the ones aimed at you.
+
+### Vulnerability
+
+Vulnerability doubles the **damage dice**, not the total. A fireball rolling 8d6 rolls **16d6** against a vulnerable target.
+
+### Stacking resistance
+
+Resistance to the same damage type from more than one source stacks. Halve the damage for the first instance, then subtract **5 for each additional** source.
+
+> A tiefling wearing a ring of fire resistance takes 30 fire damage: halved to 15 by their innate resistance, then reduced by 5, for **10 taken**.
 
 ## Rest & Recovery
 

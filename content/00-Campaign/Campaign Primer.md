@@ -40,7 +40,7 @@ This is a campaign about **infernal bargains and what people trade away when the
 ## Characters
 
 - **Starting level:** 1
-- **Ancestry / class:** open, including [[Homebrew - LaserLlama|LaserLlama homebrew]]
+- **Ancestry / class:** open, including [[Homebrew|homebrew]]
 - **Stats:** see [[House Rules]]
 - **Give me a hook into Baldur's Gate.** A debt, a family, a grudge, a job: something in this city that has an opinion about you. A drifter with no ties is a character I can't write toward.
 - **Give me one bond with another PC.** Decide it together at session zero.
@@ -63,7 +63,7 @@ This is a campaign about **infernal bargains and what people trade away when the
 
 ## Sources & Credit
 
-This campaign runs on Wizards of the Coast's *Baldur's Gate: Descent into Avernus*, with homebrew by **LaserLlama** (see [[Homebrew - LaserLlama]] for links to the original GM Binder documents). This wiki contains **my own notes and our table's story**. It isn't a copy of either work. If you want the actual rules text or the adventure itself, go support the people who made it.
+This campaign runs on Wizards of the Coast's *Baldur's Gate: Descent into Avernus*, with house rules and homebrew by **ManBat**, **Taron "Indestructoboy" Pounds**, **heavyarms** and **LaserLlama** (see [[Homebrew]] for the full list and links to every original document). This wiki contains **my own notes and our table's story**. It isn't a copy of either work. If you want the actual rules text or the adventure itself, go support the people who made it.
 
 Maps and tokens at our table come from **[TessaPresentsMaps](https://www.reddit.com/user/TessaPresentsMaps/)**, who puts a great deal of this work out for free and sells more of it on DMs Guild. If you run this adventure yourself, go and look at what they have made.
 

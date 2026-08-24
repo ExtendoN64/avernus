@@ -53,14 +53,20 @@ You are going to find out what happened to Elturel. You are probably going to wi
 - ### [[Campaign Primer]]
   The premise, the tone, and what you are signing up for.
 
+- ### [[Character Creation]]
+  Build your character here. Scores, background, class, and starting gear, in order.
+
 - ### [[House Rules]]
-  How we play. Character creation, rulings, and the things devils are allowed to do to you.
+  How we play. Group initiative, crits, rulings, and the things devils are allowed to do to you.
 
 - ### [[Safety Tools]]
   Lines, veils, the X-card, and the open door. These override every other rule.
 
-- ### [[Homebrew - LaserLlama|Homebrew]]
-  The expanded classes and feats available to you.
+- ### [[Homebrew]]
+  Every class, feat and supplement in play, and where to find them.
+
+- ### [[Starting Equipment]]
+  What you begin with, the new packs, and the gear that is not in the PHB.
 
 </div>
 
