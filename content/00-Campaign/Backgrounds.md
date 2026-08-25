@@ -54,12 +54,14 @@ Each background also tells you **what earns you inspiration**. That is the part 
 
 ## Two things to know before you pick
 
-> [!warning] The list is incomplete, and it stops at O
-> ManBat's document is marked **under construction** and currently ends at Outlander. There is no **Pirate, Sage, Sailor, Soldier, Spy, Urchin** or anything else past the letter O.
+> [!note] Twenty seven is the whole list
+> These are all of them. It is a curated set rather than the full PHB roster, so some familiar
+> names are deliberately not here.
 >
-> Several of those are obvious fits for this campaign. **[[Tam]]** and **[[Seam]]** are dock workers in a harbour city; Sailor is exactly the background you would reach for.
->
-> If you want one that is not on the list, tell me and we will build it. It is a two minute job: pick two skills, pick two languages or tools, pick a starting kit at roughly the value shown above, and write one line about what earns you inspiration.
+> If the character in your head does not fit any of them, **tell me and we will build one**. It
+> takes two minutes: pick two skills, pick two languages or tools, pick a starting kit at roughly
+> the value of the ones above, and write one line about what earns you inspiration. That is all a
+> background is.
 
 > [!note] Marine and Knight have the same suggested skills
 > Both list Persuasion and Religion, which is almost certainly a copy and paste slip in the source rather than an intent. For a hardened soldier of the sea I would suggest **Athletics and Survival**, or **Athletics and Perception**.
