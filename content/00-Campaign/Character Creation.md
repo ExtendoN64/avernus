@@ -8,9 +8,9 @@ tags:
 
 # Character Creation
 
-Start here. This page is the order of operations; the detail lives in the pages and documents it links to.
+For our order of operations; the detail lives in the pages and documents it links to.
 
-> [!important] We are not using the PHB defaults
+> [!important] We are not using the PHB defaults. What is not present is at the discretion of DM & their players.
 > Ability scores, backgrounds, starting equipment and most of the class list are replaced by
 > **[ManBat's House-Rules](https://docs.google.com/document/d/1PYAOb6NtrI53YKhW835HCzMt_QlHlwzRRsXxt--TvBk/edit?usp=sharing)**. See [[Homebrew]] for the full picture and the credits.
 
@@ -52,7 +52,7 @@ Roll a **d6** on one of the three tables below and take that line, **or** just p
 | 6 | 13, 12, 12, 12, 12, 10 |
 
 > [!tip] What the tiers actually mean
-> Point totals, for scale. The standard array is **72**.
+> Point totals, for scale. A standard array is **72**.
 >
 > | Tier | Total | Versus standard array |
 > |---|---|---|
@@ -60,9 +60,9 @@ Roll a **d6** on one of the three tables below and take that line, **or** just p
 > | Normal | 74 to 77 | Slightly above |
 > | Hardcore | 67 to 71 | Slightly below |
 >
-> **We use one tier for the whole party.** Picking your own would mean one person quietly playing a different game. I lean **Normal**. Bring an opinion to session zero.
+> **I would recommend one tier for the whole party.** Picking your own would mean one person would be quietly playing a different game. I lean **Normal**. Bring an opinion to the DM before or during Session 0.
 
-**Racial bonuses are customisable.** Put them wherever you like, as long as you keep the shape: either **+2 and +1**, or **+1, +1 and +1**.
+**Racial bonuses are customizable.** Put them wherever you like, as long as you keep the shape: either **+2 and +1**, or **+1, +1 and +1**.
 
 ## 2. Background
 
@@ -74,19 +74,23 @@ Every background lets you **choose any two skills**; the ones listed are only su
 
 Most classes are replaced by an alternate version. Check **[[Homebrew]]** before you build anything, because taking the PHB version of a class we have replaced is the one mistake that is annoying to unwind later.
 
+As far as multi-classing is concerned. A balancing rule is as follows and is **non-negotiable**: 
+
+- If you start on a [[Homebrew|homebrew]] **CLASS**, you may multiclass into a PHB class. But you **CANNOT** multi-class into another [[Homebrew|homebrew]] class down the line.
+
 ## 4. Starting equipment
 
-Per class, and more generous than the PHB. See **[[Starting Equipment]]**, which also covers the new equipment packs, the new weapons, and the new armour.
+Per class, and more generous than the PHB. See **[[Starting Equipment]]**, which also covers the new equipment packs, the new weapons, and the new armor.
 
 You get this **in addition to** whatever your background grants.
 
 ## 5. The three things this campaign requires
 
-Non negotiable, and they are about the story rather than the numbers.
+Non-negotiable, and they are about the story rather than the numbers.
 
 1. **A tie to Baldur's Gate.** This campaign starts local and stays local for a while. See [[Campaign Primer]].
-2. **A bond with at least one other player character.** Sort it out at session zero.
-3. **A reason to say no to a very good offer.** You will understand later.
+2. **A bond with at least one other player character.** Sort it out at session zero. Not asking for y'all to be best friends, but some familiarity with each other is required. 
+3. **A reason to say no to a very good offer.** You will understand later. 
 
 ## Inspiration
 

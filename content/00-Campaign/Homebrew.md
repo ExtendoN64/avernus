@@ -10,7 +10,7 @@ tags:
 
 We run on **ManBat's House-Rules**, which replace most of the 2014 PHB's character options with homebrew from several designers. This page is the **index and the ruling sheet**. Everything mechanical lives in the source documents, and they are all free.
 
-> [!important] Read the sources, not this page
+> [!important] Read the sources, not this page.
 > This page deliberately does not reproduce anyone's rules text. It tells you **what is allowed and where to find it**. The documents get revised, and I would rather we all read the same revision than a stale copy pasted here.
 
 ## The four documents
@@ -40,12 +40,12 @@ Alternate Artificer, Barbarian, Bard, Blood Hunter, Fighter, Monk, Paladin, Rang
 
 ### The three that stay vanilla
 
-**Cleric**, **Druid** and **Wizard** use the 2014 PHB as their base, with optional features and subclass revisions from Indestructoboy's 5E Overhaul on top.
+**Cleric**, **Druid** and **Wizard** use the 2014 PHB as their base, with optional features and subclass revisions from Indestructoboy's 5E Overhaul on top. LaserLlama at the time of this site being up is still developing the **Savant** & **Wizard** Alternate classes; and are still in beta. This site will reflect those changes upon release.
 
 > [!warning] DECIDE: how far does the Overhaul reach?
 > The house rules invoke that book for **Cleric, Druid and Wizard**. The book itself covers **all twelve classes**, plus revised feats, new spells, and **new conditions in Appendix A**. Conditions are table wide, not class specific.
 >
-> So: is it the whole book for everyone, or only the three classes that need it? Bring this to session zero. I lean toward **the whole book**, since half the party is on LaserLlama classes that already assume a modern power level.
+> So: is it the whole book for everyone, or only the three classes that need it? Bring this to session zero. I lean toward **the whole book**, since most of the party is on LaserLlama classes that already assume a modern power level.
 
 ## Feats, spells and conditions
 
@@ -56,7 +56,7 @@ Allowed, from **Indestructoboy's 5E Overhaul**, chapters 2 and 3 plus Appendix A
 Two systems exist and they are not the same thing:
 
 1. The **Alchemist class document**, if you are playing one.
-2. The **Alchemy Almanac**, a full gathering, herbalism and potioncraft subsystem with its own guild, ranks and recipe index.
+2. The **Alchemy Almanac**, a full gathering, herbalism and potion craft subsystem with its own guild, ranks and recipe index.
 
 The house rules point at both. The Almanac is deep and genuinely good, and it is also a whole extra ruleset.
 
