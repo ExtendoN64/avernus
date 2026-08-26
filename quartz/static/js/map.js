@@ -57,27 +57,45 @@
        Displacement from where the press started, not distance travelled, so
        a shaky hand that ends up back where it began is still a click. */
     var DRAG_PX = 8;
-    var drag = false, lx = 0, ly = 0, sx = 0, sy = 0, movedPx = 0;
+    var drag = false, captured = false, lx = 0, ly = 0, sx = 0, sy = 0, movedPx = 0;
+
     svg.addEventListener("pointerdown", function (e) {
-      drag = true; movedPx = 0;
+      drag = true; captured = false; movedPx = 0;
       sx = e.clientX; sy = e.clientY;
       var p = toSvg(e); lx = p.x; ly = p.y;
-      try { svg.setPointerCapture(e.pointerId); } catch (err) {}
+      /* Deliberately NOT capturing the pointer here. Pointer capture retargets
+         every later event to the capturing element, INCLUDING the click the
+         browser synthesises on pointerup. Capturing on pointerdown therefore
+         made every click land on the <svg> with no <a> in its path, so the
+         pins silently did nothing. Capture is taken below, once movement
+         proves this is a drag and no click should result anyway. */
       wrap.classList.add("is-dragging");
     });
+
     svg.addEventListener("pointermove", function (e) {
       if (!drag) return;
       var p = toSvg(e);
       tx += p.x - lx; ty += p.y - ly;
+      /* Displacement from where the press started, in SCREEN pixels: viewBox
+         units mean different things on screen from one map to the next. */
       var d = Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy);
       if (d > movedPx) movedPx = d;
+      if (!captured && movedPx > DRAG_PX) {
+        /* Now it is a real drag: take the pointer so panning survives leaving
+           the map, and so the release cannot be read as a click on a pin. */
+        try { svg.setPointerCapture(e.pointerId); captured = true; } catch (err) {}
+      }
       lx = p.x; ly = p.y;
       apply();
     });
+
     function endDrag(e) {
       if (!drag) return;
       drag = false;
-      try { svg.releasePointerCapture(e.pointerId); } catch (err) {}
+      if (captured) {
+        try { svg.releasePointerCapture(e.pointerId); } catch (err) {}
+        captured = false;
+      }
       wrap.classList.remove("is-dragging");
     }
     svg.addEventListener("pointerup", endDrag);
