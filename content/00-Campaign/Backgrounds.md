@@ -8,7 +8,7 @@ tags:
 
 # Backgrounds
 
-We use **[ManBat's Custom Backgrounds](https://docs.google.com/document/d/105n9STODtJnULw8-IV7GjXKO90Ag6X2uJ8T1p1fkuVU/edit?usp=sharing)** instead of the PHB versions. Twenty seven of them, listed below.
+We will use **[ManBat's Custom Backgrounds](https://docs.google.com/document/d/105n9STODtJnULw8-IV7GjXKO90Ag6X2uJ8T1p1fkuVU/edit?usp=sharing)** instead of the PHB versions. If there is a missing background that is not reflected in the PHB version, talk with me about it and we will work it out.
 
 > [!important] Two things that apply to every background
 > 1. **You choose any two skills.** The ones listed here are suggestions for convenience, not requirements. If your Noble was raised at sea, take Athletics and Survival.
@@ -52,27 +52,17 @@ Each background also tells you **what earns you inspiration**. That is the part 
 
 **Guild Artisan** is the exception to the languages rule: you get **one set of artisan's tools**, plus either one language or one more tool proficiency.
 
-## Two things to know before you pick
-
-> [!note] Twenty seven is the whole list
-> These are all of them. It is a curated set rather than the full PHB roster, so some familiar
-> names are deliberately not here.
->
-> If the character in your head does not fit any of them, **tell me and we will build one**. It
-> takes two minutes: pick two skills, pick two languages or tools, pick a starting kit at roughly
-> the value of the ones above, and write one line about what earns you inspiration. That is all a
-> background is.
-
-> [!note] Marine and Knight have the same suggested skills
-> Both list Persuasion and Religion, which is almost certainly a copy and paste slip in the source rather than an intent. For a hardened soldier of the sea I would suggest **Athletics and Survival**, or **Athletics and Perception**.
->
-> It changes nothing mechanically, since you choose any two skills anyway. Just do not read it as meaningful.
-
 ## Backgrounds and this campaign
 
-Remember the first hard requirement from [[Character Creation]]: **a tie to Baldur's Gate**. Your background is the easiest place to put it.
+[[Character Creation]] requires **a tie to Baldur's Gate**. Your background is the easiest place to put it, but there will need to be continuity of your presence the city's factions. Remember, this adventure intends for the party to be familiar enough with Baldur's Gate that they will either be from there or live inside it.
 
-City Watch is the Flaming Fist or the Watch. Guild Merchant or Guild Artisan puts you inside [[The Guild]]. Fisher and Mercenary both work the harbour. Criminal has a crew that will still recognise you. Noble means one of the patriar families, which is a much bigger deal here than it looks. See [[The Patriars]].
+For example:
+
+City Watch is the Flaming Fist or the Watch.  
+Guild Merchant or Guild Artisan puts you inside [[The Guild]].  
+Fisher and Mercenary both work the harbour.  
+Criminal has a crew that will still recognise you.  
+Noble means one of the patriar families, which is a much bigger deal here than it looks. See [[The Patriars]].
 
 ## See also
 
