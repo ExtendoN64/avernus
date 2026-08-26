@@ -1170,7 +1170,16 @@ tr[data-gate]:hover {
   filter: brightness(0.76) saturate(0.86);
 }
 
-/* ---- neighbourhood pins ---- */
+/* ---- neighbourhood pins ----
+   A pin has to answer three questions without being hovered: is this a
+   control, what is it, and which district does it belong to. A bare dot
+   floating under the cartographer's own lettering answered none of them.
+
+   So: a permanent target ring makes it read as a control at any zoom, and
+   the label carries BOTH the place and its district, because the district is
+   what the pin actually links to. Labels reveal on zoom as well as on hover,
+   since at default zoom twenty of them collide and on a touch screen there
+   is no hover at all. */
 
 .bgm-pin {
   cursor: pointer;
@@ -1178,22 +1187,33 @@ tr[data-gate]:hover {
 
 .bgm-hit {
   /* Invisible, and the reason a pin is comfortable to hit on a phone: the
-     visible dot is 30 units but the target is 95. */
+     visible dot is 24 units but the target is 95. */
   fill: transparent;
+}
+
+/* The permanent ring. This is the affordance: a dot is decoration, a dot
+   inside a ring is a target. */
+.bgm-halo {
+  fill: none;
+  stroke: var(--pin, #8a2f4a);
+  stroke-width: 7;
+  opacity: 0.42;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 0.13s ease,
+    transform 0.13s ease;
 }
 
 .bgm-dot {
   fill: var(--pin, #8a2f4a);
   stroke: #fdf6e4;
-  stroke-width: 10;
-  opacity: 0.9;
-  /* Scaling the dot rather than animating r: SVG geometry properties are
-     unevenly animatable across browsers, transforms are not. */
+  stroke-width: 9;
+  /* Scaling rather than animating r: SVG geometry properties are unevenly
+     animatable across browsers, transforms are not. */
   transform-box: fill-box;
   transform-origin: center;
-  transition:
-    transform 0.13s ease,
-    opacity 0.13s ease;
+  transition: transform 0.13s ease;
 }
 
 .bgm-pin[data-district="upper"] {
@@ -1206,32 +1226,59 @@ tr[data-gate]:hover {
   --pin: #6a4c93;
 }
 
-.bgm-tip {
-  font-family: var(--headerFont);
-  font-size: 82px;
-  text-anchor: middle;
-  fill: #21160f;
-  stroke: #fdf6e4;
-  stroke-width: 16;
-  paint-order: stroke;
-  opacity: 0;
+/* Always on. Collisions between neighbouring labels are solved in the pin
+   coordinates instead, because SVG scales labels and the gaps between them
+   together: two labels that overlap at 1x overlap at every zoom. */
+.bgm-label {
   pointer-events: none;
-  transition: opacity 0.13s ease;
+}
+
+.bgm-name,
+.bgm-where {
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: #fdf6e4;
+}
+
+.bgm-name {
+  font-family: var(--headerFont);
+  font-size: 76px;
+  fill: #21160f;
+  stroke-width: 15;
+}
+
+.bgm-where {
+  font-family: var(--bodyFont);
+  font-size: 52px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--pin, #8a2f4a);
+  stroke-width: 13;
+}
+
+.bgm-pin:hover .bgm-halo,
+.bgm-pin:focus-visible .bgm-halo,
+.bgm-pin.is-lit .bgm-halo {
+  opacity: 1;
+  transform: scale(1.18);
 }
 
 .bgm-pin:hover .bgm-dot,
 .bgm-pin:focus-visible .bgm-dot,
 .bgm-pin.is-lit .bgm-dot {
-  transform: scale(1.55);
-  opacity: 1;
+  transform: scale(1.3);
 }
 
-/* Deliberately NOT .is-lit: lighting a whole district from the legend would
-   print "Lower City" six times across the map. The tip is for pointing at one
-   pin, the legend highlight is for seeing the set. */
-.bgm-pin:hover .bgm-tip,
-.bgm-pin:focus-visible .bgm-tip {
-  opacity: 1;
+/* Hovering thickens the label's halo so the one you are pointing at lifts
+   clear of a busy neighbourhood. */
+.bgm-pin:hover .bgm-name,
+.bgm-pin:focus-visible .bgm-name {
+  stroke-width: 26;
+}
+
+.bgm-pin:hover .bgm-where,
+.bgm-pin:focus-visible .bgm-where {
+  stroke-width: 22;
 }
 
 /* ---- gates ----
@@ -1265,12 +1312,23 @@ tr[data-gate]:hover {
     right: 0.6rem;
   }
 
-  .bgm-dot {
-    stroke-width: 4.5;
+  /* This map is a 1:1 crop of the same art, so its viewBox is 2350 wide
+     where the city map's is 5250: one unit is 2.23x larger here. Radii are
+     scaled in the markup; these are the lengths that live in CSS and need
+     the same haircut, or the pins arrive looking like dinner plates. */
+  .bgm-halo {
+    stroke-width: 3.2;
   }
-  .bgm-tip {
-    font-size: 37px;
-    stroke-width: 7;
+  .bgm-dot {
+    stroke-width: 4;
+  }
+  .bgm-name {
+    font-size: 34px;
+    stroke-width: 6.7;
+  }
+  .bgm-where {
+    font-size: 23px;
+    stroke-width: 5.8;
   }
   .bgm-gatedot {
     stroke-width: 3.6;
