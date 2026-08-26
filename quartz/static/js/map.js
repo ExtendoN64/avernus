@@ -48,9 +48,19 @@
       zoomAt(p.x, p.y, e.deltaY < 0 ? 1.16 : 1 / 1.16);
     }, { passive: false });
 
-    var drag = false, lx = 0, ly = 0, moved = 0;
+    /* How far the pointer may travel and still count as a click rather than a
+       drag. This MUST be measured in screen pixels: an earlier version
+       measured it in viewBox units, which on the 5250-wide city map worked
+       out to under three screen pixels, so ordinary hand jitter silently
+       swallowed real clicks on the pins.
+
+       Displacement from where the press started, not distance travelled, so
+       a shaky hand that ends up back where it began is still a click. */
+    var DRAG_PX = 8;
+    var drag = false, lx = 0, ly = 0, sx = 0, sy = 0, movedPx = 0;
     svg.addEventListener("pointerdown", function (e) {
-      drag = true; moved = 0;
+      drag = true; movedPx = 0;
+      sx = e.clientX; sy = e.clientY;
       var p = toSvg(e); lx = p.x; ly = p.y;
       try { svg.setPointerCapture(e.pointerId); } catch (err) {}
       wrap.classList.add("is-dragging");
@@ -59,7 +69,8 @@
       if (!drag) return;
       var p = toSvg(e);
       tx += p.x - lx; ty += p.y - ly;
-      moved += Math.abs(p.x - lx) + Math.abs(p.y - ly);
+      var d = Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy);
+      if (d > movedPx) movedPx = d;
       lx = p.x; ly = p.y;
       apply();
     });
@@ -72,11 +83,9 @@
     svg.addEventListener("pointerup", endDrag);
     svg.addEventListener("pointercancel", endDrag);
     svg.addEventListener("pointerleave", endDrag);
-    /* A drag that ends on a pin must not count as a click on it. The threshold
-       is a fraction of the viewBox rather than a fixed number, so it means the
-       same few screen pixels whichever map this is. */
+    /* A real drag that happens to end on a pin must not navigate. */
     svg.addEventListener("click", function (e) {
-      if (moved > svg.viewBox.baseVal.width / 300) { e.preventDefault(); e.stopPropagation(); }
+      if (movedPx > DRAG_PX) { e.preventDefault(); e.stopPropagation(); }
     }, true);
 
     var btns = wrap.querySelectorAll(".bg-map-controls button");
