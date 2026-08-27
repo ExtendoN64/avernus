@@ -75,7 +75,8 @@ Resistance to the same damage type from more than one source stacks. Halve the d
 
 ## Rest & Recovery
 
-- **DECIDE:** standard rests.
+- **Rests:** Standard.
+
 ## Death & Consequences
 
 - **Death saves:** Rolled openly.
