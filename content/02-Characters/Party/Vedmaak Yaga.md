@@ -35,7 +35,7 @@ tends to go there.
 
 ## Known to
 
-- **Irish-Natural.** Fellow traveller. It began with an unsolicited warning from Vedmaak that
+- **Irish-Natural.** Fellow traveler. It began with an unsolicited warning from Vedmaak that
   turned out to be worth having. It became a habit: two people always on the move, crossing
   paths often enough to trade what they have each seen.
 - **Fools-Gold (Midas).** Midas found him at the bottom of a pit, in a cave he had walked into

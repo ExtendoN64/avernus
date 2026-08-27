@@ -16,7 +16,7 @@ From **[ManBat's House-Rules](https://docs.google.com/document/d/1PYAOb6NtrI53YK
 Pick one option from each line.
 
 ### Accursed
-- Scale mail, **or** leather armour
+- Scale mail, **or** leather armor
 - Hand crossbow and 10 bolts, **or** a martial weapon if proficient
 - A hermit's, priest's, **or** scholar's pack
 - Any spellcasting focus
@@ -24,7 +24,7 @@ Pick one option from each line.
 ### Alchemist
 - Light crossbow and 10 bolts, **or** any simple weapon
 - 40 gp of raw materials
-- Leather armour **or** padded armour
+- Leather armor **or** padded armor
 - A dagger, 5 flasks, and alchemist's supplies
 - A charlatan's, demolitionist's, **or** mediciner's pack
 
@@ -38,12 +38,12 @@ Pick one option from each line.
 ### Barbarian
 - Any melee weapon with the **heavy** or **versatile** property
 - Two handaxes **or** any simple weapon
-- Hide armour and five javelins
+- Hide armor and five javelins
 - An explorer's, soldier's, **or** trapper's pack
 
 ### Bard
 - Any weapon with the **finesse** property, **or** any simple weapon
-- Leather armour **or** a chain shirt
+- Leather armor **or** a chain shirt
 - A charlatan's, diplomat's, entertainer's, **or** squire's pack
 - A musical instrument of your choice and a dagger
 
@@ -56,7 +56,7 @@ Pick one option from each line.
 
 ### Cleric
 - A mace **or** a martial weapon if proficient
-- Leather armour, scale mail, **or** ring mail if proficient
+- Leather armor, scale mail, **or** ring mail if proficient
 - A light crossbow and 10 bolts, **or** any simple weapon
 - A dungeoneer's, priest's, **or** mediciner's pack
 - A shield and a holy symbol
@@ -64,13 +64,13 @@ Pick one option from each line.
 ### Dancer
 - A whip **or** any simple weapon
 - Fine clothes **or** a costume
-- Leather armour, traveller's clothes, a disguise kit, perfume, and a dagger
+- Leather armor, traveler's clothes, a disguise kit, perfume, and a dagger
 - An entertainer's, explorer's, **or** urchin's pack
 
 ### Druid
 - A shield **or** any simple weapon
 - Any simple melee weapon, **or** a martial weapon if proficient
-- Leather armour **or** hide armour
+- Leather armor **or** hide armor
 - An explorer's, hermit's, **or** mediciner's pack
 - A druidic focus
 
@@ -81,14 +81,14 @@ Pick one option from each line.
 - A soldier's, dungeoneer's, **or** explorer's pack
 
 ### Gunslinger
-- Leather armour and a simple weapon of your choice
+- Leather armor and a simple weapon of your choice
 - A sidearm pistol and 10 rounds
 - A hand cannon and 10 rounds, a repeating rifle and 10 rounds, **or** a sawed off shotgun and 10 shotshells
 - A burglar's, demolitionist's, **or** trapper's pack
 
 ### Magus
 - A martial weapon and shield, **or** two martial weapons
-- Scale mail **or** leather armour
+- Scale mail **or** leather armor
 - A light crossbow and 10 bolts, **or** five javelins
 - An astronomer's, explorer's, **or** soldier's pack
 
@@ -105,13 +105,13 @@ Pick one option from each line.
 - Ring mail and a holy symbol
 
 ### Psion
-- Leather armour and a quarterstaff
+- Leather armor and a quarterstaff
 - A light crossbow and 10 bolts, **or** a sling
 - Two daggers **or** any simple weapon
 - An astronomer's, explorer's, **or** scholar's pack
 
 ### Ranger
-- Hide armour and a shield, **or** leather armour
+- Hide armor and a shield, **or** leather armor
 - Two scimitars **or** two simple melee weapons
 - A longbow and 10 arrows, **or** a martial weapon
 - An explorer's, climber's, **or** trapper's pack
@@ -120,7 +120,7 @@ Pick one option from each line.
 - Any weapon with the **finesse** property
 - A shortbow and 10 arrows, **or** a shortsword
 - A burglar's, charlatan's, dungeoneer's, **or** urchin's pack
-- Leather armour **or** padded armour
+- Leather armor **or** padded armor
 - Two daggers, and a tool set of your choice
 
 ### Runekeeper
@@ -128,7 +128,7 @@ Pick one option from each line.
 - A simple weapon **or** a shortsword
 - A scholar's, priest's, **or** hermit's pack
 - A set of artisan's tools you are proficient with
-- Leather armour, any simple weapon, and a quarterstaff
+- Leather armor, any simple weapon, and a quarterstaff
 
 ### Sorcerer
 - A light crossbow and 20 bolts, **or** a sling
@@ -144,10 +144,10 @@ Pick one option from each line.
 - A light crossbow and 10 bolts, **or** any simple weapon
 - A component pouch **or** an arcane focus
 - An astronomer's, scholar's, **or** diplomat's pack
-- Leather armour, any simple weapon, and two daggers
+- Leather armor, any simple weapon, and two daggers
 
 ### Warlord
-- Padded armour, a chain shirt, **or** ring mail if proficient
+- Padded armor, a chain shirt, **or** ring mail if proficient
 - A simple weapon, **or** any sword without the **heavy** property
 - Light crossbow and 10 bolts, **or** five javelins
 - A diplomat's, explorer's, **or** soldier's pack
@@ -161,7 +161,7 @@ Pick one option from each line.
 ### Zodiac
 - Any simple weapon, a ranged weapon and 10 ammunition, **or** a martial weapon and a shield if proficient
 - An astronomer's, hermit's, **or** explorer's pack
-- Leather armour, **or** scale mail if proficient
+- Leather armor, **or** scale mail if proficient
 - Any simple weapon, and a dagger
 
 ## The packs
@@ -174,7 +174,7 @@ You can also buy any of these outright at the price shown.
 | **Blacksmith's** | 25 gp | Adhesive, backpack, bellows, blanket, brazier, charcoal (1 lb), crucible, hammers (2), iron ingots (5), rations (5 days), tongs, trinkets (2), waterskin, whetstone |
 | **Burglar's** | 30 gp | Backpack, ball bearings (1,000), basic oil (2), bell, candles (5), caltrops (20), crowbar, hammer, hempen rope (50 ft), bullseye lantern, lock, manacles, pitons (10), rations (5 days), stolen trinkets (1d4), string (10 ft), tinderbox, waterskin |
 | **Charlatan's** | 40 gp | Backpack, basic oil (2), blanket, fine clothes, forgery kit, gaming set, flasks (3), glass bottles (5), hooded lantern, rations (2 days), trinkets (2) |
-| **Climber's** | 42 gp | Backpack, bedroll, climber's kit, crampons, grappling hook, hempen rope (50 ft), mess kit, rations (5 days), rope kit, tinderbox, torches (5), traveller's clothes, trinket, waterskin |
+| **Climber's** | 42 gp | Backpack, bedroll, climber's kit, crampons, grappling hook, hempen rope (50 ft), mess kit, rations (5 days), rope kit, tinderbox, torches (5), traveler's clothes, trinket, waterskin |
 | **Demolitionist's** | 47 gp | Backpack, bedroll, clay pots (4), earplugs, flasks (3), fuse (30 ft), hooded lantern, gunpowder horn, trinket |
 | **Diplomat's** | 41 gp | Basic oil (2), chest, fine clothes, ink, ink pen, lamp, map or scroll cases (2), paper (5), parchment (5), perfume, sealing wax, soap, tinderbox |
 | **Dungeoneer's** | 22 gp | Backpack, crowbar, hammer, pitons (10), 10 ft pole, rations (10 days), silk rope (50 ft), tinderbox, torches (10), waterskins (2) |
@@ -186,7 +186,7 @@ You can also buy any of these outright at the price shown.
 | **Priest's** | 50 gp | Alms box, backpack, blanket, incense (2), censer, common wine, clerical vestments, holy symbol, holy water, rations (2 days), tinderbox, waterskin |
 | **Scholar's** | 150 gp | Backpack, book of lore, hourglass, ink, ink pen, bag of sand, magnifying glass, parchment (10), small knife |
 | **Soldier's** | 39 gp | Backpack, bedroll, dehydrated rations (10 days), knife, map, mess kit, shovel, tinderbox, warm clothes, waterskin |
-| **Squire's** | 28 gp | Backpack, bedroll, fine clothes, rations (10 days), scroll case, soap, tent, tinderbox, torches (5), traveller's clothes, whetstone, parchment (5) |
+| **Squire's** | 28 gp | Backpack, bedroll, fine clothes, rations (10 days), scroll case, soap, tent, tinderbox, torches (5), traveler's clothes, whetstone, parchment (5) |
 | **Trapper's** | 40 gp | Backpack, bedroll, fishing kit, hunting trap, mess kit, rations (5 days), tent, tinderbox, torches (5), waterskin |
 | **Urchin's** | 5 gp | Blanket, caltrops (20), canvas sack, chalk (5), crowbar, dice set, empty jug, hip flask, mess kit, **a pet (cat, small dog or rat)**, string (5 ft), rations (2 days), signal whistle, soap, small knife, tinderbox, torches (2), trinkets (3) |
 
@@ -242,9 +242,9 @@ The weapon list includes **sidearm pistols, hand cannons, repeating rifles and s
 >
 > I am fine either way, but we should agree **before** anyone builds a Gunslinger or an Artificer. Options: fully in, in but rare and conspicuous, or out entirely. Session zero.
 
-### Armour
+### Armor
 
-| Armour | Cost | AC | Notes |
+| Armor | Cost | AC | Notes |
 |---|---|---|---|
 | Padded (light) | 5 gp | **13** + Dex | Stealth disadvantage |
 | Brigandine (light) | 400 gp | **13** + Dex | No stealth penalty |
@@ -261,12 +261,12 @@ You can craft nonmagical items with tools you are proficient in, spending downti
 > [!warning] DECIDE: the source gives two different crafting rates
 > ManBat's document contains both the 2014 PHB rule and the Xanathar's rule, and they disagree badly:
 >
-> | Rule | Rate | Plate armour (1,500 gp) |
+> | Rule | Rate | Plate armor (1,500 gp) |
 > |---|---|---|
 > | As written first | 5 gp per day | **300 days** |
 > | As written second | 50 gp per day | **30 days** |
 >
-> A factor of ten apart. Until we settle it I will run **50 gp per day**, because 300 days of downtime for one suit of armour is not a real option in a campaign with a burning clock.
+> A factor of ten apart. Until we settle it I will run **50 gp per day**, because 300 days of downtime for one suit of armor is not a real option in a campaign with a burning clock.
 >
 > Multiple characters can combine effort, each contributing their daily rate.
 

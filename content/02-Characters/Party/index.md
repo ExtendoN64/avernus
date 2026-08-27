@@ -20,8 +20,6 @@ Who you are, and what the rest of the table should remember about you.
 - **[[Vedmaak Yaga]]**, a wanderer. Played by Juan.
 - **[[Midas Tactus]]**, a cleric. Played by Khal.
 
-*The rest are created at session zero.*
-
 ## What goes on a character page
 
 Keep it short. Six lines beats six paragraphs.

@@ -18,7 +18,7 @@ publish: true
 
 A city vanished overnight. No rubble, no bodies, no explanation. Just a hole in the world where Elturel used to be, four days upriver, and a road full of people walking away from it.
 
-Everyone here is calling it Elturel's tragedy. A neighbour's horror, already over, nothing to do with us.
+Everyone here is calling it Elturel's tragedy. A neighbor's horror, already over, nothing to do with us.
 
 They are wrong. It is starting **here**. It starts small: a murder that is *wrong*, a cellar cold to the eye and scalding to the touch, a street the animals stopped walking down. Then it stops being small.
 

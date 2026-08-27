@@ -7,7 +7,7 @@ tags:
   - map
 ---
 
-Drag to pan, scroll to zoom. **Twenty neighbourhoods are marked**; click any one to open its
+Drag to pan, scroll to zoom. **Twenty neighborhoods are marked**; click any one to open its
 district. Hover a row in the gate table below and that gate lights up on the map.
 
 <div id="bg-map" class="bg-map">
@@ -16,7 +16,7 @@ district. Hover a row in the gate table below and that gate lights up on the map
 <button type="button" data-map="out" aria-label="Zoom out">&minus;</button>
 <button type="button" data-map="reset" aria-label="Reset view">Reset</button>
 </div>
-<svg viewBox="0 0 5250 3488" role="img" aria-label="Map of Baldur's Gate. Twenty neighbourhoods are marked and link to the Upper City, Lower City and Outer City pages.">
+<svg viewBox="0 0 5250 3488" role="img" aria-label="Map of Baldur's Gate. Twenty neighborhoods are marked and link to the Upper City, Lower City and Outer City pages.">
 <g class="bg-map-viewport">
 <image class="bgm-art" href="../static/maps/baldursgate-low.webp" x="0" y="0" width="5250" height="3488" preserveAspectRatio="none"></image>
 <image class="bgm-art" href="../static/maps/baldursgate.webp" x="0" y="0" width="5250" height="3488" preserveAspectRatio="none"></image>
@@ -81,7 +81,7 @@ district. Hover a row in the gate table below and that gate lights up on the map
 | **Black Dragon Gate** | Old Wall, north | The Watch. Faces the road north toward Waterdeep. Guards here rarely take bribes |
 | **Citadel Gate** | Old Wall, east | The Watch. The only way into their fortress |
 | **Gond Gate**, **Heap Gate**, **Manor Gate** | Old Wall | The Watch. Patriar gates. Livery or a letter, or you walk the long way |
-| **Sea Gate** | Harbour front | Patriar gate, serving the docks |
+| **Sea Gate** | Harbor front | Patriar gate, serving the docks |
 | **Basilisk Gate** | East wall | Flaming Fist. Opens onto the Coast Way toward Amn and Calimshan |
 | **Cliffgate** | Southeast wall | Flaming Fist. Foggy, minor, opens toward Tumbledown and the graveyards |
 

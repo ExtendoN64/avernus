@@ -21,16 +21,11 @@ We'll set these together at session zero, and you can add to them any time, priv
 > [!important] Our actual list isn't on this public site, on purpose
 > This wiki is public, and your boundaries are nobody's business but this table's. The agreed lines and veils live in our group chat (pinned) and in my private notes. If you want something added or removed, message me directly. You never have to say it out loud at the table, and you never have to explain it.
 
-## The X-Card
+## The 'X-Card'
 
-Anyone, including me, can tap the X-card (or just say "X") at any time. We stop, we back up, we edit past it. No explanation, no discussion, no apology. Play resumes.
+Anyone, including me, can object out a live scene at any time. We stop, we back up, we edit past it. No explanation, no discussion, no apology. Play resumes.
 
 You can use it for anything: something in the fiction, a real-world thing it accidentally brushed against, or just "I'm not enjoying where this is going." All equally valid.
-
-## Pause / Rewind
-
-- **"Pause"**: stop the scene for a real-world moment. Break, breather, check-in.
-- **"Rewind"**: undo the last thing; we play it differently.
 
 ## Open Door
 

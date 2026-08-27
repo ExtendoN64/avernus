@@ -10,8 +10,8 @@ tags:
 <div class="loc-headings">
 <p class="kicker">Baldur's Gate &middot; District</p>
 <h1>Lower City</h1>
-<p class="standfirst">Between the Old Wall and the water. The harbour, the warehouses, and most of the people.</p>
-<div class="chips"><span>Inside the walls</span><span>Six neighbourhoods</span><span>Gray Harbor</span></div>
+<p class="standfirst">Between the Old Wall and the water. The harbor, the warehouses, and most of the people.</p>
+<div class="chips"><span>Inside the walls</span><span>Six neighborhoods</span><span>Gray Harbor</span></div>
 </div>
 <div class="loc-locator">
 <a href="../03-locations/city-map">
@@ -33,7 +33,7 @@ tags:
 
 Crowded, loud, and layered. The city has been built on top of itself so many times that half the cellars down here open into something older. If Baldur's Gate has a heart, it is down here, and it works for a living.
 
-Drag to pan, scroll to zoom. The six neighbourhoods below are marked on the map, along with
+Drag to pan, scroll to zoom. The six neighborhoods below are marked on the map, along with
 the Upper City above the Old Wall and the nine gates.
 
 <div class="bg-map" data-scale="close" data-min="0.9" data-max="4">
@@ -42,7 +42,7 @@ the Upper City above the Old Wall and the nine gates.
 <button type="button" data-map="out" aria-label="Zoom out">&minus;</button>
 <button type="button" data-map="reset" aria-label="Reset view">Reset</button>
 </div>
-<svg viewBox="0 0 2350 1760" role="img" aria-label="Close up map of the Lower City of Baldur's Gate, showing its six neighbourhoods around Gray Harbor, the Old Wall, and the nine gates.">
+<svg viewBox="0 0 2350 1760" role="img" aria-label="Close up map of the Lower City of Baldur's Gate, showing its six neighborhoods around Gray Harbor, the Old Wall, and the nine gates.">
 <g class="bg-map-viewport">
 <image class="bgm-art" href="../static/maps/lowercity-low.webp" x="0" y="0" width="2350" height="1760" preserveAspectRatio="none"></image>
 <image class="bgm-art" href="../static/maps/lowercity.webp" x="0" y="0" width="2350" height="1760" preserveAspectRatio="none"></image>
@@ -85,20 +85,20 @@ the Upper City above the Old Wall and the nine gates.
 </div>
 <script src="../static/js/map.js"></script>
 
-## Neighbourhoods
+## Neighborhoods
 
-| Neighbourhood | What it is |
+| Neighborhood | What it is |
 |---|---|
 | **Bloomridge** | Respectable, striving, the closest the Lower City gets to comfortable |
 | **Brampton** | Workshops and trades. Noisy at all hours |
 | **Eastway** | The road out east. Traffic, inns, and everyone passing through |
 | **Heapside** | Dense, poor, and stubborn |
-| **Seatower** | The harbour's western arm, around the Seatower of Balduran |
+| **Seatower** | The harbor's western arm, around the Seatower of Balduran |
 | **The Steeps** | Steep. Stairs instead of streets in places |
 
 ## Gray Harbor
 
-The reason the city exists. Ships from everywhere, cargo from everywhere, and a customs system that everyone involved understands to be theatre. The cranes are Gond-built and run by the **Harborhands**, the most powerful crew in the city, on the strength of being able to shut the whole thing off.
+The reason the city exists. Ships from everywhere, cargo from everywhere, and a customs system that everyone involved understands to be theater. The cranes are Gond-built and run by the **Harborhands**, the most powerful crew in the city, on the strength of being able to shut the whole thing off.
 
 ## Notable
 
@@ -107,7 +107,7 @@ The reason the city exists. Ships from everywhere, cargo from everywhere, and a 
 
 ## What people are saying
 
-<div class="rumours">
+<div class="rumors">
 
 > The refugee camps are pushing into Heapside and nobody planned for it.
 
@@ -133,7 +133,7 @@ The reason the city exists. Ships from everywhere, cargo from everywhere, and a 
 <dt>Feels like</dt>
 <dd>Smoke, fish, tar, and too many people. Friendly, and you keep a hand on your purse. Nobody down here finds those two facts contradictory.</dd>
 <dt>Right now</dt>
-<dd>Stretched. Patrols pulled to the gates, camps pushing into Heapside, and a scandal that started three streets from the harbour.</dd>
+<dd>Stretched. Patrols pulled to the gates, camps pushing into Heapside, and a scandal that started three streets from the harbor.</dd>
 <dt>Landmarks</dt>
 <dd>Gray Harbor &middot; The Elfsong &middot; The Low Lantern &middot; Baldur's Gate &middot; Cliffgate</dd>
 <dt>Who runs it</dt>

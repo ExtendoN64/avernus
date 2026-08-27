@@ -51,10 +51,6 @@ We do **not** roll initiative individually. When combat starts, **each side roll
 - Ties are rerolled.
 - Holding the high or low ground gives that side **+2 or -2** on the roll.
 - If you have a feature that modifies initiative (Tactical Wit, Dread Ambusher and so on), it applies to your side's d10.
-
-> [!tip] This is the single biggest change at the table
-> You can deliberately act after an ally, so setting up combos actually works. Talk to each other before you start declaring.
-
 ### High and low ground
 
 Attacking from at least **10 feet above** your target gives **+2** to the attack roll. Attacking from below gives **-2**.
@@ -75,13 +71,11 @@ Vulnerability doubles the **damage dice**, not the total. A fireball rolling 8d6
 
 Resistance to the same damage type from more than one source stacks. Halve the damage for the first instance, then subtract **5 for each additional** source.
 
-> A tiefling wearing a ring of fire resistance takes 30 fire damage: halved to 15 by their innate resistance, then reduced by 5, for **10 taken**.
+> A Tiefling wearing a ring of fire resistance takes 30 fire damage: halved to 15 by their innate resistance, then reduced by 5, for **10 taken**.
 
 ## Rest & Recovery
 
-- **DECIDE:** standard rests, gritty realism (long rest = 7 days), or something between.
-  *Worth a real conversation. This one shapes the whole campaign's pacing, especially once we leave the city.*
-
+- **DECIDE:** standard rests.
 ## Death & Consequences
 
 - **Death saves:** Rolled openly.
@@ -95,7 +89,7 @@ Devils bargain in this campaign, and **any deal offered to you is a real, honora
 - You will always be given a **real chance to read the terms**.
 - I'll answer honest out-of-character questions about what a contract literally says.
 - I will **not** warn you off a bad deal in character. That's your call to make.
-- What's written will be honored. Exactly as written. That's the horror of it.
+- What's written will be honored. Exactly as written. 
 
 They will look like this, and they will look reasonable:
 
@@ -111,6 +105,7 @@ Read clause 4 again. That one is not a trick, it's just written down, and it wil
 
 - Phones down during scenes; nobody's counting during combat lulls.
 - Don't solve another player's spotlight for them.
+- It should be stated, just in case this is not clear. The DM (aka myself or whoever is running this adventure) **IS AND WILL ALWAYS BE FINAL SAY ABOUT A DISPUTE ABOUT WHICHEVER ISSUE ARISES**. An argument, whether a witness to it or inside it, is not what we are looking for in this table. If there is a problem that arises, there is a level of agency that should spell out to you to **respectfully and clearly state your problem aloud**. Not one human on this planet is a mind reader, and it should be understood that communication is the best way to resolve things.
 - [[Safety Tools]] override every other rule on this page, always.
 
 ## Ruling Log
