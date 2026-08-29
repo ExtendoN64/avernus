@@ -53,6 +53,9 @@ You are going to find out what happened to Elturel. You are probably going to wi
 - ### [[Campaign Primer]]
   The premise, the tone, and what you are signing up for.
 
+- ### [[Before Session Zero]]
+  Five questions I need from you. Answer these before you build anything.
+
 - ### [[Character Creation]]
   Build your character here. Scores, background, class, and starting gear, in order.
 

@@ -10,6 +10,10 @@ tags:
 
 For our order of operations; the detail lives in the pages and documents it links to.
 
+> [!tip] Answer [[Before Session Zero]] first
+> Five questions, a sentence each. Three of them will change what you build, so they are
+> much easier to answer before you fill in a sheet than after.
+
 > [!important] We are not using the PHB defaults. What is not present is at the discretion of DM & their players.
 > Ability scores, backgrounds, starting equipment and most of the class list are replaced by
 > **[ManBat's House-Rules](https://docs.google.com/document/d/1PYAOb6NtrI53YKhW835HCzMt_QlHlwzRRsXxt--TvBk/edit?usp=sharing)**. See [[Homebrew]] for the full picture and the credits.
