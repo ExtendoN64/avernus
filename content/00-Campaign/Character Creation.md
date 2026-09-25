@@ -20,20 +20,7 @@ For our order of operations; the detail lives in the pages and documents it link
 
 ## 1. Ability scores
 
-Roll a **d6** on one of the three tables below and take that line, **or** just pick whichever line you like. Both are allowed.
-
-### Easy
-
-| d6 | Scores |
-|---|---|
-| 1 | 18, 16, 14, 12, 12, 12 |
-| 2 | 18, 18, 12, 12, 10, 10 |
-| 3 | 14, 14, 14, 14, 14, 14 |
-| 4 | 16, 16, 16, 14, 14, 10 |
-| 5 | 18, 18, 14, 12, 10, 10 |
-| 6 | 18, 16, 16, 14, 10, 10 |
-
-### Normal
+This campaign uses the **Normal** tier, one tier for the whole party. Roll a **d6** on the table below and take that line, **or** just pick whichever line you like. Both are allowed.
 
 | d6 | Scores |
 |---|---|
@@ -44,27 +31,10 @@ Roll a **d6** on one of the three tables below and take that line, **or** just p
 | 5 | 16, 14, 14, 12, 10, 8 |
 | 6 | 18, 16, 14, 12, 8, 8 |
 
-### Hardcore
-
-| d6 | Scores |
-|---|---|
-| 1 | 14, 14, 12, 12, 10, 8 |
-| 2 | 14, 14, 14, 10, 10, 8 |
-| 3 | 15, 13, 13, 10, 8, 8 |
-| 4 | 15, 13, 13, 12, 10, 8 |
-| 5 | 16, 12, 12, 10, 10, 8 |
-| 6 | 13, 12, 12, 12, 12, 10 |
-
-> [!tip] What the tiers actually mean
-> Point totals, for scale. A standard array is **72**.
+> [!tip] What Normal actually means
+> Every line totals **74 to 77**. A standard array totals **72**, so you start slightly above it.
 >
-> | Tier | Total | Versus standard array |
-> |---|---|---|
-> | Easy | 80 to 86 | Well above |
-> | Normal | 74 to 77 | Slightly above |
-> | Hardcore | 67 to 71 | Slightly below |
->
-> **I would recommend one tier for the whole party.** Picking your own would mean one person would be quietly playing a different game. I lean **Normal**. Bring an opinion to the DM before or during Session 0.
+> Everyone uses the same tier, so nobody is quietly playing a different game.
 
 **Racial bonuses are customizable.** Put them wherever you like, as long as you keep the shape: either **+2 and +1**, or **+1, +1 and +1**.
 

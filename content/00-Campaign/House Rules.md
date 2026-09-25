@@ -8,15 +8,15 @@ tags:
 # House Rules
 
 > [!note] Draft: we finalize these together at session zero
-> Anything marked **DECIDE** is an open question for the table. Bring an opinion.
+> Nothing on this page is still open. If something here is a problem for you, bring it to session zero.
 
 ## Character Creation
 
 Full walkthrough on **[[Character Creation]]**. The short version:
 
 - **Starting level:** 1
-- **Ability scores:** Roll or pick a line from one of three tables. See [[Character Creation]]
-- **Hit points:** Max at 1st level, then **DECIDE**: average (round up) or roll with a floor
+- **Ability scores:** The **Normal** tier, for everyone. Roll or pick a line from its table. See [[Character Creation]]
+- **Hit points:** Max at 1st level, then the **average**, rounded up, every level after
 - **Backgrounds:** The 27 custom ones, not the PHB versions. See [[Backgrounds]]
 - **Starting gear:** Per class, and more generous than the PHB. See [[Starting Equipment]]
 - **Multiclassing:** Allowed. Talk to me first so we can make it land narratively.
@@ -35,7 +35,7 @@ Full walkthrough on **[[Character Creation]]**. The short version:
 - **Nat 20 / Nat 1 on ability checks:** Not auto-success/fail. They're checks, not attacks. Expect a *notable* outcome, not a miracle.
 - **Inspiration:** Awarded for playing your bonds and flaws into trouble, not for optimal tactics. You can hold **up to your proficiency bonus**, so two at level 1. Each [[Backgrounds|background]] says what specifically earns it.
 - **Rule disputes:** I make a fast call mid-session, we look it up after. Speed over precision at the table.
-- **Absent players:** **DECIDE**: run as NPC, fade to background, or hard pause
+- **Absent players:** For now, we will do our best to avoid having any.
 - **Session recaps:** I post them to this wiki. Corrections welcome; your memory beats my notes.
 
 ## Combat
